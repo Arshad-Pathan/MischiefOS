@@ -1,79 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MischiefOS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
-        rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MischiefOS</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+            rel="stylesheet">
+    </head>
 
-<body>
-    <div class="nav" id="top">
-        <h4>ARSHAD PATHAN</h4>
-        <p id="timeElement"></p>
-    </div>
+    <body>
+        <div class="nav" id="top">
+            <h4>ARSHAD PATHAN</h4>
+            <p id="timeElement"></p>
+        </div>
+        
+        <div class="icon" id="introopen">
+            <div>
+                <img src="images/handbook.png" alt="journal icon">
+            </div>
+            <p>INTRO</p>
+        </div>
+        
+        <div class="icon" id="journalopen">
+            <div>
+                <img src="images/handbook.png" alt="journal icon">
+            </div>
+            <p>JOURNAL</p>
+        </div>
+        
+        
+        <!-- intro window -->
+        <div class="window intro" id="intro">
 
-    <div id="introopen">
-        <div>
-            <img src="images/handbook.png" alt="journal icon">
-        </div>
-        <p>INTRO</p>
-    </div>
+            <div class="windowheader" id="introheader">
+                <div id="introclose" style="background-color: #ff0000;"></div>
+                <div id="introclose" style="background-color: #faf500;"></div>
+                <div id="introclose" style="background-color: #45ff11;"></div>
+                <p>INTRO</p>
 
-    <!-- intro window -->
-    <div class="window intro" id="intro">
-        <p style="cursor: pointer" id="introclose">Close</p>
-        <p style="cursor: pointer" id="introopen">ThomasOS</p>
-        <p class="move" id="introheader">MOVE</p>
-        <img src="images/image.png" alt="My image">
-        <h1>MischiefOS</h1>
-        <p>MischiefOS is a themed OS Inspired by Loki
-            Series Retro Futurism and the main characters
-            charatacterisc.</p>
-    </div>
+            </div>
+            <div class="intro_content">
+                <img src="images/image.png" alt="My image">
+                <h1>MischiefOS</h1>
+                <p>MischiefOS is a themed OS Inspired by Loki
+                    Series Retro Futurism and the main characters
+                    charatacterisc.</p>
+            </div>
+        
+        </div>
+        
+        <!-- Journal window -->
+        <div class="window journal" id="journal">
+            
+            <div class="windowheader" id="journalheader">
+                <div class="window_icons">
+                    <div id="journalclose" style="background-color: #ff0000;"></div>
+                    <div id="journalclose" style="background-color: #faf500;"></div>
+                    <div id="journalclose" style="background-color: #45ff11;"></div>
+                    <p>JOURNAL</p>
+                </div>
 
-    <div id="journalopen">
-        <div>
-            <img src="images/handbook.png" alt="journal icon">
-        </div>
-        <p>Journal</p>
-    </div>
+                <div class="edit_icon" id="editIcon">
 
-    <div class="window journal" id="journal">
-        <div class="windowheader" id="journalheader">
-            <div class="closebutton" id="journalclose" style="background-color: #000;">hii</div>
-    
-            <p class="headertext">JOURNAL</p>
-            <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
+                </div>
+            </div>
+            <div class="journal_book" id="j_content">
+                <img src="images/page.png" alt="">
+                
+                <div class="journal_content">
+                    <div class="part1">
+                        <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum voluptates doloribus odit sint autem, ipsum rem hic saepe voluptate sed porro quisquam, amet, dolor ipsam nesciunt! Laborum labore odit doloribus.
+                        Corporis placeat exercitationem perferendis soluta saepe provident, temporibus fugiat dolor illum tempora esse, deserunt illo commodi optio natus aut recusandae officiis ducimus animi vel et, deleniti vitae rem voluptatum? Est? -->
+                        <textarea name="journalmd" class="md_content" id="mdContent" fixed placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+                    </div>
+                    <div class="part2">
+                        <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum voluptates doloribus odit sint autem, ipsum rem hic saepe voluptate sed porro quisquam, amet, dolor ipsam nesciunt! Laborum labore odit doloribus.
+                        Corporis placeat exercitationem perferendis soluta saepe provident, temporibus fugiat dolor illum tempora esse, deserunt illo commodi optio natus aut recusandae officiis ducimus animi vel et, deleniti vitae rem voluptatum? Est? -->
+                        <textarea name="journalmd" class="md_content" id="mdContent" style="height:100px; width : 100;" placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+                    </div>
+                </div>
+                <!-- <div class="jounrnal_entry">
+                    <div class="part1">
+                        <textarea name="journalmd" id="mdContent" placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+                    </div>
+                    <div class="part2">
+                        <textarea name="journalmd" id="mdContent" placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+                    </div>
+                </div> -->
+
+            </div>
         </div>
-        <div style="background-color: #fff9e5; margin: 6px; border-radius: 12px; width: 520px; height: 480px; padding: 16px;">
-            <p>My Journal</p>
-        </div>
-    </div>
-    
-    <!-- <div id="welcome"
-        style="border: solid; display: flex; flex-direction: column; border-radius: 16px; position: absolute; top: calc(50% - 90px); left: calc(50% - 180px); backdrop-filter: blur(4px); background-color: rgba(0, 0, 0, 0.125); ">
-        <div id="welcomeheader"
-            style="width: 100%; display: flex; align-items: center; cursor: move; justify-content: center; margin-top: 8px;">
-            <p style="margin: 0px; color: #fff; font-weight: 500">Welcome</p>
-        </div>
-        <div style="background-color: #fff; margin: 6px; border-radius: 12px; width: 360px; padding: 16px;">
-            <img src="" style="width: 64px; height: 64px; border-radius: 32px; object-fit: cover;" />
-            <h1 style="margin: 4px;">thomasOS</h1>
-            <p style="margin: 0px;">
-                <dfn>ThomasOS</dfn> is a feature-limited <abbr title="Operating System">OS</abbr> to answer the <br />
-                unanswerable
-                question of <code>"who is Thomas?"</code>
-            </p>
-        </div>
-    </div> -->
-    <script src="script.js"></script>
-</body>
+        
+        <!--
+            > starting featues entry message, after ok the window become full window
+            > apps are accessible in the app menu
+            > window open, minimize and close transitions 
+        -->
+        <script src="script.js"></script>
+    </body>
 
 </html>

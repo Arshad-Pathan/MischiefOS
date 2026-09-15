@@ -13,13 +13,19 @@ body{
     display: flex;
     justify-content: space-between;
 }
+.icon{
+    height: fit-content;
+}
+.icon img{
+    height: 64px;
+}
 .window{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: fit-content;
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
@@ -27,24 +33,42 @@ body{
     border: 2px solid #000;
     border-radius: 20px;
 }
-.move{
-    width: 100%;
+.windowheader {
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: move;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 20px;
 }
-img{
+
+.window_icons{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.window_icons div {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+}
+.window_icons p {
+    margin-left: 6px;
+}
+
+
+.intro_content img{
     height: 64px;
     width: 64px;
     border-radius: 50%;
 }
-h1{
+.intro_content h1{
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
-p{
+.intro_content p{
     font-family: "Inter", sans-serif;
 }
 
@@ -52,6 +76,54 @@ p{
     border: 5px solid rgb(255, 128, 60);
 }
 
+/* journal window */
 .journal{
-    display: none;
+    display: flex;
+    width: 730px;
+}
+.journal .edit_icon{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #0037ff;
+}
+.journal_book{
+    position: relative;
+    height: 73vh;
+    margin: 6px 12px;
+    display: flex;
+    flex-direction: column;
+}
+.journal_book img{
+    position: absolute;
+    top: 0;
+    height: 73vh;
+    width: 100%;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.journal_content{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 18px;
+    gap: 45px;
+    /* margin: 6px 40px 6px 26px; */
+}
+
+.journal_entry{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 18px;
+    gap: 45px;
+    /* margin: 6px 40px 6px 26px; */
+}
+
+.journal_entry .md_content{
+    width: 100%;
+    box-sizing: border-box;
 }

@@ -187,4 +187,13 @@ function initializeWindow(elementName) {
 initializeWindow("intro")
 initializeWindow("journal")
 
+var jPages = document.getElementById("j_content");
 
+function loadPages(element) {
+  var pages = [];
+
+  if(pages[i] % 2 == 0){
+
+  }
+  
+}

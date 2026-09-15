@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MischiefOS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+        <style>
+            .windowheader{
+                display: flex;
+                height: 100px;
+            }
+            .windowheader div{
+                height: 18px;
+                width: 18px;
+                border-radius: 50%;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="nav" id="top">
+        <h4>ARSHAD PATHAN</h4>
+        <p id="timeElement"></p>
+    </div>
+
+    <div id="introopen">
+        <div>
+            <img src="images/handbook.png" alt="journal icon">
+        </div>
+        <p>INTRO</p>
+    </div>
+
+    <div id="journalopen">
+        <div>
+            <img src="images/handbook.png" alt="journal icon">
+        </div>
+        <p>Journal</p>
+    </div>
+
+
+    <!-- intro window -->
+    <div class="window intro" id="intro">
+        <div><p>INTRO</p></div>
+        <div class="windowheader" id="introheader" style="background-color: #dedede27;">
+            <div id="introclose" style="background-color: #ff0000;"></div>
+            <div id="introclose" style="background-color: #faf500;"></div>
+            <div id="introclose" style="background-color: #45ff11;"></div>
+            <!-- <p style="cursor: pointer" id="introopen">ThomasOS</p> -->
+        </div>
+        <div class="intro_content">
+            <img src="images/image.png" alt="My image">
+            <h1>MischiefOS</h1>
+            <p>MischiefOS is a themed OS Inspired by Loki
+                Series Retro Futurism and the main characters
+                charatacterisc.</p>
+        </div>
+        <!-- <p class="move" id="introheader">MOVE</p> -->
+        
+    </div>
+    
+    <!-- Journal window -->
+    <div class="window journal" id="journal">
+        <div><p>JOURNAL</p></div>
+        <div class="windowheader" id="journalheader" style="background-color: #dedede27;">
+            <div id="journalclose" style="background-color: #ff0000;"></div>
+            <div id="journalclose" style="background-color: #faf500;"></div>
+            <div id="journalclose" style="background-color: #45ff11;"></div>
+    
+        </div>
+        <div style="background-color: #fff9e5; margin: 6px; border-radius: 12px; width: 520px; height: 480px; padding: 16px;">
+            <p>My Journal</p>
+        </div>
+    </div>
+    
+    <!--
+        > starting featues entry message, after ok the window become full window
+        > apps are accessible in the app menu
+        > window open, minimize and close transitions 
+     -->
+    <script src="script.js"></script>
+</body>
+
+</html>
