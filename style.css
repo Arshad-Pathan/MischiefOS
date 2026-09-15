@@ -5,7 +5,7 @@
 body{
     background-image: url(images/tva.png);
     background-size: cover;
-    height: 100vh;
+
     color: rgb(255, 128, 60);
 }
 .nav{
@@ -33,7 +33,6 @@ body{
     align-items: center;
     justify-content: center;
     cursor: move;
-    background: #000;
 }
 img{
     height: 64px;
@@ -47,4 +46,12 @@ h1{
 }
 p{
     font-family: "Inter", sans-serif;
+}
+
+.selected{
+    border: 5px solid rgb(255, 128, 60);
+}
+
+.journal{
+    display: none;
 }

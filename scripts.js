@@ -14,21 +14,17 @@ var topBar = document.querySelector("#top")
 var selectedIcon = undefined
 
 
+//intro window
+var introScreen = document.querySelector("#intro")
+//open - close scripts
+var windowScreenClose = document.querySelector("#introclose")
+var windowScreenOpen = document.querySelector("#introopen")
 
 
-
-// //intro window
-// var introScreen = document.querySelector("#intro")
-// //open - close scripts
-// var windowScreenClose = document.querySelector("#introclose")
-// var windowScreenOpen = document.querySelector("#introopen")
-
-
-// //journal window
-// var journalScreen = document.querySelector("#journal")
-// var journalScreenClose = document.querySelector("#journalclose")
-// var journalScreenOpen = document.querySelector("#journalopen")
-
+//journal window
+var journalScreen = document.querySelector("#journal")
+var journalScreenClose = document.querySelector("#journalclose")
+var journalScreenOpen = document.querySelector("#journalopen")
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -97,29 +93,29 @@ function openWindow(element) {
 
 
 
-// // Make the DIV element draggable:
-// dragElement(document.getElementById("intro"));
+// Make the DIV element draggable:
+dragElement(document.getElementById("intro"));
 
-// dragElement(document.getElementById("journal"))
-
-
-
-// //intro openclose fns
-// windowScreenClose.addEventListener("click", function() {
-//     closeWindow(introScreen);
-// });
-// windowScreenOpen.addEventListener("click", function() {
-//     openWindow(introScreen);
-// });
+dragElement(document.getElementById("journal"))
 
 
-// //journal openclose fns
-// journalScreenClose.addEventListener("click", function() {
-//     closeWindow(journalScreen);
-// });
-// journalScreenOpen.addEventListener("click", function() {
-//     openWindow(journalScreen);
-// });
+
+//intro openclose fns
+windowScreenClose.addEventListener("click", function() {
+    closeWindow(introScreen);
+});
+windowScreenOpen.addEventListener("click", function() {
+    openWindow(introScreen);
+});
+
+
+//journal openclose fns
+journalScreenClose.addEventListener("click", function() {
+    closeWindow(journalScreen);
+});
+journalScreenOpen.addEventListener("click", function() {
+    openWindow(journalScreen);
+});
 
 
 
@@ -127,9 +123,6 @@ function openWindow(element) {
 
 // open app
 function selectIcon(element) {
-  document.querySelectorAll(".selected").forEach(function(element){
-    element.classList.remove("selected");
-  });
   element.classList.add("selected");
   selectedIcon = element
 } 
@@ -147,6 +140,11 @@ function handleIconTap(element) {
   }
 }
 
+journalScreenOpen.addEventListener("click", function() {
+    handleIconTap(journalScreenOpen);
+});
+
+
 function addWindowTapHandling(element) {
   element.addEventListener("mousedown", () =>
     handleWindowTap(element)
@@ -160,31 +158,9 @@ function handleWindowTap(element) {
   deselectIcon(selectedIcon)
 }
 
-// addWindowTapHandling(document.getElementById("intro"));
-// addWindowTapHandling(document.getElementById("journal"));
-
-function initializeWindow(elementName) {
-  var screen = document.querySelector("#" + elementName)
-  var closeBtn = document.querySelector("#" + elementName + "close")
-  var openBtn = document.querySelector("#" + elementName + "open")
-
-  closeBtn.addEventListener("click", function() {
-      closeWindow(screen);
-  });
-  openBtn.addEventListener("click", function() {
-      openWindow(screen);
-  });
-
-  openBtn.addEventListener("click", function () {
-    handleIconTap(openBtn);
-  });
-
-  addWindowTapHandling(screen)
-  dragElement(screen)
-}
+addWindowTapHandling(document.getElementById("intro"));
+addWindowTapHandling(document.getElementById("journal"));
 
 
-initializeWindow("intro")
-initializeWindow("journal")
 
 
