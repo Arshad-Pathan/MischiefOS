@@ -187,44 +187,64 @@ function initializeWindow(elementName) {
 initializeWindow("intro")
 initializeWindow("journal")
 
-var journalData = [
-  {
-    leftpage: "hii",
-    rightpage: "good morning"
-  }
-];
 function enableEntry(b1,b2){
   
+  var journalData = [
+    {
+      leftpage: "hii",
+      rightpage: "good morning"
+    }
+  ];
   
   var textAreas = document.querySelectorAll(".part");
   var saveBtn = document.getElementById(b1+"Btn");
   var editBtn = document.getElementById(b2+"Btn");
-  var leftTA = document.getElementById("leftPage");
-  var rightTA = document.getElementById("rightPage");
+  var leftTA = document.getElementById("leftTA");
+  var rightTA = document.getElementById("rightTA");
+  var leftTADiv = document.getElementById("leftTADiv");
+  var rightTADiv = document.getElementById("rightTADiv");
 
-  var latestEntry = journalData[journalData.length - 1];
   
   editBtn.addEventListener('click', function(){
-    textAreas.forEach(area => {
-    area.innerHTML = 
-      `
-      <textarea name="journalmd" class="md_content" id="mdContent" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
-      `;
-    }); 
+    textAreas[0].innerHTML = 
+    `
+    <textarea name="journalmd" class="md_content" id="leftTA" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+    `;
+    textAreas[1].innerHTML = 
+    `
+    <textarea name="journalmd" class="md_content" id="rightTA" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+    `;
+    
     saveBtn.style.display = "flex";
-    editBtn.classList.add("closeBtn");
   });
-  saveBtn.addEventListener('click', function(){
+
+  // var closeBtn = document.querySelector(".closeBtn");
+  
+  // closeBtn.addEventListener('click', function(){
+  //   textAreas.forEach(area => {
+  //     area.innerHTML = ``;
+  //   });
+  //   saveBtn.style.display = "none";
+  // });
+
+  saveBtn.addEventListener("click", function(){
+    var leftTA = document.getElementById("leftTA");
+    var rightTA = document.getElementById("rightTA");
+
+    journalData.push({
+      leftpage : leftTA.value,
+      rightpage : rightTA.value
+    });
+
+    var latestEntry = journalData[journalData.length - 1];
+
     textAreas.forEach(area => {
       area.innerHTML = ``;
     });
-    journalData.push({
-      leftpage=leftTA.value,
-      rightpage=rightTA.value
-    });
+    
+    leftTADiv.textContent = latestEntry.leftpage;
+    rightTADiv.textContent = latestEntry.rightpage;
     saveBtn.style.display = "none";
-    leftTA.innerHTML = convertMarkdown(latestEntry.leftpage);
-    rightTA.innerHTML = convertMarkdown(latestEntry.rightpage);
   });
 }
 
