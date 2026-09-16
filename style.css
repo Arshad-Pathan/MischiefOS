@@ -1,129 +1,146 @@
 *{
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 body{
-    background-image: url(images/tva.png);
-    background-size: cover;
+  background-image: url(images/tva.png);
+  background-size: cover;
 
-    color: rgb(255, 128, 60);
+  color: rgb(255, 128, 60);
 }
 .nav{
-    padding: 36px 18px;
-    display: flex;
-    justify-content: space-between;
+  padding: 36px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.icons_bar{
+  position: relative;
+  width: fit-content;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  background: #b8b3f5a1;
 }
 .icon{
-    height: fit-content;
+  height: fit-content;
 }
 .icon img{
-    height: 64px;
+  height: 64px;
 }
 .window{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: fit-content;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.25);
-    border: 2px solid #000;
-    border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: fit-content;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid #000;
+  border-radius: 20px;
 }
 .windowheader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 12px;
-    height: 60px;
-    background-color: #000;
-    border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: 60px;
+  background-color: #000;
+  border-radius: 20px;
 }
 
 .window_icons{
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .window_icons div {
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
 }
 .window_icons p {
-    margin-left: 6px;
+  margin-left: 6px;
 }
 
 
 .intro_content img{
-    height: 64px;
-    width: 64px;
-    border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
 }
 .intro_content h1{
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 .intro_content p{
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .selected{
-    border: 5px solid rgb(255, 128, 60);
+  border: 5px solid rgb(255, 128, 60);
 }
 
 /* journal window */
 .journal{
-    display: flex;
-    width: 730px;
+  display: flex;
+  width: 730px;
+  height: 600px;
 }
-.journal .edit_icon{
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    background-color: #0037ff;
+.journal_icons{
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  gap: 24px;
+}
+.journal_icons .save_btn{
+  height: 38px;
+  width: 62px;
+  display: none;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 20px;
+  background-color: #8ca5fe;
+}
+.journal_icons .edit_icon{
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  background-color: #6485ff;
 }
 .journal_book{
-    position: relative;
-    height: 73vh;
-    margin: 6px 12px;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  height: 100%;
+  margin: 6px 12px;
+  display: flex;
+  flex-direction: column;
 }
 .journal_book img{
-    position: absolute;
-    top: 0;
-    height: 73vh;
-    width: 100%;
-    border-radius: 12px;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  z-index: -1;
 }
 
 .journal_content{
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 22px 18px;
-    gap: 45px;
-    /* margin: 6px 40px 6px 26px; */
-}
-
-.journal_entry{
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 22px 18px;
-    gap: 45px;
-    /* margin: 6px 40px 6px 26px; */
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 18px;
+  gap: 45px;
 }
 
 .md_content{
-    height: 100%;
-    width: 300px;
+  height: 100%;
+  width: 300px;
 }

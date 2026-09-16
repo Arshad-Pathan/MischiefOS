@@ -187,13 +187,66 @@ function initializeWindow(elementName) {
 initializeWindow("intro")
 initializeWindow("journal")
 
-var jPages = document.getElementById("j_content");
-
-function loadPages(element) {
-  var pages = [];
-
-  if(pages[i] % 2 == 0){
-
+var journalData = [
+  {
+    leftpage: "hii",
+    rightpage: "good morning"
   }
+];
+function enableEntry(b1,b2){
   
+  
+  var textAreas = document.querySelectorAll(".part");
+  var saveBtn = document.getElementById(b1+"Btn");
+  var editBtn = document.getElementById(b2+"Btn");
+  var leftTA = document.getElementById("leftPage");
+  var rightTA = document.getElementById("rightPage");
+
+  var latestEntry = journalData[journalData.length - 1];
+  
+  editBtn.addEventListener('click', function(){
+    textAreas.forEach(area => {
+    area.innerHTML = 
+      `
+      <textarea name="journalmd" class="md_content" id="mdContent" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+      `;
+    }); 
+    saveBtn.style.display = "flex";
+    editBtn.classList.add("closeBtn");
+  });
+  saveBtn.addEventListener('click', function(){
+    textAreas.forEach(area => {
+      area.innerHTML = ``;
+    });
+    journalData.push({
+      leftpage=leftTA.value,
+      rightpage=rightTA.value
+    });
+    saveBtn.style.display = "none";
+    leftTA.innerHTML = convertMarkdown(latestEntry.leftpage);
+    rightTA.innerHTML = convertMarkdown(latestEntry.rightpage);
+  });
 }
+
+enableEntry("save","edit")
+
+
+/*
+function enableEntry(){
+  var saveBtn = document.getElementById("saveBtn");
+  var editBtn = document.getElementById("editBtn");
+  var parts = document.querySelectorAll(".part");
+  
+  parts.forEach(part => {
+    part.innerHTML = 
+      `
+      <textarea name="journalmd" class="md_content" id="mdContent" fixed placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
+      `;
+  });
+  saveBtn.style.display = "flex";
+  saveBtn.addEventListener("mousedown", function(){
+    saveBtn.style.display = "none";
+  });
+}
+enableEntry()*/
+
