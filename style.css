@@ -13,17 +13,42 @@ body{
   color: rgb(255, 128, 60);
 }
 .nav{
+  height: 20px;
   padding: 36px 18px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: #121110;
+}
+.nav h4{
+  font-family: "VT323", monospace;
+  font-size: 32px;
+  padding: 4px;
+  cursor: pointer;
+  border: 4px dashed #00000000;
+}
+.nav h4:hover{
+  border: 4px dashed rgb(255, 128, 60);
+}
+.nav p{
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  letter-spacing: 2.1px;
+  cursor:none;
+  border: 2px dashed #00000000;
+}
+.nav p:hover{
+  border: 2px dashed rgb(255, 128, 60);
 }
 .icons_bar{
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: fit-content;
   padding: 18px;
   display: flex;
-  flex-direction: column;
-  background: #b8b3f5a1;
+  gap: 12px;
 }
 .icon{
   height: fit-content;
@@ -72,27 +97,62 @@ body{
 }
 
 
-.intro_content img{
-  height: 64px;
-  width: 64px;
-  border-radius: 50%;
+.intro{
+  width: 600px;
+  height: 400px;
+  overflow-y: auto;
+}
+.intro_content{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 12px 18px;
+}
+.intro_content div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+  overflow-y:hidden;
+}
+.intro_content .label{
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.intro_content .label img{
+  height: 104px;
 }
 .intro_content h1{
+  font-size: 78px;
   font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
   font-style: normal;
+  color: #6DA47F;
 }
-.intro_content p{
-  font-family: "Inter", sans-serif;
+.intro_content h4{
+  font-size: 22px;
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  font-style: oblique;
+}
+.intro_content h4 span{
+  font-weight: 600;
+  color: #6DA47F;
 }
 
+
 .selected{
-  border: 5px solid rgb(255, 128, 60);
+  border: 4px dashed rgb(255, 128, 60);
 }
 
 /* journal window */
 .journal{
-  display: flex;
+  display: none;
   width: 730px;
   height: 600px;
 }
@@ -104,21 +164,29 @@ body{
   align-items: center;
   padding: 0 18px;
   gap: 24px;
+  cursor: pointer;
 }
 .journal_icons .save_btn{
   height: 38px;
   width: 62px;
+  
   display: none;
   align-items: center;
+  justify-content: center;
   padding: 0 8px;
   border-radius: 20px;
-  background-color: #8ca5fe;
+  color: #181818;
+  background-color: rgb(255, 128, 60);
 }
 .journal_icons .edit_icon{
   height: 38px;
   width: 38px;
   border-radius: 50%;
-  background-color: #6485ff;
+  background-color: rgb(255, 128, 60);
+  background-image: url(images/edit.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .journal_book{
   position: relative;
@@ -145,8 +213,32 @@ body{
   padding: 22px 18px;
   gap: 45px;
 }
+.journal_content .part{
+  display: block;
+}
+.journal_book .pagination{
+  background: #77644e;
+  height: 34px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+}
+.pagination button{
+  height: 34px;
+  width: 34px;
+  border: none;
+  border-radius: 12px;
+  color: #b7a794;
+  background-color: #312c26;  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .md_content{
+  
   height: 100%;
-  width: 200px;
+  width: 300px;
 }

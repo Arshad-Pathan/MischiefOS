@@ -186,7 +186,7 @@ function loadJEntry() {
       pageNumber.textContent = "0/0";
       
     }
-    // return;
+     return;
   }
   var entry = journalData[currentPage];
   leftTADiv.textContent = entry.leftpage;
