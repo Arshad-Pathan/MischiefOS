@@ -7,27 +7,12 @@ function updateTime() {
 setInterval(updateTime, 1000);
 // time end
 
+// variables
 var biggestIndex = 1;
 
 var topBar = document.querySelector("#top")
 
 var selectedIcon = undefined
-
-
-
-
-
-// //intro window
-// var introScreen = document.querySelector("#intro")
-// //open - close scripts
-// var windowScreenClose = document.querySelector("#introclose")
-// var windowScreenOpen = document.querySelector("#introopen")
-
-
-// //journal window
-// var journalScreen = document.querySelector("#journal")
-// var journalScreenClose = document.querySelector("#journalclose")
-// var journalScreenOpen = document.querySelector("#journalopen")
 
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -96,35 +81,6 @@ function openWindow(element) {
 }
 
 
-
-// // Make the DIV element draggable:
-// dragElement(document.getElementById("intro"));
-
-// dragElement(document.getElementById("journal"))
-
-
-
-// //intro openclose fns
-// windowScreenClose.addEventListener("click", function() {
-//     closeWindow(introScreen);
-// });
-// windowScreenOpen.addEventListener("click", function() {
-//     openWindow(introScreen);
-// });
-
-
-// //journal openclose fns
-// journalScreenClose.addEventListener("click", function() {
-//     closeWindow(journalScreen);
-// });
-// journalScreenOpen.addEventListener("click", function() {
-//     openWindow(journalScreen);
-// });
-
-
-
-
-
 // open app
 function selectIcon(element) {
   document.querySelectorAll(".selected").forEach(function(element){
@@ -137,7 +93,6 @@ function deselectIcon(element) {
   element.classList.remove("selected");
   selectedIcon = undefined
 }
-
 function handleIconTap(element) {
   if (element.classList.contains("selected")) {
     deselectIcon(element)
@@ -146,22 +101,17 @@ function handleIconTap(element) {
     selectIcon(element)
   }
 }
-
 function addWindowTapHandling(element) {
   element.addEventListener("mousedown", () =>
     handleWindowTap(element)
   )
 }
-
 function handleWindowTap(element) {
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
 }
-
-// addWindowTapHandling(document.getElementById("intro"));
-// addWindowTapHandling(document.getElementById("journal"));
 
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
@@ -183,90 +133,115 @@ function initializeWindow(elementName) {
   dragElement(screen)
 }
 
-
 initializeWindow("intro")
 initializeWindow("journal")
 
-function enableEntry(b1,b2){
-  
-  var journalData = [
-    {
-      leftpage: "hii",
-      rightpage: "good morning"
-    }
-  ];
-  
-  var textAreas = document.querySelectorAll(".part");
-  var saveBtn = document.getElementById(b1+"Btn");
-  var editBtn = document.getElementById(b2+"Btn");
-  var leftTA = document.getElementById("leftTA");
-  var rightTA = document.getElementById("rightTA");
+var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
+var currentPage = 0;
+
+function journalEditor(){
   var leftTADiv = document.getElementById("leftTADiv");
   var rightTADiv = document.getElementById("rightTADiv");
-
-  
-  editBtn.addEventListener('click', function(){
-    textAreas[0].innerHTML = 
+  leftTADiv.innerHTML =
     `
     <textarea name="journalmd" class="md_content" id="leftTA" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
     `;
-    textAreas[1].innerHTML = 
+  rightTADiv.innerHTML =
     `
     <textarea name="journalmd" class="md_content" id="rightTA" rows=30 placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
     `;
-    
-    saveBtn.style.display = "flex";
-  });
-
-  // var closeBtn = document.querySelector(".closeBtn");
-  
-  // closeBtn.addEventListener('click', function(){
-  //   textAreas.forEach(area => {
-  //     area.innerHTML = ``;
-  //   });
-  //   saveBtn.style.display = "none";
-  // });
-
-  saveBtn.addEventListener("click", function(){
-    var leftTA = document.getElementById("leftTA");
-    var rightTA = document.getElementById("rightTA");
-
-    journalData.push({
-      leftpage : leftTA.value,
-      rightpage : rightTA.value
-    });
-
-    var latestEntry = journalData[journalData.length - 1];
-
-    textAreas.forEach(area => {
-      area.innerHTML = ``;
-    });
-    
-    leftTADiv.textContent = latestEntry.leftpage;
-    rightTADiv.textContent = latestEntry.rightpage;
-    saveBtn.style.display = "none";
-  });
 }
 
-enableEntry("save","edit")
+function journalEntry(){
+
+  var leftTA = document.getElementById("leftTA");
+  var rightTA = document.getElementById("rightTA");
+
+  if (!leftTA || !rightTA) {
+    return;
+  }
+  var newEntry = {
+    leftpage: leftTA.value,
+    rightpage: rightTA.value
+  };
+  
+  journalData.push(newEntry);
+
+  localStorage.setItem("journalData",JSON.stringify(journalData));
+
+  currentPage = journalData.length - 1;
+
+  loadJEntry();
+}
+
+function loadJEntry() {
+  var leftTADiv = document.getElementById("leftTADiv");
+  var rightTADiv = document.getElementById("rightTADiv"); 
+  var pageNumber = document.getElementById("pNumber");
+
+  if(journalData.length === 0){
+    leftTADiv.textContent = "";
+    rightTADiv.textContent = "";
+    if (pageNumber) {
+      pageNumber.textContent = "0/0";
+      
+    }
+    // return;
+  }
+  var entry = journalData[currentPage];
+  leftTADiv.textContent = entry.leftpage;
+  rightTADiv.textContent = entry.rightpage;
+  if (pageNumber) {
+    pageNumber.textContent = (currentPage+1)+"/"+journalData.length;
+  }
 
 
-/*
-function enableEntry(){
+  // var saveBtn = document.getElementById("saveBtn");
+
+  // leftTADiv.textContent = lT;
+  // rightTADiv.textContent = rT;
+  // saveBtn.style.display = "none";
+}
+
+function prevPage() {
+  if (currentPage>0) {
+    currentPage--;
+    loadJEntry();
+  }
+}
+function nextPage() {
+  if (currentPage<journalData.length-1) {
+    currentPage++;
+    loadJEntry();
+  }
+}
+
+
+function initJournal() {
   var saveBtn = document.getElementById("saveBtn");
   var editBtn = document.getElementById("editBtn");
-  var parts = document.querySelectorAll(".part");
-  
-  parts.forEach(part => {
-    part.innerHTML = 
-      `
-      <textarea name="journalmd" class="md_content" id="mdContent" fixed placeholder="#Enter Date - then Your Name and then start writing your thoughts"></textarea>
-      `;
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+
+  editBtn.addEventListener('click', function(){
+    journalEditor();
+    saveBtn.style.display = "flex";
   });
-  saveBtn.style.display = "flex";
-  saveBtn.addEventListener("mousedown", function(){
+  saveBtn.addEventListener('click', function(){
+    journalEntry();
     saveBtn.style.display = "none";
   });
+  prev.addEventListener('click', function(){
+    prevPage();
+  });
+  next.addEventListener('click', function(){
+    nextPage();
+  });
 }
-enableEntry()*/
+initJournal()
+
+
+
+
+
 
