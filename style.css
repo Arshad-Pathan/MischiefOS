@@ -3,9 +3,13 @@
   margin: 0;
 }
 body{
-  background-image: url(images/tva.png);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(images/bg.jpg);
   background-size: cover;
-
+  background-position: center;
+  background-repeat: no-repeat;
   color: rgb(255, 128, 60);
 }
 .nav{
@@ -45,6 +49,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: move;
   padding: 0 12px;
   height: 60px;
   background-color: #000;
@@ -56,10 +61,11 @@ body{
   align-items: center;
   gap: 6px;
 }
-.window_icons div {
-  height: 14px;
-  width: 14px;
+.window_icons .window_icon {
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
+  cursor: pointer;
 }
 .window_icons p {
   margin-left: 6px;
