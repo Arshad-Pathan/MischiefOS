@@ -16,6 +16,9 @@ A Retro - Futuristic themed OS inspired by MARVEL TV SERIES ___"LOKI"___
 
 ---
 ## Everything You'll see on the interface is ideat and coded by myself.
+## Used AI just for debugging.
+## The mistakes and even wrong logic(which also mine) was resolved by me by apply understanding problem. 
+## So consider AI just used for finding what causing errors, not to solve that errors.
 --- 
 ### What my idea is:
 - Retro Futurism interface that doesn't feel heavy and bold.
