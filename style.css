@@ -6,7 +6,7 @@ body{
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-image: url(images/bg.jpg);
+  background-image: url(images/bg.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +103,6 @@ body{
   overflow-y: auto;
 }
 .intro_content{
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -112,38 +111,68 @@ body{
 }
 .intro_content div{
   display: flex;
-  flex-direction: column;
+  
   justify-content: center;
   align-items: center;
-  flex-wrap:wrap;
-  overflow-y:hidden;
+  flex-wrap: wrap;
+  overflow-y: hidden;
 }
-.intro_content .label{
+.intro1 .label{
   height: fit-content;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.intro_content .label img{
+.intro1 .label img{
   height: 104px;
 }
-.intro_content h1{
+.intro1 .label h1{
   font-size: 78px;
   font-family: "Playfair Display", serif;
   font-style: normal;
   color: #6DA47F;
 }
-.intro_content h4{
+.intro1 h4{
   font-size: 22px;
   font-family: "Playfair Display", serif;
   font-weight: 300;
   font-style: oblique;
 }
-.intro_content h4 span{
+.intro1 h4 span{
   font-weight: 600;
   color: #6DA47F;
 }
+.intro2 .label h1{
+  font-size: 38px;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  font-style: oblique;
+}
+.intro2 .ins{
+  display: flex;
+  justify-content: space-evenly;
+  align-items:center;
+}
+.intro2 .ins img{
+  width: 50%;
+  height: 300px;
+}
+.intro2 p{
+  margin-top: 12px;
+  font-family: "Jacquarda Bastarda 9",serif;
+  font-style: italic;
+  font-weight: 100;
+  
+}
+.intro2 p a{
+  text-decoration: none;
+  color:#6DA47F ;
+}
+.intro2 p a:hover{
+  text-decoration: underline;
+}
+
 
 
 .selected{
