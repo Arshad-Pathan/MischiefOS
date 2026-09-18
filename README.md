@@ -1,3 +1,3 @@
-# MischiefOS
-
-I'm creating themed OS Inspired by Loki Series Retro Futurism and the main characters charatacterisc.
+<center># MischiefOS</center>
+A Retro - Futuristic themed OS inspired by MARVEL TV SERIES ___"LOKI"___
+---
