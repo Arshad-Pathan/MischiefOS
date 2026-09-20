@@ -90,7 +90,9 @@ function selectIcon(element) {
   selectedIcon = element
 } 
 function deselectIcon(element) {
-  element.classList.remove("selected");
+  if(element){
+    element.classList.remove("selected");
+  }
   selectedIcon = undefined
 }
 function handleIconTap(element) {
