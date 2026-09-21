@@ -1,90 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MischiefOS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
-        rel="stylesheet">
-        <style>
-            .windowheader{
-                display: flex;
-                height: 100px;
-            }
-            .windowheader div{
-                height: 18px;
-                width: 18px;
-                border-radius: 50%;
-            }
-        </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MischiefOS</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacquarda+Bastarda+9&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=VT323&display=swap" rel="stylesheet">    
+    </head>
 
-<body>
-    <div class="nav" id="top">
-        <h4>ARSHAD PATHAN</h4>
-        <p id="timeElement"></p>
-    </div>
-
-    <div id="introopen">
-        <div>
-            <img src="images/handbook.png" alt="journal icon">
+    <body>
+        <div class="nav" id="top">
+            <h4>ARSHAD PATHAN</h4>
+            <p id="timeElement"></p>
         </div>
-        <p>INTRO</p>
-    </div>
-
-    <div id="journalopen">
-        <div>
-            <img src="images/handbook.png" alt="journal icon">
+        <div class="icons_bar">
+          <div class="icon" id="introopen">
+              <div>
+                  <img src="images/intro.png" alt="journal icon" style="border-radius: 50%">
+              </div>
+          </div>
+          
+          <div class="icon" id="journalopen">
+              <div>
+                  <img src="images/handbook.png" alt="journal icon">
+              </div>
+          </div>
         </div>
-        <p>Journal</p>
-    </div>
-
-
-    <!-- intro window -->
-    <div class="window intro" id="intro">
-        <div><p>INTRO</p></div>
-        <div class="windowheader" id="introheader" style="background-color: #dedede27;">
-            <div id="introclose" style="background-color: #ff0000;"></div>
-            <div id="introclose" style="background-color: #faf500;"></div>
-            <div id="introclose" style="background-color: #45ff11;"></div>
-            <!-- <p style="cursor: pointer" id="introopen">ThomasOS</p> -->
-        </div>
-        <div class="intro_content">
-            <img src="images/image.png" alt="My image">
-            <h1>MischiefOS</h1>
-            <p>MischiefOS is a themed OS Inspired by Loki
-                Series Retro Futurism and the main characters
-                charatacterisc.</p>
-        </div>
-        <!-- <p class="move" id="introheader">MOVE</p> -->
+        <section class="hero">
         
-    </div>
-    
-    <!-- Journal window -->
-    <div class="window journal" id="journal">
-        <div><p>JOURNAL</p></div>
-        <div class="windowheader" id="journalheader" style="background-color: #dedede27;">
-            <div id="journalclose" style="background-color: #ff0000;"></div>
-            <div id="journalclose" style="background-color: #faf500;"></div>
-            <div id="journalclose" style="background-color: #45ff11;"></div>
-    
-        </div>
-        <div style="background-color: #fff9e5; margin: 6px; border-radius: 12px; width: 520px; height: 480px; padding: 16px;">
-            <p>My Journal</p>
-        </div>
-    </div>
-    
-    <!--
-        > starting featues entry message, after ok the window become full window
-        > apps are accessible in the app menu
-        > window open, minimize and close transitions 
-     -->
-    <script src="script.js"></script>
-</body>
+            <!-- intro window -->
+            <div class="window intro" id="intro">
+                <div class="windowheader" id="introheader">
+                <div class="window_icons">
+                    <div class="window_icon" id="introclose" style="background-color: #ff0000;"></div>
+                    <div class="window_icon" id="" style="background-color: #faf500;"></div>
+                    <div class="window_icon" id="" style="background-color: #45ff11;"></div>
+                    <p>INTRO</p>
+                </div>
+                </div>
+                <div class="intro_content">
+                <div class="intro1">
+                    <div class="label">
+                    <img src="images/mischief.png" alt="My image">
+                    <h1>MischiefOS</h1>
+                    </div>
+                    <h4>MischiefOS is a themed OS Inspired by Loki
+                        Series Retro Futurism and the main character - LOKI
+                        Abilities.<span>Glorius Purpose</span>
+                    </h4>
+                </div>
+                <div class="intro2">
+                    <div class="label">
+                    <h1>Theme Inspiration</h1>
+                    </div>
+                    <img src="images/ani.gif">
+                    <div class="ins">
+                    <img src="images/ins1.jpg">
+                    <img src="images/ins2.png">
+                    </div>
+                    <p>Read Full Explaination, Visit --->>><a href="https://github.com/Arshad-Pathan/MischiefOS">MischiefOS</a></p>
+                </div>
+                
+                
+                </div>
+            
+            </div>
+            
+            <!-- Journal window -->
+            <div class="window journal" id="journal">
+                
+                <div class="windowheader" id="journalheader">
+                    <div class="window_icons">
+                        <div class="window_icon" id="journalclose" style="background-color: #ff0000;"></div>
+                        <div class="window_icon" id="journalclose" style="background-color: #faf500;"></div>
+                        <div class="window_icon" id="journalclose" style="background-color: #45ff11;"></div>
+                        <p>JOURNAL</p>
+                    </div>
+
+                    <div class="journal_icons">
+                    <div class="save_btn" id="saveBtn">SAVE</div>
+                    <div class="edit_icon" id="editBtn"></div>
+                    </div>
+                </div>
+                <div class="journal_book" id="j_content">
+                    <img src="images/page.png" alt="">
+                    
+                    <div class="journal_content">
+                        <div class="part" id="leftTADiv">
+                            
+                        </div>
+                        <div class="part" id="rightTADiv">
+                            
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <button id="prev" style="background-image:url(images/left.png)"></button>
+                        <button id="pNumber"></button>
+                        <button id="next" style="background-image:url(images/right.png)"></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+            <!--
+                > starting featues entry message, after ok the window become full window
+                > apps are accessible in the app menu
+                > window open, minimize and close transitions 
+            -->
+        <script src="scripts.js"></script>
+    </body>
 
 </html>

@@ -1,0 +1,313 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(images/bg.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 128, 60);
+}
+
+.nav {
+    position: relative;
+    height: 20px;
+    padding: 36px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121110;
+}
+
+.nav h4 {
+    font-family: "VT323", monospace;
+    font-size: 32px;
+    padding: 4px;
+    cursor: pointer;
+    border: 4px dashed #00000000;
+}
+
+.nav h4:hover {
+    border: 4px dashed rgb(255, 128, 60);
+}
+
+.nav p {
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    letter-spacing: 2.1px;
+    cursor: none;
+    border: 2px dashed #00000000;
+}
+
+.nav p:hover {
+    border: 2px dashed rgb(255, 128, 60);
+}
+
+.icons_bar {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    padding: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+.icon {
+    height: fit-content;
+}
+
+.icon img {
+    height: 64px;
+}
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.25);
+    border: 2px solid #000;
+    border-radius: 20px;
+}
+
+.windowheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    padding: 0 12px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 20px;
+}
+
+.window_icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.window_icons .window_icon {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.window_icons p {
+    margin-left: 6px;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.intro {
+    width: 600px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.intro_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 12px 18px;
+}
+
+.intro_content div {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+}
+
+.intro1 .label {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.intro1 .label img {
+    height: 104px;
+}
+
+.intro1 .label h1 {
+    font-size: 78px;
+    font-family: "Playfair Display", serif;
+    font-style: normal;
+    color: #6DA47F;
+}
+
+.intro1 h4 {
+    font-size: 22px;
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    font-style: oblique;
+}
+
+.intro1 h4 span {
+    font-weight: 600;
+    color: #6DA47F;
+}
+
+.intro2 .label h1 {
+    font-size: 38px;
+    font-family: "Playfair Display", serif;
+    font-weight: 100;
+    font-style: oblique;
+}
+
+.intro2 .ins {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.intro2 .ins img {
+    width: 50%;
+    height: 300px;
+}
+
+.intro2 p {
+    margin-top: 12px;
+    font-family: "Jacquarda Bastarda 9", serif;
+    font-style: italic;
+    font-weight: 100;
+
+}
+
+.intro2 p a {
+    text-decoration: none;
+    color: #6DA47F;
+}
+
+.intro2 p a:hover {
+    text-decoration: underline;
+}
+
+
+
+.selected {
+    border: 4px dashed rgb(255, 128, 60);
+}
+
+/* journal window */
+.journal {
+    display: none;
+    width: 730px;
+    height: 600px;
+}
+
+.journal_icons {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    gap: 24px;
+    cursor: pointer;
+}
+
+.journal_icons .save_btn {
+    height: 38px;
+    width: 62px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #181818;
+    background-color: rgb(255, 128, 60);
+}
+
+.journal_icons .edit_icon {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background-color: rgb(255, 128, 60);
+    background-image: url(images/edit.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.journal_book {
+    position: relative;
+    height: 100%;
+    margin: 6px 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.journal_book img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.journal_content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 18px;
+    gap: 45px;
+}
+
+.journal_content .part {
+    display: block;
+}
+
+.journal_book .pagination {
+    background: #77644e;
+    height: 34px;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.pagination button {
+    height: 34px;
+    width: 34px;
+    border: none;
+    border-radius: 12px;
+    color: #b7a794;
+    background-color: #312c26;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.md_content {
+
+    height: 100%;
+    width: 300px;
+}
