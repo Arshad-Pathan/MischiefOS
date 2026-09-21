@@ -28,10 +28,17 @@
                   <img src="images/handbook.png" alt="journal icon">
               </div>
           </div>
+          
+          <div class="icon" id="settingopen">
+              <div>
+                  <img src="images/edit.png" alt="setting icon">
+              </div>
+          </div>
+          
         </div>
         
         
-        <!-- intro window -->
+        <!-- intro window --->
         <div class="window intro" id="intro">
             <div class="windowheader" id="introheader">
               <div class="window_icons">
@@ -70,7 +77,7 @@
         
         </div>
         
-        <!-- Journal window -->
+        <!-- Journal window --->
         <div class="window journal" id="journal">
             
             <div class="windowheader" id="journalheader">
@@ -86,11 +93,11 @@
                   <div class="edit_icon" id="editBtn"></div>
                 </div>
             </div>
-                <div class="pagination">
-                    <button id="prev" style="background-image:url(images/left.png)"></button>
-                    <button id="pNumber"></button>
-                    <button id="next" style="background-image:url(images/right.png)"></button>
-                </div>
+            <div class="pagination">
+                <button id="prev" style="background-image:url(images/left.png)"></button>
+                <button id="pNumber"></button>
+                <button id="next" style="background-image:url(images/right.png)"></button>
+            </div>
             <div class="journal_book" id="j_content">
                 <img src="images/page.png" alt="">
                 
@@ -105,7 +112,34 @@
 
             </div>
         </div>
-        
+      
+        <!-- setting window --->
+        <div class="window setting" id="setting">
+            
+            <div class="windowheader" id="settingheader">
+                <div class="window_icons">
+                    <div class="window_icon" id="journalclose" style="background-color: #ff0000;"></div>
+                    <div class="window_icon" id="journalclose" style="background-color: #faf500;"></div>
+                    <div class="window_icon" id="journalclose" style="background-color: #45ff11;"></div>
+                    <p>JOURNAL</p>
+                </div>
+            </div>
+            <div class="journal_book" id="j_content">
+                <img src="images/page.png" alt="">
+                
+                <div class="journal_content">
+                    <div class="part" id="leftTADiv">
+                        
+                    </div>
+                    <div class="part" id="rightTADiv">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+      
         <!--
             > starting featues entry message, after ok the window become full window
             > apps are accessible in the app menu

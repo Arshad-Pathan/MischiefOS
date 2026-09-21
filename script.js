@@ -136,6 +136,7 @@ function initializeWindow(elementName) {
 }
 
 initializeWindow("intro")
+initializeWindow("setting")
 initializeWindow("journal")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
