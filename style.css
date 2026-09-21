@@ -15,7 +15,7 @@ body {
 }
 
 .nav {
-  height: 20px;
+  height: 10px;
   padding: 36px 18px;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@ body {
 
 .nav h4 {
   font-family: "VT323", monospace;
-  font-size: 32px;
+  font-size: 26px;
   padding: 4px;
   cursor: pointer;
   border: 4px dashed #00000000;
@@ -37,7 +37,7 @@ body {
 
 .nav p {
   font-family: "VT323", monospace;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 2.1px;
   cursor: none;
   border: 2px dashed #00000000;
@@ -49,13 +49,18 @@ body {
 
 .icons_bar {
   position: fixed;
-  top: 0;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
   padding: 18px;
   display: flex;
-  gap: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px) invert(3%);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
 }
 
 .icon {
@@ -75,21 +80,27 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(10px);
+  overflow: auto;
+  /*backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.25);
   border: 2px solid #000;
+  border-radius: 20px;*/
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px) contrast(90%) ;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .windowheader {
   display: flex;
+  flex: 0 0 60px;
   align-items: center;
   justify-content: space-between;
   cursor: move;
   padding: 0 12px;
-  height: 60px;
   background-color: #000;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
 }
 
 .window_icons {
@@ -111,43 +122,44 @@ body {
 
 
 .intro {
+  display: flex;
   width: 600px;
   height: 400px;
   /* overflow-y: auto; */
 }
 
 .intro_content {
+  height: 100%;
+  justify-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: justify-content;
   align-items: center;
   padding: 12px 18px;
   overflow-y: auto;
+  
 }
 
 .intro_content div {
+  flex: 1 0 200px;
   display: flex;
-
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  /* overflow-y: auto; */
+  flex-direction: column;
 }
 
-.intro1 .label {
-  height: fit-content;
-  width: 100%;
+.intro1 .label {  
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
-
 .intro1 .label img {
   height: 104px;
 }
 
 .intro1 .label h1 {
-  font-size: 78px;
+  font-size: 68px;
   font-family: "Playfair Display", serif;
   font-style: normal;
   color: #6DA47F;
@@ -158,9 +170,11 @@ body {
   font-family: "Playfair Display", serif;
   font-weight: 300;
   font-style: oblique;
+  text-align: justify;
 }
 
 .intro1 h4 span {
+  display: inline-block;
   font-weight: 600;
   color: #6DA47F;
 }
@@ -172,8 +186,14 @@ body {
   font-style: oblique;
 }
 
+
+.intro2 img{
+  width: 100%;
+}
+
 .intro2 .ins {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -225,13 +245,13 @@ body {
 }
 
 .journal_icons .save_btn {
-  height: 38px;
-  width: 62px;
+  /*height: 38px;
+  width: 62px;*/
 
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 0 8px;
+  padding: 8px;
   border-radius: 20px;
   color: #181818;
   background-color: rgb(255, 128, 60);
@@ -250,8 +270,8 @@ body {
 
 .journal_book {
   position: relative;
-  height: 100%;
-  margin: 6px 12px;
+  flex: 1;
+  margin: 2px 12px 12px;
   display: flex;
   flex-direction: column;
 }
@@ -261,7 +281,7 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   z-index: -1;
 }
 
@@ -279,14 +299,13 @@ body {
   display: block;
 }
 
-.journal_book .pagination {
+.pagination {
   background: #77644e;
   height: 34px;
-  padding: 4px 8px;
+  padding: 4px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 12px;
 }
 
 .pagination button {
