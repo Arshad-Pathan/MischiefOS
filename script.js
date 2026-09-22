@@ -284,26 +284,28 @@ function activeSet() {
     });
   });
 }
-activeSet();
 function loadWallpaper() {
-
+  var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
-  sets.forEach(function (set) {
-    set.addEventListener("click", function () {
-        if (style.id === "s1") {
-          sets[0].innerHTML = Object.values(wallpaper[0]).join("");
-        } else if (style.id === "s2") {
-          sets[1].innerHTML = Object.values(wallpaper[1]);
-        } else if (style.id === "s3") {
-          sets[2].innerHTML = Object.values(wallpaper[2]);
-        } else if (style.id === "s4") {
-          sets[3].innerHTML = Object.values(wallpaper[3]).join("");
-        }
+  styles.forEach(function (style,index) {
+    style.addEventListener("click", function () {
+      // sets.forEach(function (set) {
+        // if (set.id === "s1") {
+          sets[index].innerHTML = Object.values(wallpaper[index]).join("");
+        // } else if (set.id === "s2") {
+        //   sets[1].innerHTML = Object.values(wallpaper[1]);
+        // } else if (set.id === "s3") {
+        //   sets[2].innerHTML = Object.values(wallpaper[2]);
+        // } else if (set.id === "s4") {
+        //   sets[3].innerHTML = Object.values(wallpaper[3]);
+        // }
+      // });
     });
   });
 }
 
 loadWallpaper();
+activeSet();
 
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");
