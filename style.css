@@ -15,7 +15,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-image: url(images/bg.gif);
+  background-image: url(images/l1.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -389,6 +389,17 @@ body {
   font-weight: 100;
    
 }
+.personalS .wall_preview {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.wall_preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .personalS div {
   display: flex;
   flex-direction: row;
@@ -402,10 +413,20 @@ body {
   border-radius: 4px;
   background-color: #b7a794;
 }
-.tab_content .set_active {
+.tab_content .tab_active {
   display: flex;
 }
 
-
+.personalS .sets{
+  display: none;
+}
+.sets img {
+  width: 10vw;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.personalS .set_active{
+  display: flex;
+}
 
 

@@ -255,7 +255,7 @@ var wallpaper = [
     l3: "url('images/l3.gif')",
     l4: "url('images/l4.gif')"
   },
-  {custom: ""},
+  {},
   {Solid1: "url('images/S1.jpg')",
     Solid2: "url('images/S2.jpg')",
     Solid3: "url('images/S3.jpg')",
@@ -277,6 +277,13 @@ function wallPreview(){
       wallP.style.backgroundImage = wallpaper[3].Solid1;
     }
 }
-
+function customWallPaper(){
+  var customInput = document.getElementById("customImage");
+  var wallpaperPre = document.getElementById("wallpaperPre");
+  customInput.addEventListener("change", function() {
+    const file = this.files[0];
+    wallpaperPre.src = URL.createObjectURL(file);
+  }); 
+} 
 
 
