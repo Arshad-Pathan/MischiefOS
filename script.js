@@ -266,14 +266,15 @@ function activeSet() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
 
-  styles.forEach(function (style) {
+  styles.forEach(function (style) {      
     style.addEventListener("click", function () {
       sets.forEach(function (set) {
         set.classList.remove("set_active");
       });
+        
 
         if (style.id === "s1") {
-          wallpaper[0].classList.add("set_active");
+          sets[0].classList.add("set_active");
         } else if (style.id === "s2") {
           sets[1].classList.add("set_active");
         } else if (style.id === "s3") {
@@ -284,6 +285,8 @@ function activeSet() {
     });
   });
 }
+activeSet();
+
 function loadWallpaper() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
@@ -305,7 +308,6 @@ function loadWallpaper() {
 }
 
 loadWallpaper();
-activeSet();
 
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");

@@ -336,7 +336,6 @@ body {
   display: flex;
   width: 600px;
   height: 400px;
-  /* overflow-y: auto; */
 }
 
 .setting_content {
@@ -346,6 +345,7 @@ body {
   padding: 12px 18px;
   gap: 12px;
   background-color: #b82d2d;
+  overflow-y: auto;
 }
 .setting_content div {
   display: flex;
@@ -389,6 +389,10 @@ body {
   font-weight: 100;
    
 }
+.personalS .w_styles{
+  padding: 4px;
+  background-color: #6DA47F;
+}
 .personalS .wall_preview {
   width: 100%;
   height: 200px;
@@ -427,7 +431,9 @@ body {
   object-fit: fit;
 }
 .personalS .set_active{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 
