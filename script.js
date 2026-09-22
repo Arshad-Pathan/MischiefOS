@@ -357,26 +357,26 @@ function initJournal() {
 initJournal()
 
 
-var wallpaper = [
-  {wall1: "<img src='images/wall1.jpg'>", 
-    wall2: "<img src='images/wall2.jpg'>",
-    wall3: "<img src='images/wall3.jpg'>",
-    wall4: "<img src='images/wall4.jpg'>"
-  },
-  {l1: "<img src='images/l1.gif'>",
-    l2: "<img src='images/l2.gif'>",
-    l3: "<img src='images/l3.gif'>",
-    l4: "<img src='images/l4.gif'>"
-  },
-  {
-    c1: "<input type='file' id='customImage' accept='image/*' alt='Custom Wallpaper'>"
-  },
-  {Solid1: "<img src='images/S1.jpg'>",
-    Solid2: "<img src='images/S2.jpg'>",
-    Solid3: "<img src='images/S3.jpg'>",
-    Solid4: "<img src='images/S4.jpg'>"
-  }
-];
+// var wallpaper = [
+//   {wall1: "<img src='images/wall1.jpg'>", 
+//     wall2: "<img src='images/wall2.jpg'>",
+//     wall3: "<img src='images/wall3.jpg'>",
+//     wall4: "<img src='images/wall4.jpg'>"
+//   },
+//   {l1: "<img src='images/l1.gif'>",
+//     l2: "<img src='images/l2.gif'>",
+//     l3: "<img src='images/l3.gif'>",
+//     l4: "<img src='images/l4.gif'>"
+//   },
+//   {
+//     c1: "<input type='file' id='customImage' accept='image/*' alt='Custom Wallpaper'>"
+//   },
+//   {Solid1: "<img src='images/S1.jpg'>",
+//     Solid2: "<img src='images/S2.jpg'>",
+//     Solid3: "<img src='images/S3.jpg'>",
+//     Solid4: "<img src='images/S4.jpg'>"
+//   }
+// ];
 function activeSet() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
@@ -401,39 +401,43 @@ function activeSet() {
   });
 }
 
-function loadWallpaper() {
-  var styles = document.querySelectorAll(".style");
-  var sets = document.querySelectorAll(".sets");
+// function loadWallpaper() {
+//   var styles = document.querySelectorAll(".style");
+//   var sets = document.querySelectorAll(".sets");
   
-  sets[0].innerHTML = Object.values(wallpaper[0]).join("");
+//   sets[0].innerHTML = Object.values(wallpaper[0]).join("");
 
-  styles.forEach(function (style,index) {
-    style.addEventListener("click", function () {
-          var wallpapers = Object.values(wallpaper[index]).join("");
-          sets[index].innerHTML = wallpapers; //saves wallpapers 1s index into sets html > set1 - wall1,wall2
-    });
-  });
-}
+//   styles.forEach(function (style,index) {
+//     style.addEventListener("click", function () {
+//           var wallpapers = Object.values(wallpaper[index]).join("");
+//           sets[index].innerHTML = wallpapers; //saves wallpapers 1s index into sets html > set1 - wall1,wall2
+//     });
+//   });
+// }
 function wallPreview(){
-  var preWall = document.getElementById("wallP");
-  var loadedWalls = set[index].querySelectorAll("img");
+  var preWall = document.getElementById("wallpaperPre");
+  var loadedWalls = document.querySelectorAll(".sets img");
+  var imgInput = document.getElementById("customImage");
+
+  localStorage.setItem("imgInput",JSON.stringify(imgInput));
+
+  imgInput.addEventListener('change', function(){
+    var img=JSON.parse(localStorage.getItem("imgInput"))
+    preWall.src=img.src;
+
+  });
 
   loadedWalls.forEach(function(img){
     img.addEventListener("click",function(){
-      preWall.innerHTML=img;
-      console.log("hii");
+      preWall.src=img.src;
     });
   });
 
 }
 
 
-
-
-loadWallpaper();
 activeSet();
 wallPreview();
-
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");
 //   var preWall = document.getElementById("wallpaperPre");
