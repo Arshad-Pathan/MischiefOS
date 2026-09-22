@@ -245,66 +245,101 @@ initJournal()
 
 
 var wallpaper = [
-  {wall1: "url('images/wall1.jpg')", 
-    wall2: "url('images/wall2.jpg')",
-    wall3: "url('images/wall3.jpg')",
-    wall4: "url('images/wall4.jpg')"
+  {wall1: "<img src='images/wall1.jpg'>", 
+    wall2: "<img src='images/wall2.jpg'>",
+    wall3: "<img src='images/wall3.jpg'>",
+    wall4: "<img src='images/wall4.jpg'>"
   },
-  {l1: "url('images/l1.gif')",
-    l2: "url('images/l2.gif')",
-    l3: "url('images/l3.gif')",
-    l4: "url('images/l4.gif')"
+  {l1: "<img src='images/l1.gif'>",
+    l2: "<img src='images/l2.gif'>",
+    l3: "<img src='images/l3.gif'>",
+    l4: "<img src='images/l4.gif'>"
   },
   {},
-  {Solid1: "url('images/S1.jpg')",
-    Solid2: "url('images/S2.jpg')",
-    Solid3: "url('images/S3.jpg')",
-    Solid4: "url('images/S4.jpg')"
+  {Solid1: "<img src='images/S1.jpg'>",
+    Solid2: "<img src='images/S2.jpg'>",
+    Solid3: "<img src='images/S3.jpg'>",
+    Solid4: "<img src='images/S4.jpg'>"
   }
 ];
-function loadWallpapers(){
+function activeSet() {
   var styles = document.querySelectorAll(".style");
-  styles.forEach("style",function() {
-    style.addEventListener("click", function() {
-      style.classList.add("set_active");
+  var sets = document.querySelectorAll(".sets");
+
+  styles.forEach(function (style) {
+    style.addEventListener("click", function () {
+      sets.forEach(function (set) {
+        set.classList.remove("set_active");
+      });
+
+        if (style.id === "s1") {
+          wallpaper[0].classList.add("set_active");
+        } else if (style.id === "s2") {
+          sets[1].classList.add("set_active");
+        } else if (style.id === "s3") {
+          sets[2].classList.add("set_active");
+        } else if (style.id === "s4") {
+          sets[3].classList.add("set_active");
+        }
     });
   });
 }
-loadWallpapers();
-function wallPreview(){
-  var wallP = document.getElementById("wallP");
-  var set = document.getElementById("s"+idNo);
-  // wallP.style.backgroundImage = wallpaper[0].wall1;
-  if (set) {
-    if (set.id === "s1") {
-      wallP.style.backgroundImage = wallpaper[0].wall1;
-    } else if (set.id === "s2") {
-      wallP.style.backgroundImage = wallpaper[1].l1;
-    } else if (set.id === "s3") {
-      wallP.style.backgroundImage = wallpaper[2].custom;
-    } else if (set.id === "s4") {
-      wallP.style.backgroundImage = wallpaper[3].Solid1;
-    }
-}
-function customWallPaper(){
-  var customInput = document.getElementById("customImage");
-  var wallpaperPre = document.getElementById("wallpaperPre");
-  customInput.addEventListener("change", function() {
-    const file = this.files[0];
-    if (!file) return;
+activeSet();
+function loadWallpaper() {
 
-    wallpaperPre.src = URL.createObjectURL(file);
-    wallpaperPre.style.display = "block";
-  }); 
-} 
-
-function initWallpaper() {
-  var styles = document.querySelectorAll(".style");
-  styles.forEach(function(style) {
-    style[0].addEventListener("click", function() {
-      var idNo = this.id.slice(1); // Get the number from the id (e.g., "s1" -> "1")
-      wallPreview(idNo);
+  var sets = document.querySelectorAll(".sets");
+  sets.forEach(function (set) {
+    set.addEventListener("click", function () {
+        if (style.id === "s1") {
+          sets[0].innerHTML = Object.values(wallpaper[0]).join("");
+        } else if (style.id === "s2") {
+          sets[1].innerHTML = Object.values(wallpaper[1]);
+        } else if (style.id === "s3") {
+          sets[2].innerHTML = Object.values(wallpaper[2]);
+        } else if (style.id === "s4") {
+          sets[3].innerHTML = Object.values(wallpaper[3]).join("");
+        }
     });
+  });
 }
 
-customWallPaper();
+loadWallpaper();
+
+// function wallPreview(){
+//   var wallP = document.getElementById("wallP");
+  
+//   // wallP.style.backgroundImage = wallpaper[0].wall1;
+//   if (set) {
+//     if (set.id === "s1") {
+//       wallP.style.backgroundImage = wallpaper[0].wall1;
+//     } else if (set.id === "s2") {
+//       wallP.style.backgroundImage = wallpaper[1].l1;
+//     } else if (set.id === "s3") {
+//       wallP.style.backgroundImage = wallpaper[2].custom;
+//     } else if (set.id === "s4") {
+//       wallP.style.backgroundImage = wallpaper[3].Solid1;
+//     }
+// }
+
+// function customWallPaper(){
+//   var customInput = document.getElementById("customImage");
+//   var wallpaperPre = document.getElementById("wallpaperPre");
+//   customInput.addEventListener("change", function() {
+//     const file = this.files[0];
+//     if (!file) return;
+
+//     wallpaperPre.src = URL.createObjectURL(file);
+//     wallpaperPre.style.display = "block";
+//   }); 
+// } 
+
+// function initWallpaper() {
+//   var styles = document.querySelectorAll(".style");
+//   styles.forEach(function(style) {
+//     style[0].addEventListener("click", function() {
+//       var idNo = this.id.slice(1); // Get the number from the id (e.g., "s1" -> "1")
+//       wallPreview(idNo);
+//     });
+// }
+
+customWallPaper()

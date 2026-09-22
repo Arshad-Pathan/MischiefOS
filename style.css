@@ -424,6 +424,7 @@ body {
   width: 10vw;
   border-radius: 12px;
   cursor: pointer;
+  object-fit: fit;
 }
 .personalS .set_active{
   display: flex;
