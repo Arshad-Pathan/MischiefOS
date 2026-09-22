@@ -380,7 +380,7 @@ var wallpaper = [
 function activeSet() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
-
+  
   styles.forEach(function (style) {      
     style.addEventListener("click", function () {
       sets.forEach(function (set) {
@@ -388,15 +388,15 @@ function activeSet() {
       });
         
 
-        if (style.id === "s1") {
-          sets[0].classList.add("set_active");
-        } else if (style.id === "s2") {
-          sets[1].classList.add("set_active");
-        } else if (style.id === "s3") {
-          sets[2].classList.add("set_active");
-        } else if (style.id === "s4") {
-          sets[3].classList.add("set_active");
-        }
+      if (style.id === "s1") {
+        sets[0].classList.add("set_active");
+      } else if (style.id === "s2") {
+        sets[1].classList.add("set_active");
+      } else if (style.id === "s3") {
+        sets[2].classList.add("set_active");
+      } else if (style.id === "s4") {
+        sets[3].classList.add("set_active");
+      }
     });
   });
 }
@@ -409,26 +409,30 @@ function loadWallpaper() {
 
   styles.forEach(function (style,index) {
     style.addEventListener("click", function () {
-          var wallpapers= Object.values(wallpaper[index]).join("");
-          sets[index].innerHTML = wallpapers;
+          var wallpapers = Object.values(wallpaper[index]).join("");
+          sets[index].innerHTML = wallpapers; //saves wallpapers 1s index into sets html > set1 - wall1,wall2
     });
   });
 }
 function wallPreview(){
-  var preWall = document.getElementById("wallpaperPre");
-  var sets = document.querySelectorAll(".sets");
+  var preWall = document.getElementById("wallP");
+  var loadedWalls = set[index].querySelectorAll("img");
 
-  sets[index].addEventListener("click", function (set) {
-    preWall.src = Object.values(wallpaper[index]).src;
+  loadedWalls.forEach(function(img){
+    img.addEventListener("click",function(){
+      preWall.innerHTML=img;
+      console.log("hii");
+    });
   });
-}
 
+}
 
 
 
 
 loadWallpaper();
 activeSet();
+wallPreview();
 
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");

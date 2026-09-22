@@ -9,6 +9,7 @@ font-family: "VT323", monospace;
 * {
   padding: 0;
   margin: 0;
+  user-select: none;
 }
 
 body {
@@ -376,9 +377,9 @@ body {
   padding: 4px;
   background-color: #ffbaba;
 }
-/* .personalS {
-  
-} */
+.personalS {
+  position: relative;
+}
 .personalS h2 {
   font-size: 18px;
   font-family: "Playfair", serif;
@@ -391,20 +392,32 @@ body {
   font-weight: 100;
    
 }
+/* .personalS .swBtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
+
 .personalS .w_styles{
   padding: 4px;
   background-color: #6DA47F;
 }
 .personalS .wall_preview {
+  position: relative;
   width: 100%;
   height: 200px;
   border-radius: 12px;
   overflow: hidden;
 }
-.wall_preview img {
+/* .wall_preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+} */
+.wall_preview .swBtn{
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 .personalS div {
   display: flex;
@@ -413,14 +426,18 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 300;
 }
-.personalS div span {
+.personalS .w_styles span {
   width: fit-content;
   padding: 4px 8px;
+  font-size: 8px;
   border-radius: 4px;
   background-color: #b7a794;
 }
 .tab_content .tab_active {
   display: flex;
+}
+.personalS .sets.set_style{
+  background-color: #bb0000;
 }
 
 .personalS .sets{
@@ -436,6 +453,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  
 }
 
 
