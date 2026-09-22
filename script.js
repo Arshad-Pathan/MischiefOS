@@ -262,6 +262,15 @@ var wallpaper = [
     Solid4: "url('images/S4.jpg')"
   }
 ];
+function loadWallpapers(){
+  var styles = document.querySelectorAll(".style");
+  styles.forEach("style",function() {
+    style.addEventListener("click", function() {
+      style.classList.add("set_active");
+    });
+  });
+}
+loadWallpapers();
 function wallPreview(){
   var wallP = document.getElementById("wallP");
   var set = document.getElementById("s"+idNo);
@@ -282,8 +291,20 @@ function customWallPaper(){
   var wallpaperPre = document.getElementById("wallpaperPre");
   customInput.addEventListener("change", function() {
     const file = this.files[0];
+    if (!file) return;
+
     wallpaperPre.src = URL.createObjectURL(file);
+    wallpaperPre.style.display = "block";
   }); 
 } 
 
+function initWallpaper() {
+  var styles = document.querySelectorAll(".style");
+  styles.forEach(function(style) {
+    style[0].addEventListener("click", function() {
+      var idNo = this.id.slice(1); // Get the number from the id (e.g., "s1" -> "1")
+      wallPreview(idNo);
+    });
+}
 
+customWallPaper();
