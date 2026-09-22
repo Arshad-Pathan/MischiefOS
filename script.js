@@ -15,57 +15,128 @@ var topBar = document.querySelector("#top")
 var selectedIcon = undefined
 
 
-// Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
-  // Step 2: Set up variables to keep track of the element's position.
   var initialX = 0;
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
 
-  // Step 3: Check if there is a special header element associated with the draggable element.
-  if (document.getElementById(element.id + "header")) {
-    // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
-    // This allows you to drag the window around by its header.
-    document.getElementById(element.id + "header").onmousedown = startDragging;
-  } else {
-    // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
-    // This allows you to drag the window by holding down anywhere on the window.
-    element.onmousedown = startDragging;
-  }
+  document.getElementById(element.id + "header").onmousedown = startDragging;
 
-  // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
-    e = e || window.event;
+
+     if(element.classList.contains("maximized")){  
+      element.style.width = "80%";
+      element.style.height = "80%";
+    }
     e.preventDefault();
-    // Step 7: Get the mouse cursor position at startup.
+
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
+
     document.onmouseup = stopDragging;
-    document.onmousemove = dragElement;
+    document.onmousemove = elementDrag;
   }
 
-  // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
-  function dragElement(e) {
-    e = e || window.event;
+  function elementDrag(e) {
     e.preventDefault();
-    // Step 10: Calculate the new cursor position.
+
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
+
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    element.style.top = (element.offsetTop - currentY) + "px";
-    element.style.left = (element.offsetLeft - currentX) + "px";
+
+    var newTop = element.offsetTop - currentY;
+    var newLeft = element.offsetLeft - currentX;
+
+    // Keep the window inside the viewport
+    var maxTop = window.innerHeight - element.offsetHeight;
+    var maxLeft = window.innerWidth - element.offsetWidth;
+
+    newTop = Math.max(0, Math.min(newTop, maxTop));
+    newLeft = Math.max(0, Math.min(newLeft, maxLeft));
+
+    element.style.top = newTop + "px";
+    element.style.left = newLeft + "px";
+
+    // Remove centering transform after dragging starts
+    element.style.transform = "none";
   }
 
-  // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
   function stopDragging() {
     document.onmouseup = null;
     document.onmousemove = null;
   }
 }
+//Step 1: Define a function called `dragElement` that makes an HTML element draggable.
+// function dragElement(element) {
+//   // Step 2: Set up variables to keep track of the element's position.
+//   var initialX = 0;
+//   var initialY = 0;
+//   var currentX = 0;
+//   var currentY = 0;
+
+//   // Step 3: Check if there is a special header element associated with the draggable element.
+//   if (document.getElementById(element.id + "header")) {
+//     // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
+//     // This allows you to drag the window around by its header.
+//     document.getElementById(element.id + "header").onmousedown = startDragging;
+    
+//   } else {
+//     // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
+//     // This allows you to drag the window by holding down anywhere on the window.
+//     element.onmousedown = startDragging;
+//   }
+
+//   // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
+//   function startDragging(e) {
+
+//     if(element.classList.contains("maximized")){  
+//       element.style.width = "80%";
+//       element.style.height = "80%";
+//     }
+//     e = e || window.event;
+//     e.preventDefault();
+//     // Step 7: Get the mouse cursor position at startup.
+//     initialX = e.clientX;
+//     initialY = e.clientY;
+
+   
+//     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
+//     document.onmouseup = stopDragging;
+//     document.onmousemove = dragElement;
+//   }
+
+//   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
+//   function dragElement(e) {
+//     e = e || window.event;
+//     e.preventDefault();
+//     // Step 10: Calculate the new cursor position.
+//     currentX = initialX - e.clientX;
+//     currentY = initialY - e.clientY;
+//     initialX = e.clientX;
+//     initialY = e.clientY;
+//     // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
+//     element.style.top = (element.offsetTop - currentY) + "px";
+//     element.style.left = (element.offsetLeft - currentX) + "px";
+//   }
+
+//   // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
+//   function stopDragging() {
+//     document.onmouseup = null;
+//     document.onmousemove = null;
+//   }
+// }
+
+
+
+
+
+
+
+
+
 
 //close window fn
 function closeWindow(element) {
@@ -81,10 +152,37 @@ function openWindow(element) {
 }
 //open window fn
 function maxWindow(element) {
-  // element.style.width = "100%";
-  // element.style.height = "100%";
-  // element.style.position = "fixed";
-  element.style.cssText = "height: 100%; width: 100%; position: fixed;";
+  if(!element.classList.contains("maximized")){
+    element.dataset.originalWidth = element.style.width;
+    element.dataset.originalHeight = element.style.height;
+    element.dataset.originalPosition = element.style.position;
+    element.dataset.originalTop = element.style.top;
+    element.dataset.originalLeft = element.style.left;
+
+    element.style.position = "fixed";
+    element.style.top = "0%";
+    element.style.left = "0%";
+    element.style.transform = "translate(0,0)";
+    element.style.width = "100%";
+    element.style.height = "100%";
+    element.classList.add("maximized");
+    if(startDragging){
+      element.style.width = "80%";
+      element.style.height = "80%";
+    }
+  } else {
+    element.style.width = element.dataset.originalWidth;
+    element.style.height = element.dataset.originalHeight;
+    element.style.position = element.dataset.originalPosition;
+    element.style.top = element.dataset.originalTop;
+    element.style.left = element.dataset.originalLeft;
+    
+    // element.style.width = "600px";
+    // element.style.height = "400px";
+    // element.style.position = "absolute";
+    element.classList.remove("maximized");
+  }
+    // element.style.cssText = "height: 100%; width: 100%; position: fixed;";
 
 }
 
@@ -140,8 +238,10 @@ function initializeWindow(elementName) {
   openBtn.addEventListener("click", function () {
     handleIconTap(openBtn);
   });
-  maxBtn.addEventListener("click", function() {
-      maxWindow(screen);
+  
+  maxBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    maxWindow(screen);
   });
 
   addWindowTapHandling(screen)
