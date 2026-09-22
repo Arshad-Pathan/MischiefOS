@@ -414,19 +414,37 @@ function activeSet() {
 //     });
 //   });
 // }
-function wallPreview(){
-  var preWall = document.getElementById("wallpaperPre");
-  var loadedWalls = document.querySelectorAll(".sets img");
+
+function customImage(){
   var imgInput = document.getElementById("customImage");
 
   localStorage.setItem("imgInput",JSON.stringify(imgInput));
 
   imgInput.addEventListener('change', function(){
-    var img=JSON.parse(localStorage.getItem("imgInput"))
-    preWall.src=img;
-
+    let file = this.files[0];
+    const img = URL.createObjectURL(file);
+    
+    // const reader = new FileReader();
+    // reader.onload = function (e) {
+    //   const img = reader.result;
+    //   localStorage.setItem('customImg', img);
+    // };
+    // reader.readAsDataURL(file);
   });
+}
 
+function wallPreview(){
+  var preWall = document.getElementById("wallpaperPre");
+  var loadedWalls = document.querySelectorAll(".sets img");
+  var imgInput = document.getElementById("customImage");
+
+  imgInput.addEventListener('change', function () {
+    let file = this.files[0];
+    const img = URL.createObjectURL(file);
+
+    preWall.src=img;
+    
+  });
   loadedWalls.forEach(function(img){
     img.addEventListener("click",function(){
       preWall.src=img.src;
@@ -437,6 +455,7 @@ function wallPreview(){
 
 
 activeSet();
+customImage();
 wallPreview();
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");
