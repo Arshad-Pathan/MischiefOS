@@ -423,7 +423,7 @@ function wallPreview(){
 
   imgInput.addEventListener('change', function(){
     var img=JSON.parse(localStorage.getItem("imgInput"))
-    preWall.src=img.src;
+    preWall.src=img;
 
   });
 
