@@ -244,7 +244,39 @@ function initJournal() {
 initJournal()
 
 
-
+var wallpaper = [
+  {wall1: "url('images/wall1.jpg')", 
+    wall2: "url('images/wall2.jpg')",
+    wall3: "url('images/wall3.jpg')",
+    wall4: "url('images/wall4.jpg')"
+  },
+  {l1: "url('images/l1.gif')",
+    l2: "url('images/l2.gif')",
+    l3: "url('images/l3.gif')",
+    l4: "url('images/l4.gif')"
+  },
+  {custom: ""},
+  {Solid1: "url('images/S1.jpg')",
+    Solid2: "url('images/S2.jpg')",
+    Solid3: "url('images/S3.jpg')",
+    Solid4: "url('images/S4.jpg')"
+  }
+];
+function wallPreview(){
+  var wallP = document.getElementById("wallP");
+  var set = document.getElementById("s"+idNo);
+  // wallP.style.backgroundImage = wallpaper[0].wall1;
+  if (set) {
+    if (set.id === "s1") {
+      wallP.style.backgroundImage = wallpaper[0].wall1;
+    } else if (set.id === "s2") {
+      wallP.style.backgroundImage = wallpaper[1].l1;
+    } else if (set.id === "s3") {
+      wallP.style.backgroundImage = wallpaper[2].custom;
+    } else if (set.id === "s4") {
+      wallP.style.backgroundImage = wallpaper[3].Solid1;
+    }
+}
 
 
 

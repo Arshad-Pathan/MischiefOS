@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacquarda+Bastarda+9&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=VT323&display=swap" rel="stylesheet">    
-    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacquarda+Bastarda+9&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=VT323&display=swap" rel="stylesheet">
 
     <body>
         <div class="nav" id="top">
@@ -17,7 +16,7 @@
             <p id="timeElement"></p>
         </div>
         <div class="icons_bar">
-          <div class="icon" id="introopen">
+          <div class="icon" id="introopen">     
               <div>
                   <img src="images/intro.png" alt="journal icon" style="border-radius: 50%">
               </div>
@@ -42,7 +41,7 @@
         <div class="window intro" id="intro">
             <div class="windowheader" id="introheader">
               <div class="window_icons">
-                <div class="window_icon" id="introclose" style="background-color: #ff0000;"></div>
+                <div class="window_icon" id="introclose" title="Close" style="background-color: #ff0000;"></div>
                 <div class="window_icon" id="" style="background-color: #faf500;"></div>
                 <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>INTRO</p>
@@ -82,9 +81,9 @@
             
             <div class="windowheader" id="journalheader">
                 <div class="window_icons">
-                    <div class="window_icon" id="journalclose" style="background-color: #ff0000;"></div>
-                    <div class="window_icon" id="journalclose" style="background-color: #faf500;"></div>
-                    <div class="window_icon" id="journalclose" style="background-color: #45ff11;"></div>
+                    <div class="window_icon" id="journalclose" title="Close" style="background-color: #ff0000;"></div>
+                    <div class="window_icon" style="background-color: #faf500;"></div>
+                    <div class="window_icon" style="background-color: #45ff11;"></div>
                     <p>JOURNAL</p>
                 </div>
 
@@ -118,28 +117,47 @@
             
             <div class="windowheader" id="settingheader">
                 <div class="window_icons">
-                    <div class="window_icon" id="journalclose" style="background-color: #ff0000;"></div>
-                    <div class="window_icon" id="journalclose" style="background-color: #faf500;"></div>
-                    <div class="window_icon" id="journalclose" style="background-color: #45ff11;"></div>
-                    <p>JOURNAL</p>
+                    <div class="window_icon" id="settingclose" title="Close" style="background-color: #ff0000;"></div>
+                    <div class="window_icon" style="background-color: #faf500;"></div>
+                    <div class="window_icon" style="background-color: #45ff11;"></div>
+                    <p>SETTINGS</p>
                 </div>
             </div>
-            <div class="journal_book" id="j_content">
-                <img src="images/page.png" alt="">
-                
-                <div class="journal_content">
-                    <div class="part" id="leftTADiv">
-                        
+            <div class="setting_content">
+                <div class="set_nav">
+                    <p class="set_tab">GENERAL</p>
+                    <p class="set_tab">ACCOUNT</p>
+                    <p class="set_tab">PERSONALIZATION</p>
+                    <p class="set_tab">GUIDE</p>
+                </div>
+                <div class="tab_content">
+                    <div class="generalS">
+                        <p>GENERAL SETTINGS</p>
                     </div>
-                    <div class="part" id="rightTADiv">
-                        
+                    <div class="accountS">
+                        <p>ACCOUNT SETTINGS</p>
+                    </div>
+                    <div class="personalS set_active">
+                        <h2>PERSONALIZATION SETTINGS</h2>
+                        <h3>Change Wallpaper</h3>
+                        <div class="wall_preview" id="wallP">
+
+                        </div>
+                        <div class="w_styles">
+                            <span class="style" id="s1">Wallpaper</span>
+                            <span class="style" id="s2">Live Wallpaper</span>
+                            <span class="style" id="s3">Custom fit</span>
+                            <span class="style" id="s4">Solid BG</span>
+                        </div>
+                    </div>
+                    <div class="guideS">
+                        <p>GUIDE SETTINGS</p>
                     </div>
                 </div>
-
             </div>
         </div>
 
-      
+        
         <!--
             > starting featues entry message, after ok the window become full window
             > apps are accessible in the app menu

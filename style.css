@@ -1,3 +1,11 @@
+/*
+ font-family: "Inter", sans-serif;
+font-family: "Playfair", serif;
+font-family: "Jacquarda Bastarda 9", serif;
+font-family: "VT323", monospace; 
+*/
+
+
 * {
   padding: 0;
   margin: 0;
@@ -159,14 +167,14 @@ body {
 
 .intro1 .label h1 {
   font-size: 68px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair", serif;
   font-style: normal;
   color: #6DA47F;
 }
 
 .intro1 h4 {
   font-size: 22px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair", serif;
   font-weight: 300;
   font-style: oblique;
   text-align: justify;
@@ -180,7 +188,7 @@ body {
 
 .intro2 .label h1 {
   font-size: 38px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair", serif;
   font-weight: 100;
   font-style: oblique;
 }
@@ -325,7 +333,79 @@ body {
 }
 
 .setting {
+  display: flex;
   width: 600px;
   height: 400px;
   /* overflow-y: auto; */
 }
+
+.setting_content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 12px 18px;
+  gap: 12px;
+  background-color: #b82d2d;
+}
+.setting_content div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background-color: #ffbaba;
+}
+.set_nav .set_tab {
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #95c292;
+}
+.set_nav .tab_active {
+  background-color: #6DA47F;
+  color: #fff;
+}
+/* .tab_content {
+
+} */
+.tab_content div {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background-color: #ffbaba;
+}
+/* .personalS {
+  
+} */
+.personalS h2 {
+  font-size: 18px;
+  font-family: "Playfair", serif;
+  font-weight: 100;
+  
+}
+.personalS h3 {
+  font-size: 14px;
+  font-family: "Playfair", serif;
+  font-weight: 100;
+   
+}
+.personalS div {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+.personalS div span {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #b7a794;
+}
+.tab_content .set_active {
+  display: flex;
+}
+
+
+
+
