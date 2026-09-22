@@ -79,6 +79,14 @@ function openWindow(element) {
   topBar.style.zIndex = biggestIndex + 1;
 
 }
+//open window fn
+function maxWindow(element) {
+  // element.style.width = "100%";
+  // element.style.height = "100%";
+  // element.style.position = "fixed";
+  element.style.cssText = "height: 100%; width: 100%; position: fixed;";
+
+}
 
 
 // open app
@@ -119,6 +127,8 @@ function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
   var closeBtn = document.querySelector("#" + elementName + "close")
   var openBtn = document.querySelector("#" + elementName + "open")
+  var maxBtn = document.querySelector("#" + elementName + "max")
+
 
   closeBtn.addEventListener("click", function() {
       closeWindow(screen);
@@ -126,9 +136,12 @@ function initializeWindow(elementName) {
   openBtn.addEventListener("click", function() {
       openWindow(screen);
   });
-
+  
   openBtn.addEventListener("click", function () {
     handleIconTap(openBtn);
+  });
+  maxBtn.addEventListener("click", function() {
+      maxWindow(screen);
   });
 
   addWindowTapHandling(screen)
@@ -136,8 +149,8 @@ function initializeWindow(elementName) {
 }
 
 initializeWindow("intro")
-initializeWindow("setting")
 initializeWindow("journal")
+initializeWindow("setting")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -304,7 +317,7 @@ function loadWallpaper() {
 function wallPreview(){
   var preWall = document.getElementById("wallpaperPre");
   var sets = document.querySelectorAll(".sets");
-  
+
   sets[index].addEventListener("click", function (set) {
     preWall.src = Object.values(wallpaper[index]).src;
   });
