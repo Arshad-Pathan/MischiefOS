@@ -437,7 +437,10 @@ function wallPreview(){
   var preWall = document.getElementById("wallpaperPre");
   var loadedWalls = document.querySelectorAll(".sets img");
   var imgInput = document.getElementById("customImage");
-
+  var swBtn = document.getElementById("swBtn");
+  var bg = document.querySelector("body");
+  
+  
   imgInput.addEventListener('change', function () {
     let file = this.files[0];
     const img = URL.createObjectURL(file);
@@ -449,6 +452,14 @@ function wallPreview(){
     img.addEventListener("click",function(){
       preWall.src=img.src;
     });
+  });
+
+  myWallP = preWall.src;
+  localStorage.setItem("myWallP",JSON.stringify(myWallP));
+  
+  
+  swBtn.addEventListener("click",function(){
+    bg.style.background="url('{$myWallp}')";
   });
 
 }
