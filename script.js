@@ -377,6 +377,8 @@ initJournal()
 //     Solid4: "<img src='images/S4.jpg'>"
 //   }
 // ];
+var customWall;
+var storeImg = localStorage.setItem("myWallP",customWall);
 function activeSet() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
@@ -416,58 +418,55 @@ function activeSet() {
 // }
 
 function customImage(){
+  var preWall = document.getElementById("wallpaperPre");
   var imgInput = document.getElementById("customImage");
-
-  localStorage.setItem("imgInput",JSON.stringify(imgInput));
-
+  
   imgInput.addEventListener('change', function(){
     let file = this.files[0];
-    const img = URL.createObjectURL(file);
+    // const img = URL.createObjectURL(file);
     
-    // const reader = new FileReader();
-    // reader.onload = function (e) {
-    //   const img = reader.result;
-    //   localStorage.setItem('customImg', img);
-    // };
-    // reader.readAsDataURL(file);
+    var reader = new FileReader();
+    reader.onload = function(){
+      customWall = reader.result;
+      preWall.src = customWall;
+    }
+    reader.readAsDataURL(file);
   });
 }
 
 function wallPreview(){
   var preWall = document.getElementById("wallpaperPre");
   var loadedWalls = document.querySelectorAll(".sets img");
-  var imgInput = document.getElementById("customImage");
   var swBtn = document.getElementById("swBtn");
-  var bg = document.querySelector("body");
   
-  
-  imgInput.addEventListener('change', function () {
-    let file = this.files[0];
-    const img = URL.createObjectURL(file);
-
-    preWall.src=img;
-    
-  });
   loadedWalls.forEach(function(img){
     img.addEventListener("click",function(){
       preWall.src=img.src;
+      swBtn.addEventListener("click",function(){
+        document.body.style.background=`url("${preWall.src}")`;
+        customWall=preWall.src;
+      });
     });
-  });
-
-  myWallP = preWall.src;
-  localStorage.setItem("myWallP",JSON.stringify(myWallP));
-  
-  
-  swBtn.addEventListener("click",function(){
-    bg.style.background="url('{$myWallp}')";
   });
 
 }
 
 
-activeSet();
-customImage();
-wallPreview();
+function svBg(){
+  var swBtn = document.getElementById("swBtn");
+
+  myWall = localStorage.getItem("myWallP");
+  swBtn.addEventListener("click",function(){
+    document.body.style.background=`url("${myWall}")`;
+  });
+}
+function initBgSettings(){
+  activeSet();
+  customImage();
+  wallPreview();
+  svBg();
+}
+initBgSettings();
 // function wallPreview(){
 //   var wallP = document.getElementById("wallP");
 //   var preWall = document.getElementById("wallpaperPre");
@@ -505,4 +504,4 @@ wallPreview();
 //     });
 // }
 
-customWallPaper()
+//customWallPaper()
