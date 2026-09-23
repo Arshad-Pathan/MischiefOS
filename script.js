@@ -69,74 +69,6 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
-//Step 1: Define a function called `dragElement` that makes an HTML element draggable.
-// function dragElement(element) {
-//   // Step 2: Set up variables to keep track of the element's position.
-//   var initialX = 0;
-//   var initialY = 0;
-//   var currentX = 0;
-//   var currentY = 0;
-
-//   // Step 3: Check if there is a special header element associated with the draggable element.
-//   if (document.getElementById(element.id + "header")) {
-//     // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
-//     // This allows you to drag the window around by its header.
-//     document.getElementById(element.id + "header").onmousedown = startDragging;
-    
-//   } else {
-//     // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
-//     // This allows you to drag the window by holding down anywhere on the window.
-//     element.onmousedown = startDragging;
-//   }
-
-//   // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
-//   function startDragging(e) {
-
-//     if(element.classList.contains("maximized")){  
-//       element.style.width = "80%";
-//       element.style.height = "80%";
-//     }
-//     e = e || window.event;
-//     e.preventDefault();
-//     // Step 7: Get the mouse cursor position at startup.
-//     initialX = e.clientX;
-//     initialY = e.clientY;
-
-   
-//     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
-//     document.onmouseup = stopDragging;
-//     document.onmousemove = dragElement;
-//   }
-
-//   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
-//   function dragElement(e) {
-//     e = e || window.event;
-//     e.preventDefault();
-//     // Step 10: Calculate the new cursor position.
-//     currentX = initialX - e.clientX;
-//     currentY = initialY - e.clientY;
-//     initialX = e.clientX;
-//     initialY = e.clientY;
-//     // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-//     element.style.top = (element.offsetTop - currentY) + "px";
-//     element.style.left = (element.offsetLeft - currentX) + "px";
-//   }
-
-//   // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
-//   function stopDragging() {
-//     document.onmouseup = null;
-//     document.onmousemove = null;
-//   }
-// }
-
-
-
-
-
-
-
-
-
 
 //close window fn
 function closeWindow(element) {
@@ -150,7 +82,7 @@ function openWindow(element) {
   topBar.style.zIndex = biggestIndex + 1;
 
 }
-//open window fn
+//max window fn
 function maxWindow(element) {
   if(!element.classList.contains("maximized")){
     element.dataset.originalWidth = element.style.width;
@@ -159,7 +91,7 @@ function maxWindow(element) {
     element.dataset.originalTop = element.style.top;
     element.dataset.originalLeft = element.style.left;
 
-    element.style.position = "fixed";
+    element.style.position = "relative";
     element.style.top = "0%";
     element.style.left = "0%";
     element.style.transform = "translate(0,0)";
@@ -185,8 +117,6 @@ function maxWindow(element) {
     // element.style.cssText = "height: 100%; width: 100%; position: fixed;";
 
 }
-
-
 // open app
 function selectIcon(element) {
   document.querySelectorAll(".selected").forEach(function(element){
@@ -357,28 +287,6 @@ function initJournal() {
 initJournal()
 
 
-// var wallpaper = [
-//   {wall1: "<img src='images/wall1.jpg'>", 
-//     wall2: "<img src='images/wall2.jpg'>",
-//     wall3: "<img src='images/wall3.jpg'>",
-//     wall4: "<img src='images/wall4.jpg'>"
-//   },
-//   {l1: "<img src='images/l1.gif'>",
-//     l2: "<img src='images/l2.gif'>",
-//     l3: "<img src='images/l3.gif'>",
-//     l4: "<img src='images/l4.gif'>"
-//   },
-//   {
-//     c1: "<input type='file' id='customImage' accept='image/*' alt='Custom Wallpaper'>"
-//   },
-//   {Solid1: "<img src='images/S1.jpg'>",
-//     Solid2: "<img src='images/S2.jpg'>",
-//     Solid3: "<img src='images/S3.jpg'>",
-//     Solid4: "<img src='images/S4.jpg'>"
-//   }
-// ];
-var customWall;
-var storeImg = localStorage.setItem("myWallP",customWall);
 function activeSet() {
   var styles = document.querySelectorAll(".style");
   var sets = document.querySelectorAll(".sets");
@@ -403,33 +311,32 @@ function activeSet() {
   });
 }
 
-// function loadWallpaper() {
-//   var styles = document.querySelectorAll(".style");
-//   var sets = document.querySelectorAll(".sets");
-  
-//   sets[0].innerHTML = Object.values(wallpaper[0]).join("");
-
-//   styles.forEach(function (style,index) {
-//     style.addEventListener("click", function () {
-//           var wallpapers = Object.values(wallpaper[index]).join("");
-//           sets[index].innerHTML = wallpapers; //saves wallpapers 1s index into sets html > set1 - wall1,wall2
-//     });
-//   });
-// }
 
 function customImage(){
   var preWall = document.getElementById("wallpaperPre");
   var imgInput = document.getElementById("customImage");
-  
+  var swBtn = document.getElementById("swBtn");
+
   imgInput.addEventListener('change', function(){
     let file = this.files[0];
-    // const img = URL.createObjectURL(file);
-    
+
+    if(!file){
+      return;
+    }
+
     var reader = new FileReader();
     reader.onload = function(){
-      customWall = reader.result;
-      preWall.src = customWall;
+      preWall.src = reader.result;
     }
+
+    swBtn.addEventListener("click",function(){
+      document.body.style.backgroundImage=`url("${preWall.src}")`;
+      localStorage.setItem("myWallP",preWall.src);
+    });
+    // reader.onload = function(){
+    //   customWall = reader.result;
+    //   preWall.src = customWall; //preview custom image
+    // }
     reader.readAsDataURL(file);
   });
 }
@@ -443,8 +350,8 @@ function wallPreview(){
     img.addEventListener("click",function(){
       preWall.src=img.src;
       swBtn.addEventListener("click",function(){
-        document.body.style.background=`url("${preWall.src}")`;
-        customWall=preWall.src;
+        document.body.style.backgroundImage=`url("${preWall.src}")`;
+        localStorage.setItem("myWallP",preWall.src);
       });
     });
   });
@@ -453,12 +360,14 @@ function wallPreview(){
 
 
 function svBg(){
-  var swBtn = document.getElementById("swBtn");
+  var preWall = document.getElementById("wallpaperPre");
+  var myWallP = localStorage.getItem("myWallP");
 
-  myWall = localStorage.getItem("myWallP");
-  swBtn.addEventListener("click",function(){
-    document.body.style.background=`url("${myWall}")`;
-  });
+  if(myWallP){
+    preWall.src=myWallP;
+    document.body.style.backgroundImage=`url("${preWall.src}")`;
+
+  }
 }
 function initBgSettings(){
   activeSet();
@@ -467,41 +376,3 @@ function initBgSettings(){
   svBg();
 }
 initBgSettings();
-// function wallPreview(){
-//   var wallP = document.getElementById("wallP");
-//   var preWall = document.getElementById("wallpaperPre");
-  
-//   if (set) {
-//     if (set.id === "s1") {
-//       wallP.style.backgroundImage = wallpaper[0].wall1;
-//     } else if (set.id === "s2") {
-//       wallP.style.backgroundImage = wallpaper[1].l1;
-//     } else if (set.id === "s3") {
-//       wallP.style.backgroundImage = wallpaper[2].custom;
-//     } else if (set.id === "s4") {
-//       wallP.style.backgroundImage = wallpaper[3].Solid1;
-//     }
-// }
-
-// function customWallPaper(){
-//   var customInput = document.getElementById("customImage");
-//   var wallpaperPre = document.getElementById("wallpaperPre");
-//   customInput.addEventListener("change", function() {
-//     const file = this.files[0];
-//     if (!file) return;
-
-//     wallpaperPre.src = URL.createObjectURL(file);
-//     wallpaperPre.style.display = "block";
-//   }); 
-// } 
-
-// function initWallpaper() {
-//   var styles = document.querySelectorAll(".style");
-//   styles.forEach(function(style) {
-//     style[0].addEventListener("click", function() {
-//       var idNo = this.id.slice(1); // Get the number from the id (e.g., "s1" -> "1")
-//       wallPreview(idNo);
-//     });
-// }
-
-//customWallPaper()
