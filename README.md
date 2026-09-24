@@ -37,3 +37,19 @@ A Retro - Futuristic themed OS inspired by MARVEL TV SERIES ___"LOKI"___
    - pagination
 
 ### What you will experience during review is pure retro futuristc world - an enviroment - a timeline where things gone beyond current technology
+
+
+### This is very important for me and my projects in Stardance.
+Here i came to tell about how i made functionalities and projects.
+
+1. First of all, when i started in stardance i didn't have a laptop, in fact during my diploma study till 3 years - i can't bought one.
+2. but at this time when i shipped webos1 project, I bought a second hand laptop(after 2.5 year in diploma).
+3. Before that i was coding in my friend's laptop.
+4. And during my college hours, when i got some free time i start coding in my Android Device via Acode Editor.
+5. So the laptop or windows is maximumly used for entire project creation but i also used android for micro-mini functionalities and adjustments
+
+### So i'm very thankfull and pleasure to have things like:
+1. [**!Github**](https://github.com/) - who secure my code and give me acceess on the go.
+2. [**!Acode**](https://acode.app/) - which allows me to code in every language i learnt, use terminal and yeah importantly the preview feature.
+
+> ### I litteraly used bluetooth mouse in android and audited all the visual designs and code in Android and acode preview.
