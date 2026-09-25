@@ -13,6 +13,41 @@
     <body>
         <div class="nav" id="top">
             <h4>ARSHAD PATHAN</h4>
+            <div class="timer">
+                <select name="timer" id="timeSelection">
+                    <option class="opTime" value="0" selected>00:00</option>
+                    <option class="opTime" value="1">01:00</option>
+                    <option class="opTime" value="3">03:00</option>
+                    <option class="opTime" value="5">05:00</option>
+                    <option class="opTime" value="15">15:00</option>
+                    <option class="opTime" value="30" >30:00</option>
+                    <option class="opTime" value="60">60:00</option>
+                    <option class="opTime" value="CUSTOM">CUSTOM</option>
+                </select>
+                
+                <button type="reset" id="rsBtn" onclick="rsTimer()" style="display: none;">RESET</button>
+                <button type="button" id="stBtn" onclick="stTimer()">START</button>
+            </div>
+            <div class="csTimer">
+                <div>
+                    <label>MINUTES</label>
+                    <span id="csMin"><input type="number" min="1" max="99" class="csMin"></span>
+                </div>
+                <div>
+                    <label>SECONDS</label>
+                    <span id="csSec"><input type="number" min="1" max="60" class="csSec"></span>
+                </div>
+            </div>
+            <div class="displayTimer">
+                <div>
+                    <label>MINUTES</label>
+                    <span id="dpMinutes"></span>
+                </div>
+                <div>
+                    <label>SECONDS</label>
+                    <span id="dpSeconds"></span>
+                </div>
+            </div>
             <p id="timeElement"></p>
         </div>
         <div class="icons_bar">

@@ -1,116 +1,333 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MischiefOS</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jacquarda+Bastarda+9&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=VT323&display=swap" rel="stylesheet">    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <body>
-        <div class="nav" id="top">
-            <h4>ARSHAD PATHAN</h4>
-            <p id="timeElement"></p>
-        </div>
-        <div class="icons_bar">
-          <div class="icon" id="introopen">
-              <div>
-                  <img src="images/intro.png" alt="journal icon" style="border-radius: 50%">
-              </div>
-          </div>
-          
-          <div class="icon" id="journalopen">
-              <div>
-                  <img src="images/handbook.png" alt="journal icon">
-              </div>
-          </div>
-        </div>
-        <section class="hero">
-        
-            <!-- intro window -->
-            <div class="window intro" id="intro">
-                <div class="windowheader" id="introheader">
-                <div class="window_icons">
-                    <div class="window_icon" id="introclose" style="background-color: #ff0000;"></div>
-                    <div class="window_icon" id="" style="background-color: #faf500;"></div>
-                    <div class="window_icon" id="" style="background-color: #45ff11;"></div>
-                    <p>INTRO</p>
-                </div>
-                </div>
-                <div class="intro_content">
-                <div class="intro1">
-                    <div class="label">
-                    <img src="images/mischief.png" alt="My image">
-                    <h1>MischiefOS</h1>
-                    </div>
-                    <h4>MischiefOS is a themed OS Inspired by Loki
-                        Series Retro Futurism and the main character - LOKI
-                        Abilities.<span>Glorius Purpose</span>
-                    </h4>
-                </div>
-                <div class="intro2">
-                    <div class="label">
-                    <h1>Theme Inspiration</h1>
-                    </div>
-                    <img src="images/ani.gif">
-                    <div class="ins">
-                    <img src="images/ins1.jpg">
-                    <img src="images/ins2.png">
-                    </div>
-                    <p>Read Full Explaination, Visit --->>><a href="https://github.com/Arshad-Pathan/MischiefOS">MischiefOS</a></p>
-                </div>
-                
-                
-                </div>
+        /* body {
+            background-color: #000;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        } */
+
+        body {
+            background-color: #000;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        setInterval(() => {
             
+            var currDate = new Date()
+            var expireDate = new Date(`D9-26-2026T20:30:00`)
+            console.log(Date(1))
+            var timeLeft = expireDate - currDate;
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Padding single digits with leading zeros
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');
+
+            if (currDate <= expireDate) {
+                var output = `${minutes}m:${seconds}s`
+                document.body.innerHTML = output
+            } else {
+                document.body.innerHTML = "expired"
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html> -->
+
+<!-- setInterval(() => {
+            var currDate = new Date()
+            var expireDate = new Date('2026-09-25')
+            // console.log(expireDate-currDate)
+            var timeLeft = expireDate - currDate;
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Padding single digits with leading zeros
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');
+
+            if (currDate <= expireDate) {
+                var output = `${days}d:${hours}h:${minutes}m:${seconds}s`
+                document.body.innerHTML = output
+            } else {
+                document.body.innerHTML = "expired"
+            }
+        }, 1000) -->
+
+
+        <!-- var countdown = 0;
+
+function dpSelection() {
+  var dpMinutes = document.getElementById("dpMinutes");
+  var dpSeconds = document.getElementById("dpSeconds");
+  var selectedOption = document.querySelector(".opTime:checked");
+
+  if (!selectedOption) {
+    return;
+  }
+
+  var min = 0;
+  var sec = 0;
+
+  if (selectedOption.value === "00") {
+    min = 0;
+  } else if (selectedOption.value === "1min") {
+    min = 1;
+  } else if (selectedOption.value === "3min") {
+    min = 3;
+  } else if (selectedOption.value === "5min") {
+    min = 5;
+  } else if (selectedOption.value === "15min") {
+    min = 15;
+  } else if (selectedOption.value === "30min") {
+    min = 30;
+  } else if (selectedOption.value === "60min") {
+    min = 60;
+  } else if (selectedOption.value === "custom") {
+    customTimer();
+    return;
+  } else {
+    alert("Enter a valid timer");
+    return;
+  }
+
+  countdown = min * 60 + sec;
+
+  dpMinutes.innerText = String(min).padStart(2, "0");
+  dpSeconds.innerText = String(sec).padStart(2, "0");
+}
+
+document.querySelectorAll(".opTime").forEach(function (option) {
+  option.addEventListener("change", dpSelection);
+}); -->
+
+
+<!-- if(option.value==="00"){
+      min = "00";
+      sec = "00";
+    } else if (option.value==="1min") {
+      min = "01";
+      sec = "00";
+    } else if (option.value==="3min") {
+      min = "03";
+      sec = "00";
+    } else if (option.value==="5min") {
+      min = "05";
+      sec = "00";
+    } else if (option.value==="15min") {
+      min = "15";
+      sec = "00";
+    } else if (option.value==="30min") {
+      min = "30";
+      sec = "00";
+    } else if(option.value==="60min"){
+      min="60";
+      max="00";
+    } else if(option.value==="custom"){
+      customTimer();
+      return();
+    } else{
+      alert("Enter valid Timer");
+      return();
+    } -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .timer-container {
+            text-align: center;
+            background-color: #262626;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .time-box {
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 8px;
+            min-width: 90px;
+        }
+        .label {
+            font-size: 0.8rem;
+            display: block;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .preset-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #00adb5;
+        }
+        .custom-input-group {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timer-container">
+        <!-- Preset Options -->
+        <div class="preset-buttons">
+            <button onclick="startPresetTimer(1)">1 Min</button>
+            <button onclick="startPresetTimer(5)">5 Min</button>
+            <button onclick="startPresetTimer(15)">15 Min</button>
+            <button onclick="startPresetTimer(30)">30 Min</button>
+            <button onclick="startPresetTimer(60)">60 Min</button>
+        </div>
+
+        <!-- The Display -->
+        <div class="timer">
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <span class="label">Minutes</span>
             </div>
-            
-            <!-- Journal window -->
-            <div class="window journal" id="journal">
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Custom Input Layout -->
+        <div class="custom-input-group">
+            <input type="number" id="customMin" placeholder="Min" min="0" max="999">
+            <span>:</span>
+            <input type="number" id="customSec" placeholder="Sec" min="0" max="59">
+            <button onclick="startCustomTimer()">Set Custom</button>
+        </div>
+    </div>
+
+    <script>
+        let countdownInterval;
+        let timeRemaining = 0; // Total time left in seconds
+
+        // Core execution loop
+        function runTimer() {
+            // Clear any previously running intervals
+            clearInterval(countdownInterval);
+
+            // Update display immediately before waiting for the first interval tick
+            updateDisplay();
+
+            countdownInterval = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    alert("Time is up!");
+                    return;
+                }
                 
-                <div class="windowheader" id="journalheader">
-                    <div class="window_icons">
-                        <div class="window_icon" id="journalclose" style="background-color: #ff0000;"></div>
-                        <div class="window_icon" id="journalclose" style="background-color: #faf500;"></div>
-                        <div class="window_icon" id="journalclose" style="background-color: #45ff11;"></div>
-                        <p>JOURNAL</p>
-                    </div>
+                timeRemaining--;
+                updateDisplay();
+            }, 1000);
+        }
 
-                    <div class="journal_icons">
-                    <div class="save_btn" id="saveBtn">SAVE</div>
-                    <div class="edit_icon" id="editBtn"></div>
-                    </div>
-                </div>
-                <div class="journal_book" id="j_content">
-                    <img src="images/page.png" alt="">
-                    
-                    <div class="journal_content">
-                        <div class="part" id="leftTADiv">
-                            
-                        </div>
-                        <div class="part" id="rightTADiv">
-                            
-                        </div>
-                    </div>
-                    <div class="pagination">
-                        <button id="prev" style="background-image:url(images/left.png)"></button>
-                        <button id="pNumber"></button>
-                        <button id="next" style="background-image:url(images/right.png)"></button>
-                    </div>
+        // Format and push values to HTML
+        function updateDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
 
-                </div>
-            </div>
-        </section>
-            <!--
-                > starting featues entry message, after ok the window become full window
-                > apps are accessible in the app menu
-                > window open, minimize and close transitions 
-            -->
-        <script src="scripts.js"></script>
-    </body>
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
 
+        // Action when a preset button is clicked
+        function startPresetTimer(minutes) {
+            timeRemaining = minutes * 60;
+            runTimer();
+        }
+
+        // Action when the custom button is clicked
+        function startCustomTimer() {
+            const minInput = parseInt(document.getElementById("customMin").value) || 0;
+            const secInput = parseInt(document.getElementById("customSec").value) || 0;
+
+            // Combine inputs into total seconds
+            timeRemaining = (minInput * 60) + secInput;
+
+            if (timeRemaining <= 0) {
+                alert("Please enter a valid time duration.");
+                return;
+            }
+
+            runTimer();
+        }
+    </script>
+
+</body>
 </html>

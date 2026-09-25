@@ -15,6 +15,105 @@ var topBar = document.querySelector("#top")
 var selectedIcon = undefined
 
 
+var interval;
+var countdown = 0;
+
+function rnTimer() {
+  clearInterval(interval);
+  dpSelection();
+
+  interval = setInterval(() => {
+    if (countdown <= 0) {
+      clearInterval(interval);
+      alert("DONE");
+      return;
+    }
+    countdown--;
+    dpSelection();
+  }, 1000);
+
+}
+
+function dpSelection(){
+  var minutes = Math.floor(countdown/60);
+  var seconds = countdown % 60;
+
+  var dpMinutes = document.getElementById("dpMinutes");
+  var dpSeconds = document.getElementById("dpSeconds");
+
+  dpMinutes.innerText = String(minutes).padStart(2,"0");
+  dpSeconds.innerText = String(seconds).padStart(2,"0");
+}
+
+function cstTimer(){
+  var csMin = document.getElementById("csMin");
+  var csSec = document.getElementById("csSec");
+
+  if(csMin === "0" || csSec === "0"){
+    return;
+    // alert("Enter Valid Input!");
+  } else if (csMin.value.length>3 || csSec.value.length>60) {
+    alert("only can track upto 99 hours and under 60 seconds");
+  } else {
+    countdown = Number(csMin) * 60 + Number(csSec);
+    rnTimer();
+  }
+}
+
+function tmSelection(){
+  var dpTimer = document.querySelector(".displayTimer");
+  var csTimer = document.querySelector(".csTimer");
+  var timeDrpdown=document.getElementById("timeSelection");
+
+  timeDrpdown.addEventListener("change", function(){
+    var time = Number(this.value);
+    if(time==="CUSTOM"){
+      csTimer.style.display="flex";
+      cstTimer();
+    } else {
+      dpTimer.style.display="flex";
+      countdown = time * 60;
+      rnTimer();
+    }
+  });
+}
+function stTimer(){
+  document.getElementById("stBtn").addEventListener("click",function(){
+    
+    this.style.display="none";
+    document.getElementById("rsBtn").style.display="flex";
+  });
+}
+function rsTimer(){
+  document.getElementById("rsBtn").addEventListener("click",function(){
+    this.style.display="none";
+    document.getElementById("stBtn").style.display="flex";
+  });
+}
+tmSelection();
+
+// function dpSelection(){
+//   var options=document.querySelectorAll(".opTime");
+//   options.forEach(fuwnction(option){
+//     option.addEventListener("click", function(){
+//       countdown = option.value * 60;
+//     });
+//   });
+
+//   const minutes = Math.floor((countdown % 60));
+//   const seconds = countdown % 60;
+
+//   var dpMinutes = document.getElementById("dpMinutes");
+//   var dpSeconds = document.getElementById("dpSeconds");
+
+//   dpMinutes.innerText = String(minutes).padStart(2,"0");
+//   dpSeconds.innerText = String(seconds).padStart(2,"0");
+// }
+// // dpSelection();
+// setInterval(dpSelection,1000);
+
+  
+
 function dragElement(element) {
   var initialX = 0;
   var initialY = 0;
