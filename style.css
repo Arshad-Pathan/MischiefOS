@@ -71,6 +71,7 @@ body {
 .timer button{
   height: 24px;
   width: 24px;
+  padding: 12px;
 }
 .timer #stBtn{
   background: #6DA47F;

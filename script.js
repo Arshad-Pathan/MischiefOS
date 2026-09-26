@@ -49,16 +49,21 @@ function tkTime(){
   var csMin = document.getElementById("csMin");
   var csSec = document.getElementById("csSec");
   var dpTimer = document.querySelector(".displayTimer");
+  var csTimer = document.querySelector(".csTimer");
 
-  countdown = Number(csMin.value) * 60 + Number(csSec.value);
-  dpTimer.style.display="flex";
+  document.getElementById("stBtn").addEventListener("click", function(){
+    countdown = Number(csMin.value) * 60 + Number(csSec.value);
+    dpTimer.style.display="flex";
+    csTimer.style.display="none";
+    rnTimer();
+  });
 }
 
 function cstTimer(){
   var csMin = document.getElementById("csMin");
   var csSec = document.getElementById("csSec");
 
-  if(csMin === "" || csSec === ""){
+  if(csMin.value === "" || csSec.value === ""){
     return;
     // alert("Enter Valid Input!");
   } else if (csMin.value.length>3 || csSec.value.length>60) {
@@ -82,6 +87,7 @@ function tmSelection(){
       dpTimer.style.display="none";
       tkTime();
     } else {
+      csTimer.style.display="none";
       dpTimer.style.display="flex";
       countdown = this.value * 60;
       dpSelection();
@@ -89,9 +95,12 @@ function tmSelection(){
   });
 }
 function stTimer(){
+  var dpTimer = document.querySelector(".displayTimer");
   document.getElementById("stBtn").addEventListener("click",function(){
     this.style.display="none";
     document.getElementById("rsBtn").style.display="flex";
+    tmSelection();
+    dpTimer.style.display="flex";
     rnTimer();
   });
 }
