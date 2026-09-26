@@ -1,8 +1,10 @@
 // time function
 function updateTime() {
-    var currentTime = new Date().toLocaleString();
+    var currentTime = new Date()
+    var time=currentTime.toLocaleTimeString();
+    var date=currentTime.toLocaleDateString();
     var timeText = document.querySelector("#timeElement");
-    timeText.innerHTML = currentTime;
+    timeText.innerHTML = `${time}<br>${date}`;
 }
 setInterval(updateTime, 1000);
 // time end
@@ -305,6 +307,7 @@ function initializeWindow(elementName) {
 initializeWindow("intro")
 initializeWindow("journal")
 initializeWindow("setting")
+initializeWindow("terminal")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -500,3 +503,56 @@ function initBgSettings(){
   svBg();
 }
 initBgSettings();
+
+
+
+function terminalCmd(){
+  var terminalC = document.getElementById("terminalC");
+  var cmd = document.getElementById("cmd");
+  var output = document.getElementById("output");
+  var tag = "WEBOS2/MischiefOS >  ";
+
+  terminalC.addEventListener("click", function(){
+    cmd.focus()
+  });
+  
+  cmd.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){
+      var c = cmd.value;
+      displayCmd(tag+c);
+      cmd.value="";
+      runCmd(c.trim());
+    }
+  });
+}
+function displayCmd(line){
+  var cmdLine= document.createElement("div");
+  cmdLine.textContent = line;
+  output.appendChild(cmdLine);
+  // terminalC.scrollTop = terminalC.scrollHeight;
+}
+function runCmd(str){
+  var myTag = str.indexOf(" ");
+  var command = myTag === -1 ? str : str.substring(0,myTag);
+  var arg = myTag === -1 ? "" : str.substring(myTag + 1);
+
+  if (command === "echo"){
+    displayCmd(arg);
+  } else {
+    displayCmd(`"${command}"`+ " command not found as internal or external command.")
+  }
+}
+terminalCmd();
+
+
+
+
+
+
+
+
+
+
+
+
+

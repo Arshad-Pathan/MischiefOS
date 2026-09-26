@@ -518,3 +518,32 @@ body {
 }
 
 
+.terminal{
+  display: flex;
+  height: 500px;
+  width: 700px;
+}
+.terminal_content{
+  height: 100%;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  cursor: text;
+  color:#fff;
+}
+.output{
+  margin: 10px 0px;
+  margin-bottom: 14px;
+}
+.input{
+  display: flex;
+}
+
+.input input{
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+  color: #fff;
+}
