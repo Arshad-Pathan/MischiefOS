@@ -57,7 +57,10 @@ body {
 .nav p:hover {
   border: 2px dashed rgb(255, 128, 60);
 }
-
+.timer{
+  display: flex;
+  align-items: center;
+}
 .timer select{
   padding: 4px;
 }
@@ -65,9 +68,19 @@ body {
   display: flex;
   flex-direction: column;
 }
+.timer button{
+  height: 24px;
+  width: 24px;
+}
+.timer #stBtn{
+  background: #6DA47F;
+}
+.timer #rsBtn{
+  display: none;
+  background: #df0000;
+}
 
-
-.displayTimer{
+.displayTimer, .csTimer{
   display: none;
   justify-content: space-between;
   align-items: center;
@@ -80,29 +93,16 @@ body {
   font-family: "Inter", sans-serif;
   background: #6DA47F;
 }
-.displayTimer div{
+.displayTimer div, .csTimer div{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.displayTimer div label{
+.displayTimer div label, .csTimer div label{
   font-size: 10px;
 }
-.displayTimer div span{
+.displayTimer div span, .csTimer div input{
   font-size: 28px;
-}
-.csTimer{
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  position: absolute;
-  padding: 12px;
-  top: 46px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Inter", sans-serif;
-  background: #6DA47F;
 }
 
 

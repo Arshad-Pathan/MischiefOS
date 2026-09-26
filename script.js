@@ -56,42 +56,48 @@ function cstTimer(){
     alert("only can track upto 99 hours and under 60 seconds");
   } else {
     countdown = Number(csMin) * 60 + Number(csSec);
-    rnTimer();
+    dpSelection();
   }
 }
 
 function tmSelection(){
-  var dpTimer = document.querySelector(".displayTimer");
   var csTimer = document.querySelector(".csTimer");
+  var dpTimer = document.querySelector(".displayTimer");
   var timeDrpdown=document.getElementById("timeSelection");
+
+  var csMin = document.getElementById("csMin");
+  var csSec = document.getElementById("csSec");
 
   timeDrpdown.addEventListener("change", function(){
     var time = Number(this.value);
-    if(time==="CUSTOM"){
+    if(this.value==="CUSTOM"){
       csTimer.style.display="flex";
       cstTimer();
     } else {
       dpTimer.style.display="flex";
       countdown = time * 60;
-      rnTimer();
+      dpSelection();
     }
   });
 }
 function stTimer(){
   document.getElementById("stBtn").addEventListener("click",function(){
-    
     this.style.display="none";
     document.getElementById("rsBtn").style.display="flex";
+    tmSelection();
+    rnTimer();
+
   });
 }
 function rsTimer(){
   document.getElementById("rsBtn").addEventListener("click",function(){
     this.style.display="none";
     document.getElementById("stBtn").style.display="flex";
+    tmSelection();
   });
 }
-tmSelection();
-
+stTimer();
+rsTimer();
 // function dpSelection(){
 //   var options=document.querySelectorAll(".opTime");
 //   options.forEach(fuwnction(option){

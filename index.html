@@ -25,17 +25,17 @@
                     <option class="opTime" value="CUSTOM">CUSTOM</option>
                 </select>
                 
-                <button type="reset" id="rsBtn" onclick="rsTimer()" style="display: none;">RESET</button>
-                <button type="button" id="stBtn" onclick="stTimer()">START</button>
+                <button type="reset" id="rsBtn"></button>
+                <button type="button" id="stBtn"></button>
             </div>
             <div class="csTimer">
                 <div>
                     <label>MINUTES</label>
-                    <span id="csMin"><input type="number" min="1" max="99" class="csMin"></span>
+                    <input type="number" min="1" max="99" class="csMin" id="csMin">
                 </div>
                 <div>
                     <label>SECONDS</label>
-                    <span id="csSec"><input type="number" min="1" max="60" class="csSec"></span>
+                    <input type="number" min="1" max="60" class="csSec" id="csSec">
                 </div>
             </div>
             <div class="displayTimer">
