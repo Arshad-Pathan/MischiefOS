@@ -45,17 +45,26 @@ function dpSelection(){
   dpSeconds.innerText = String(seconds).padStart(2,"0");
 }
 
+function tkTime(){
+  var csMin = document.getElementById("csMin");
+  var csSec = document.getElementById("csSec");
+  var dpTimer = document.querySelector(".displayTimer");
+
+  countdown = Number(csMin.value) * 60 + Number(csSec.value);
+  dpTimer.style.display="flex";
+}
+
 function cstTimer(){
   var csMin = document.getElementById("csMin");
   var csSec = document.getElementById("csSec");
 
-  if(csMin === "0" || csSec === "0"){
+  if(csMin === "" || csSec === ""){
     return;
     // alert("Enter Valid Input!");
   } else if (csMin.value.length>3 || csSec.value.length>60) {
     alert("only can track upto 99 hours and under 60 seconds");
   } else {
-    countdown = Number(csMin) * 60 + Number(csSec);
+    countdown = Number(csMin.value) * 60 + Number(csSec.value);
     dpSelection();
   }
 }
@@ -65,17 +74,16 @@ function tmSelection(){
   var dpTimer = document.querySelector(".displayTimer");
   var timeDrpdown=document.getElementById("timeSelection");
 
-  var csMin = document.getElementById("csMin");
-  var csSec = document.getElementById("csSec");
-
   timeDrpdown.addEventListener("change", function(){
-    var time = Number(this.value);
+
+    // var time = Number(this.value);
     if(this.value==="CUSTOM"){
       csTimer.style.display="flex";
-      cstTimer();
+      dpTimer.style.display="none";
+      tkTime();
     } else {
       dpTimer.style.display="flex";
-      countdown = time * 60;
+      countdown = this.value * 60;
       dpSelection();
     }
   });
@@ -84,18 +92,20 @@ function stTimer(){
   document.getElementById("stBtn").addEventListener("click",function(){
     this.style.display="none";
     document.getElementById("rsBtn").style.display="flex";
-    tmSelection();
     rnTimer();
-
   });
 }
 function rsTimer(){
+  var dpTimer = document.querySelector(".displayTimer");
   document.getElementById("rsBtn").addEventListener("click",function(){
     this.style.display="none";
     document.getElementById("stBtn").style.display="flex";
-    tmSelection();
+    clearInterval(interval);
+    dpTimer.style.display="none";
+    
   });
 }
+tmSelection();
 stTimer();
 rsTimer();
 // function dpSelection(){
