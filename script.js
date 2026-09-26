@@ -527,9 +527,8 @@ function terminalCmd(){
 }
 function displayCmd(line){
   var cmdLine= document.createElement("div");
-  cmdLine.textContent = line;
+  cmdLine.innerHTML = line;
   output.appendChild(cmdLine);
-  // terminalC.scrollTop = terminalC.scrollHeight;
 }
 function runCmd(str){
   var myTag = str.indexOf(" ");
@@ -538,6 +537,40 @@ function runCmd(str){
 
   if (command === "echo"){
     displayCmd(arg);
+  } else if(command === "help"){
+    displayCmd(`echo "text"<br>open "appname"<br>close "appname"<br>status<br>time<br>date<br>about<br>exit<br>clear`)
+  } else if (command === "open") {
+    if(arg==="intro"){
+      openWindow(intro)
+    } else if(arg === "journal"){
+      openWindow(journal)
+    } else if(arg === "setting"){
+      openWindow(setting)
+    }else if(arg === "terminal"){
+      openWindow(terminal)
+    }
+  } else if (command === "close") {
+    if(arg==="intro"){
+      closeWindow(intro)
+    } else if(arg === "journal"){
+      closeWindow(journal)
+    } else if(arg === "setting"){
+      closeWindow(setting)
+    }else if(arg === "terminal"){
+      closeWindow(terminal)
+    } 
+  } else if(command === "status"){
+    displayCmd("Connected to Internet")
+  } else if(command === "time"){
+    displayCmd(new Date().toLocaleTimeString())
+  } else if(command === "date"){
+    displayCmd(new Date().toLocaleDateString())
+  } else if(command === "about"){
+    displayCmd("MischiefOS - Inspired by Loki Series Retro-Futurism.")
+  } else if(command === "exit"){
+    displayCmd("Login Page Functionality is on way")
+  } else if(command === "clear"){
+    output.innerHTML="";
   } else {
     displayCmd(`"${command}"`+ " command not found as internal or external command.")
   }
