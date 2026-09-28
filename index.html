@@ -50,28 +50,56 @@
             </div>
             <p id="timeElement"></p>
         </div>
+
+        <div class="searchbar">
+          <input class="search" type="text" placeholder="Search Anything">
+          <button type="submit" class="searchBtn">🔍</button>
+        </div>
+      
         <div class="icons_bar">
-          <div class="icon" id="introopen">     
-              <div>
-                  <img src="images/intro.png" alt="journal icon" style="border-radius: 50%">
+          <div class="icon">     
+              <div class="icon-img" id="introopen" title="intro">
+                  <img src="images/intro.png" alt="intro icon" style="border-radius: 50%">
+              </div>
+              <div class="introhvr iconhvr" id="introhvrclose">
+                  <img src="close.svg" alt="intro icon">
               </div>
           </div>
           
-          <div class="icon" id="journalopen">
-              <div>
+          
+          <div class="icon">
+              <div class="icon-img" id="journalopen" title="journal">
                   <img src="images/handbook.png" alt="journal icon">
               </div>
-          </div>
-          
-          <div class="icon" id="settingopen">
-              <div>
-                  <img src="images/edit.png" alt="setting icon">
+              <div class="journalhvr iconhvr" id="journalhvrclose">
+                  <img src="close.svg" alt="journal icon">
               </div>
           </div>
           
-          <div class="icon" id="terminalopen">
-              <div>
+          <div class="icon">
+              <div class="icon-img" id="settingopen" title="setting">
+                  <img src="images/edit.png" alt="setting icon">
+              </div>
+              <div class="settinghvr iconhvr" id="settinghvrclose">
+                  <img src="close.svg" alt="setting icon">
+              </div>
+          </div>
+          
+          <div class="icon">
+              <div class="icon-img" id="terminalopen" title="terminal">
                   <img src="images/edit.png" alt="terminal icon">
+              </div>
+              <div class="terminalhvr iconhvr" id="terminalhvrclose">
+                  <img src="close.svg" alt="terminal icon">
+              </div>
+          </div>
+
+          <div class="icon">     
+              <div class="icon-img" id="musicopen" title="music">
+                  <img src="images/intro.png" alt="music player icon" style="border-radius: 50%">
+              </div>
+              <div class="musichvr iconhvr" id="musichvrclose">
+                  <img src="close.svg" alt="music icon">
               </div>
           </div>
         </div>
@@ -84,7 +112,7 @@
                 <div class="window_icon" id="introclose" title="Close" >
                     <img src="close.svg" alt="closesvg">
                 </div>
-                <div class="window_icon" id="intromax">
+                <div class="window_icon" id="intromax" title="Maximize">
                     <img src="max.svg" alt="maxsvg">
                 </div>
                 <div class="window_icon" id="" style="background-color: #45ff11;"></div>
@@ -128,7 +156,7 @@
                     <div class="window_icon" id="journalclose" title="Close">
                         <img src="close.svg" alt="closesvg">
                     </div>
-                    <div class="window_icon" id="journalmax">
+                    <div class="window_icon" id="journalmax" title="Maximize">
                         <img src="max.svg" alt="maxsvg">
                     </div>
                     <div class="window_icon" style="background-color: #45ff11;"></div>
@@ -168,7 +196,7 @@
                     <div class="window_icon" id="settingclose" title="Close">
                         <img src="close.svg" alt="closesvg">
                     </div>
-                    <div class="window_icon" id="settingmax">
+                    <div class="window_icon" id="settingmax" title="Maximize">
                         <img src="max.svg" alt="maxsvg">
                     </div>
                     <div class="window_icon" style="background-color: #45ff11;"></div>
@@ -177,19 +205,19 @@
             </div>
             <div class="setting_content">
                 <div class="set_nav">
-                    <p class="set_tab">GENERAL</p>
-                    <p class="set_tab">ACCOUNT</p>
-                    <p class="set_tab">PERSONALIZATION</p>
-                    <p class="set_tab">GUIDE</p>
+                    <p class="set_tab" id="generalS">GENERAL</p>
+                    <p class="set_tab" id="accS">ACCOUNT</p>
+                    <p class="set_tab" id="perS">PERSONALIZATION</p>
+                    <p class="set_tab" id="guideS">GUIDE</p>
                 </div>
-                <div class="tab_content">
-                    <div class="generalS">
+                <div class="tab_content generalS">
+                    <div class="sett">
                         <p>GENERAL SETTINGS</p>
                     </div>
-                    <div class="accountS">
+                    <div class="sett accS">
                         <p>ACCOUNT SETTINGS</p>
                     </div>
-                    <div class="personalS tab_active">
+                    <div class="sett personalS">
                         <h2>PERSONALIZATION SETTINGS</h2>
                         <h3>Change Wallpaper</h3>
                         <div class="wall_preview" id="wallP">
@@ -217,25 +245,22 @@
                         <div class="sets">
                             <input type='file' id='customImage' accept='image/*' alt='Custom Wallpaper'>
                         </div>
-                        <div class="sets">
-
-                        </div>
                     </div>
-                    <div class="guideS">
+                    <div class="sett guideS">
                         <p>GUIDE SETTINGS</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- intro window --->
+        <!-- terminal window --->
         <div class="window terminal" id="terminal">
             <div class="windowheader" id="terminalheader">
               <div class="window_icons">
                 <div class="window_icon" id="terminalclose" title="Close" >
                     <img src="close.svg" alt="closesvg">
                 </div>
-                <div class="window_icon" id="terminalmax">
+                <div class="window_icon" id="terminalmax" title="Maximize">
                     <img src="max.svg" alt="maxsvg">
                 </div>
                 <div class="window_icon" id="" style="background-color: #45ff11;"></div>
@@ -243,7 +268,13 @@
               </div>
             </div>
             <div class="terminal_content" id="terminalC">
-                <img src="images/l1.gif" alt="">
+                <pre style="color: #ff803cff;">███╗   ███╗██╗███████╗ ██████╗██╗  ██╗██╗███████╗███████╗ ██████╗ ███████╗
+████╗ ████║██║██╔════╝██╔════╝██║  ██║██║██╔════╝██╔════╝██╔═══██╗██╔════╝
+██╔████╔██║██║███████╗██║     ███████║██║█████╗  █████╗  ██║   ██║███████╗
+██║╚██╔╝██║██║╚════██║██║     ██╔══██║██║██╔══╝  ██╔══╝  ██║   ██║╚════██║
+██║ ╚═╝ ██║██║███████║╚██████╗██║  ██║██║███████╗██║     ╚██████╔╝███████║
+╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝      ╚═════╝ ╚══════╝
+                                                                          </pre>
                 <div class="output" id="output"></div>
                 <div class="input" id="input">
                     <span id="tag">WEBOS2/MischiefOS >  </span>
@@ -253,7 +284,61 @@
         
         </div>
 
+        <!-- music player window --->
+        <div class="window music" id="music">
+            <div class="windowheader" id="musicheader">
+              <div class="window_icons">
+                <div class="window_icon" id="musicclose" title="Close" >
+                    <img src="close.svg" alt="closesvg">
+                </div>
+                <div class="window_icon" id="musicmax" title="Maximize">
+                    <img src="max.svg" alt="maxsvg">
+                </div>
+                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
+                <p>⭐ MUSIC PLAYER ⭐</p>
+              </div>
+            </div>
+            <div class="music_player">
+              <div class="head">
+                <select name="songs" id="song_selection">
+                  <option value="song1">song1</option>
+                  <option value="song2">song2</option>
+                  <option value="song2">song3</option>
+                </select>
+              </div>
+              <div class="disk">
+                <img src="images/intro.png" id="sImg">
+              </div>
+              <div class="info">
+                <h3 class="song_name">song name</h3>
+                <label class="song_creator">creator name</label>
+              </div>
+              <div class="player">
+                <input type="range">
+                <div>
+                  <span>00:00</span>
+                  <span>11:00</span>
+                </div>
+              </div>
+              <div class="controls">
+                <span></span>
+                <span id="playSong">
+                  <button class="play"></button>
+                  <button class="pause"></button>
+                </span>
+                <span>
+                  <button class="forward"></button>
+                </span>
+              </div>
+              <audio src="" class="song"></audio>
+              
+            </div>
         
+        </div>
+
+        <!---<script async src="https://cse.google.com/cse.js?cx=f321ccad0c0c14bce">
+        </script>
+        <div class="gcse-searchresults-only"></div> --->
         <!--
             > starting featues entry message, after ok the window become full window
             > apps are accessible in the app menu

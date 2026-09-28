@@ -1,3 +1,16 @@
+/*
+███╗   ███╗██╗███████╗ ██████╗██╗  ██╗██╗███████╗███████╗ ██████╗ ███████╗
+████╗ ████║██║██╔════╝██╔════╝██║  ██║██║██╔════╝██╔════╝██╔═══██╗██╔════╝
+██╔████╔██║██║███████╗██║     ███████║██║█████╗  █████╗  ██║   ██║███████╗
+██║╚██╔╝██║██║╚════██║██║     ██╔══██║██║██╔══╝  ██╔══╝  ██║   ██║╚════██║
+██║ ╚═╝ ██║██║███████║╚██████╗██║  ██║██║███████╗██║     ╚██████╔╝███████║
+╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝      ╚═════╝ ╚══════╝
+                                                                          
+*/
+
+
+
+
 // time function
 function updateTime() {
     var currentTime = new Date()
@@ -282,13 +295,32 @@ function initializeWindow(elementName) {
   var closeBtn = document.querySelector("#" + elementName + "close")
   var openBtn = document.querySelector("#" + elementName + "open")
   var maxBtn = document.querySelector("#" + elementName + "max")
-
+  var hvrBtn = document.querySelector("." + elementName + "hvr")
+  var hvrClose = document.querySelector("#" + elementName + "hvrclose")
 
   closeBtn.addEventListener("click", function() {
       closeWindow(screen);
   });
+  hvrClose.addEventListener("click", function() {
+      closeWindow(screen);
+  });
   openBtn.addEventListener("click", function() {
       openWindow(screen);
+  });
+  openBtn.addEventListener("mouseenter", function() {
+    if(screen.style.display==="flex"){
+      
+      hvrBtn.style.display =  "flex";
+    }
+  });
+  openBtn.addEventListener("mouseleave", function() {
+      hvrBtn.style.display =  "none";
+  });
+  hvrBtn.addEventListener("mouseenter", function() {
+      hvrBtn.style.display =  "flex";
+  });
+  hvrBtn.addEventListener("mouseleave", function() {
+      hvrBtn.style.display =  "none";
   });
   
   openBtn.addEventListener("click", function () {
@@ -308,6 +340,7 @@ initializeWindow("intro")
 initializeWindow("journal")
 initializeWindow("setting")
 initializeWindow("terminal")
+initializeWindow("music")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -413,6 +446,33 @@ function initJournal() {
 }
 initJournal()
 
+
+
+// settings functions here
+function activeSetTab() {
+  var tabS = document.querySelectorAll(".set_tab");
+  var sett = document.querySelectorAll(".sett");
+  
+  tabS.forEach(function (tab) {      
+    tab.addEventListener("click", function () {
+      sett.forEach(function (s) {
+        s.classList.remove("tab_active");
+      });
+        
+
+      if (tab.id === "generalS") {
+        sett[0].classList.add("tab_active");
+      } else if (tab.id === "accS") {
+        sett[1].classList.add("tab_active");
+      } else if (tab.id === "perS") {
+        sett[2].classList.add("tab_active");
+      } else if (tab.id === "guideS") {
+        sett[3].classList.add("tab_active");
+      }
+    });
+  });
+}
+activeSetTab();
 
 function activeSet() {
   var styles = document.querySelectorAll(".style");
@@ -578,11 +638,35 @@ function runCmd(str){
 terminalCmd();
 
 
+var song = document.querySelector(".song");
+var playing = document.querySelector(".play");
+var paused = document.querySelector(".pause");
+var forw = document.querySelector(".forward");
+var sImg = document.querySelector("#sImg");
+var sName = document.querySelector(".song_name");
+var sCreator = document.querySelector(".song_creator");
+var playSong = document.querySelector("#playSong");
 
+var sCreators = ['ALAN SILVESTRI', 'ALL CAPS', 'JAMIE EVANS MUSIC'];
+var sNames = ['AVENGERS ENDGAME ASSEMBLE', 'MADVILLAiN', 'ASCENSION SOUNDTRACK'];
 
-
-
-
+playSong.addEventListener("click", function(){
+  if(song.duration == song.currentTime){
+    x+=1;
+    
+  }
+  if(song.classList.contains('none')){
+    song.play();
+    setInterval(prog,1000);
+    setInterval(line,1000);
+    progres.addEventListener("click", (e) => {
+      var widthBar2 = (e.offsetX/e.target.clientWidth)*song.duration;
+      song.currentTime = widthBar2;
+    })
+  } else{
+    song.pause();
+  }
+});
 
 
 

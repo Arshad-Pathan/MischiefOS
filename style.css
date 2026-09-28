@@ -10,6 +10,7 @@ font-family: "VT323", monospace;
   padding: 0;
   margin: 0;
   user-select: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background: #121110;
+  z-index: 0;
 }
 
 .nav h4 {
@@ -93,6 +95,7 @@ body {
   transform: translateX(-50%);
   font-family: "Inter", sans-serif;
   background: #6DA47F;
+  z-index: 999;
 }
 .displayTimer div, .csTimer div{
   display: flex;
@@ -106,6 +109,12 @@ body {
   font-size: 28px;
 }
 
+.searchbar{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .icons_bar {
   position: fixed;
@@ -132,13 +141,27 @@ body {
   justify-content: space-evenly;
 }
 
-.icon div img {
-  height: 64px;
+.icon div img{
+  height: 54px;
 }
 
-.icon div:hover img{
-  height: 80px;
+.icon .icon-img:hover img{
+  height: 70px;
 }
+
+.iconhvr{
+  height: 70px;
+  position: absolute;
+  top: -40px;
+  display: none;
+  cursor: pointer;
+}
+.icon .iconhvr img{
+  height: 40px;
+}
+
+
+
 
 .window {
   position: absolute;
@@ -156,6 +179,7 @@ body {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   border: 3px solid rgb(255, 128, 60);
+  z-index: 100;
 }
 
 .windowheader {
@@ -164,10 +188,10 @@ body {
   align-items: center;
   justify-content: space-between;
   cursor: move;
-  padding: 4px 12px;
+  padding: 6px 12px;
   background-color: rgb(90, 40, 11);
   border-bottom: 3px solid rgb(255, 128, 60);
-  border-radius: 20px 20px 0 0;
+  border-radius: 17px 17px 0 0;
 }
 
 .window_icons {
@@ -424,14 +448,14 @@ body {
   cursor: pointer;
   background-color: #95c292;
 }
-.set_nav .tab_active {
+.tab_content .tab_active {
   background-color: #6DA47F;
   color: #fff;
 }
 /* .tab_content {
 
 } */
-.tab_content div {
+.tab_content .sett {
   display: none;
   flex-direction: column;
   gap: 4px;
@@ -519,9 +543,8 @@ body {
 
 
 .terminal{
-  display: flex;
   height: 500px;
-  width: 700px;
+  width: 750px;
 }
 .terminal_content{
   height: 100%;
@@ -546,4 +569,81 @@ body {
   outline: none;
   font-family: 'Courier New', Courier, monospace;
   color: #fff;
+}
+
+.music{
+  height: 500px;
+  width: 500px;
+}
+.music_player{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #726373;
+}
+.head{
+  width: 100%;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.disk{
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #777766;
+}
+.disk img{
+  width: 50%;
+  border-radius: 50%;
+  transform: rotate(0deg);
+}
+.r-disk img{
+  animation: round 10s linear infinite;
+}
+@keyframes round{
+  0%{
+    transform: rotate(0deg);
+  } 100% {
+    transform: rotate(360deg);
+  }
+}
+.info{
+  box-sizing: border-box;
+  padding: 10px;
+}
+.info .song-name{
+  font-size: 20px;
+  font-weight: 400;
+}
+.info .song-creator{
+  font-size: 16px;
+  font-weight: 400;
+}
+.player{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+.player div{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+.controls{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #aaafff;
+}
+.controls span{
+  height: 34px;
+  width: 34px;
+  background: #abc234;
 }
