@@ -230,7 +230,7 @@ function maxWindow(element) {
     element.dataset.originalTop = element.style.top;
     element.dataset.originalLeft = element.style.left;
 
-    element.style.position = "relative";
+    element.style.position = "sticky";
     element.style.top = "0%";
     element.style.left = "0%";
     element.style.transform = "translate(0,0)";
@@ -297,6 +297,7 @@ function initializeWindow(elementName) {
   var maxBtn = document.querySelector("#" + elementName + "max")
   var hvrBtn = document.querySelector("." + elementName + "hvr")
   var hvrClose = document.querySelector("#" + elementName + "hvrclose")
+  var windowheaders = document.querySelectorAll(".windowheader");
 
   closeBtn.addEventListener("click", function() {
       closeWindow(screen);
@@ -331,6 +332,16 @@ function initializeWindow(elementName) {
     event.stopPropagation();
     maxWindow(screen);
   });
+
+  // ================ this is not ai written but an attention grabber ==========================
+  // this is for to acknowledge the below code enables you to maximize window
+  // when you double click on app name header, it is inspiride from windows functionality
+
+  // windowheaders.forEach((each)=>{
+  //   each.addEventListener("dblclick",()=>{
+  //     maxWindow(screen)
+  //   })
+  // });
 
   addWindowTapHandling(screen)
   dragElement(screen)
@@ -694,7 +705,6 @@ function loadSelectedSong(i){
   aud.src = song.audio;
   document.getElementById("song_selection").value=currSong;
   aud.play();
-  songControllers();
 
   // document.querySelector(".playPause").addEventListener("click", Pp)
 }
@@ -740,14 +750,14 @@ function songControllers(){
     loadSelectedSong(currSong);
     aud.play();
   });
-  // back.addEventListener("click",()=>{
-  //   currSong--;
-  //   if(currSong < 0){
-  //     currSong=songs.length - 1;
-  //   }
-  //   loadSelectedSong(currSong);
-  //   aud.play();
-  // });
+  back.addEventListener("click",()=>{
+    currSong--;
+    if(currSong < 0){
+      currSong=songs.length - 1;
+    }
+    loadSelectedSong(currSong);
+    aud.play();
+  });
   
 }
 // i used ai just for this
@@ -800,6 +810,7 @@ function sOptSelection(){
 
 
 sOptSelection();
+songControllers();
 
 
 
