@@ -27,13 +27,13 @@ body {
 
 .nav {
   position: relative;
-  /* height: 10px; */
+  width: 100%; 
   padding: 6px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #121110;
-  z-index: 0;
+  z-index: -100;
 }
 
 .nav h4 {
@@ -462,6 +462,10 @@ body {
   padding: 4px;
   background-color: #ffbaba;
 }
+.sett.accS div{
+  display: flex;
+  flex-direction: row;
+}
 .personalS {
   position: relative;
 }
@@ -572,6 +576,7 @@ body {
 }
 
 .music{
+  display: flex;
   height: 500px;
   width: 500px;
 }
@@ -580,6 +585,8 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #726373;
 }
 .head{
@@ -588,11 +595,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .disk{
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
+  align-items: center;
   padding: 10px;
   background: #777766;
 }
@@ -601,7 +609,7 @@ body {
   border-radius: 50%;
   transform: rotate(0deg);
 }
-.r-disk img{
+.r-disk{
   animation: round 10s linear infinite;
 }
 @keyframes round{

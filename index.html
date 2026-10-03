@@ -216,6 +216,10 @@
                     </div>
                     <div class="sett accS">
                         <p>ACCOUNT SETTINGS</p>
+                        <div>
+                          <label>Lock Screen Appearance</label>
+                          <input type="range" value=0 min=0 max=1 style="width: 30px;">
+                        </div>
                     </div>
                     <div class="sett personalS">
                         <h2>PERSONALIZATION SETTINGS</h2>
@@ -301,36 +305,40 @@
             <div class="music_player">
               <div class="head">
                 <select name="songs" id="song_selection">
-                  <option value="song1">song1</option>
-                  <option value="song2">song2</option>
-                  <option value="song2">song3</option>
+                  <option class="s" value="-1" selected>select</option>
+                  <option class="s" value="0">Loki TVA First View</option>
+                  <option class="s" value="1">Season6</option>
+                  <option class="s" value="2">Purpose Is Glorious</option>
+                  <option class="s" value="3">DB COOPER</option>
+                  <option class="s" value="4">GONE, GONE THANK YOU</option>
                 </select>
               </div>
               <div class="disk">
-                <img src="images/intro.png" id="sImg">
+                <img class="sI" src="images/intro.png">
               </div>
               <div class="info">
                 <h3 class="song_name">song name</h3>
                 <label class="song_creator">creator name</label>
               </div>
+              <audio src="" id="song"></audio>
               <div class="player">
-                <input type="range">
+                <input type="range" id="sProg" value=0 min=0 max=100>
                 <div>
-                  <span>00:00</span>
-                  <span>11:00</span>
+                  <span id="currTime">00:00</span>
+                  <span id="duration">11:00</span>
                 </div>
               </div>
               <div class="controls">
-                <span></span>
+                <span>
+                  <button class="back">«</button>
+                </span>
                 <span id="playSong">
-                  <button class="play"></button>
-                  <button class="pause"></button>
+                  <button class="playPause">■</button>
                 </span>
                 <span>
-                  <button class="forward"></button>
+                  <button class="forward">»</button>
                 </span>
               </div>
-              <audio src="" class="song"></audio>
               
             </div>
         

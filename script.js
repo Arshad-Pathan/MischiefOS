@@ -235,7 +235,7 @@ function maxWindow(element) {
     element.style.left = "0%";
     element.style.transform = "translate(0,0)";
     element.style.width = "100%";
-    element.style.height = "100%";
+    element.style.height = "calc(100vh - 32px)";
     element.classList.add("maximized");
     if(startDragging){
       element.style.width = "80%";
@@ -638,35 +638,166 @@ function runCmd(str){
 terminalCmd();
 
 
-var song = document.querySelector(".song");
-var playing = document.querySelector(".play");
-var paused = document.querySelector(".pause");
-var forw = document.querySelector(".forward");
-var sImg = document.querySelector("#sImg");
-var sName = document.querySelector(".song_name");
-var sCreator = document.querySelector(".song_creator");
-var playSong = document.querySelector("#playSong");
+var songs = [
+  {
+    name: "Loki TVA First View",
+    creator: "NATALIE HOLT",
+    img: "images/Folder 1@2x.png",
+    audio: "images/Loki TVA First View.mp3"
+  },
+  {
+    name: "Season6",
+    creator: "NATALIE HOLT",
+    img: "images/intro.png",
+    audio: "images/LOKI Season 2 EPISODE 6 END CREDITS Theme _ Natalie Holt _ Epic Version [2DnydJsvZt0].mp3"
+  },
+  {
+    name: "Purpose Is Glorious",
+    creator: "NATALIE HOLT",
+    img: "images/intro.png",
+    audio: "images/Purpose Is Glorious (From Loki Season 2 - Vol. 2 (Episodes 4-6) Score Audio Only).mp3"
+  },
+  {
+    name: "DB COOPER",
+    creator: "NATALIE HOLT",
+    img: "images/Folder 1@2x.png",
+    audio: "images/DB Cooper [yPksQPjUmmY].mp3"
+  },
+  {
+    name: "GONE, GONE THANK YOU",
+    creator: "Tyler, The Creator",
+    img: "images/intro.png",
+    audio: "images/Tyler, The Creator - GONE, GONE THANK YOU.mp3"
+  }
+];
 
-var sCreators = ['ALAN SILVESTRI', 'ALL CAPS', 'JAMIE EVANS MUSIC'];
-var sNames = ['AVENGERS ENDGAME ASSEMBLE', 'MADVILLAiN', 'ASCENSION SOUNDTRACK'];
+var currSong = 0;
 
-playSong.addEventListener("click", function(){
-  if(song.duration == song.currentTime){
-    x+=1;
+// var sProg = document.getElementById("sProg");
+// var currTime = document.getElementById("currTime");
+// var duration = document.getElementById("duration");
+
+// var playSong = document.querySelector("#playSong");
+
+function loadSelectedSong(i){
+  var sImg = document.querySelector(".disk .sI");
+  var sName = document.querySelector(".song_name");
+  var sCreator = document.querySelector(".song_creator");
+  var aud = document.getElementById("song");
+
+  var sOptSelection=document.getElementById("song_selection");
+  var song = songs[i];
+  
+  var aud = document.getElementById("song");
+  var playPause = document.querySelector(".playPause");
+  var back = document.querySelector(".back");
+  var forw = document.querySelector(".forward");
+  
+  sImg.src = song.img;
+  sName.innerText = song.name;
+  sCreator.innerText = song.creator;
+  aud.src = song.audio;
+  aud.play();
+  songControllers();
+}
+function songControllers(){
+  var aud = document.getElementById("song");
+  var sImg = document.querySelector(".disk .sI");
+  
+  var playPause = document.querySelector(".playPause");
+  var back = document.querySelector(".back");
+  var forw = document.querySelector(".forward");
+  
+  playPause.addEventListener("click", ()=>{
+    if(aud.paused){
+      aud.play();
+    }
+    else if(aud.play) {
+      aud.pause();
+    }
+  });
+  aud.addEventListener("play",()=>{
+    playPause.textContent="◇"
+    sImg.classList.add("r-disk");
+  });
+  aud.addEventListener("pause",()=>{
+    playPause.textContent="■"
+    sImg.classList.remove("r-disk");
+  });
+}
+// i used ai just for this
+function sTimeFormate(seconds){
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  
+  return (
+        String(minutes).padStart(2, "0")
+        + ":" +
+        String(secs).padStart(2, "0")
+    );
+}
+
+
+function sOptSelection(){
+  var sOptSelection=document.getElementById("song_selection");
+  var opts = document.querySelectorAll("#song_selection .s");
+
+  sOptSelection.addEventListener("change",function(){
+    currSong = this.value;
+    if(currSong === "0"){
+      loadSelectedSong(currSong);
+    }
+    else if(currSong === "1"){
+      loadSelectedSong(currSong);
+    }
+    else if(currSong === "2"){
+      loadSelectedSong(currSong);
+    }
+    else if(currSong === "3"){
+      loadSelectedSong(currSong);
+    }
+    else if(currSong === "4"){
+      loadSelectedSong(currSong);
+    }
+  })
+  
+} 
+
+// function songControllers(){
+//    var playPause = document.querySelector(".playPause");
+//    var back = document.querySelector(".back");
+//    var forw = document.querySelector(".forward");
+
+//   playPause.addEventListener("click", () =>{
+//     if(aud)
+//   })
+// }
+
+
+sOptSelection();
+loadSelectedSong();
+// playSong.addEventListener("click", playTog);
+
+// function playTog(){
+//   if(song.duration == song.currentTime){
+//     x+=1;
     
-  }
-  if(song.classList.contains('none')){
-    song.play();
-    setInterval(prog,1000);
-    setInterval(line,1000);
-    progres.addEventListener("click", (e) => {
-      var widthBar2 = (e.offsetX/e.target.clientWidth)*song.duration;
-      song.currentTime = widthBar2;
-    })
-  } else{
-    song.pause();
-  }
-});
+//   }
+//   if(!playing.classList.contains('none')){
+//     song.play();
+//     setInterval(prog,1000);
+//     setInterval(line,1000);
+//     progres.addEventListener("click", (e) => {
+//       var widthBar2 = (e.offsetX/e.target.clientWidth)*song.duration;
+//       song.currentTime = widthBar2;
+//     })
+//   } else{
+//     song.pause();
+//   }
+//   playing.classList.toggle("none");
+//   paused.classList.toggle("none");
+//   sImg.classList.toggle("round");
+// }
 
 
 
