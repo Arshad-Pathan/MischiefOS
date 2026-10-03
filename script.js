@@ -687,18 +687,24 @@ function loadSelectedSong(i){
 
   var sOptSelection=document.getElementById("song_selection");
   var song = songs[i];
-  
-  var aud = document.getElementById("song");
-  var playPause = document.querySelector(".playPause");
-  var back = document.querySelector(".back");
-  var forw = document.querySelector(".forward");
-  
+
   sImg.src = song.img;
   sName.innerText = song.name;
   sCreator.innerText = song.creator;
   aud.src = song.audio;
+  document.getElementById("song_selection").value=currSong;
   aud.play();
   songControllers();
+
+  // document.querySelector(".playPause").addEventListener("click", Pp)
+}
+function Pp(){
+  var aud = document.getElementById("song");
+  if(aud.paused){
+    aud.play();
+  } else {
+    aud.pause();
+  }
 }
 function songControllers(){
   var aud = document.getElementById("song");
@@ -708,14 +714,15 @@ function songControllers(){
   var back = document.querySelector(".back");
   var forw = document.querySelector(".forward");
   
-  playPause.addEventListener("click", ()=>{
-    if(aud.paused){
-      aud.play();
-    }
-    else if(aud.play) {
-      aud.pause();
-    }
-  });
+  // playPause.addEventListener("click", ()=>{
+  //   if(aud.paused){
+  //     aud.play();
+  //   } else {
+  //     aud.pause();
+  //   }
+  // });
+  playPause.addEventListener("click", Pp);
+  
   aud.addEventListener("play",()=>{
     playPause.textContent="◇"
     sImg.classList.add("r-disk");
@@ -724,6 +731,24 @@ function songControllers(){
     playPause.textContent="■"
     sImg.classList.remove("r-disk");
   });
+
+  forw.addEventListener("click",()=>{
+    currSong++;
+    if(currSong >= songs.length){
+      currSong=0;
+    }
+    loadSelectedSong(currSong);
+    aud.play();
+  });
+  // back.addEventListener("click",()=>{
+  //   currSong--;
+  //   if(currSong < 0){
+  //     currSong=songs.length - 1;
+  //   }
+  //   loadSelectedSong(currSong);
+  //   aud.play();
+  // });
+  
 }
 // i used ai just for this
 function sTimeFormate(seconds){
@@ -736,7 +761,7 @@ function sTimeFormate(seconds){
         String(secs).padStart(2, "0")
     );
 }
-
+loadSelectedSong(0);
 
 function sOptSelection(){
   var sOptSelection=document.getElementById("song_selection");
@@ -775,29 +800,7 @@ function sOptSelection(){
 
 
 sOptSelection();
-loadSelectedSong();
-// playSong.addEventListener("click", playTog);
 
-// function playTog(){
-//   if(song.duration == song.currentTime){
-//     x+=1;
-    
-//   }
-//   if(!playing.classList.contains('none')){
-//     song.play();
-//     setInterval(prog,1000);
-//     setInterval(line,1000);
-//     progres.addEventListener("click", (e) => {
-//       var widthBar2 = (e.offsetX/e.target.clientWidth)*song.duration;
-//       song.currentTime = widthBar2;
-//     })
-//   } else{
-//     song.pause();
-//   }
-//   playing.classList.toggle("none");
-//   paused.classList.toggle("none");
-//   sImg.classList.toggle("round");
-// }
 
 
 
