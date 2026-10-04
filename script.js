@@ -704,34 +704,51 @@ function loadSelectedSong(i){
   sCreator.innerText = song.creator;
   aud.src = song.audio;
   document.getElementById("song_selection").value=currSong;
+  document.getElementById("sProg").value = 0;
+  document.getElementById("currTime").textContent = "00:00";
+  document.getElementById("duration").textContent = "00:00";
   aud.play();
 
-  // document.querySelector(".playPause").addEventListener("click", Pp)
+
 }
-function Pp(){
-  var aud = document.getElementById("song");
-  if(aud.paused){
-    aud.play();
-  } else {
-    aud.pause();
-  }
-}
+
 function songControllers(){
   var aud = document.getElementById("song");
   var sImg = document.querySelector(".disk .sI");
+
+  var sProg = document.getElementById("sProg");
+  var currTime = document.getElementById("currTime");
+  var duration = document.getElementById("duration");
   
   var playPause = document.querySelector(".playPause");
   var back = document.querySelector(".back");
   var forw = document.querySelector(".forward");
+
+  // song range
+  aud.addEventListener("loadedmetadata", ()=>{
+    duration.textContent = sTimeFormate(aud.duration);
+  });
+
+  aud.addEventListener("timeupdate", ()=>{
+    if (!aud.duration) return;
+    const p = (aud.currentTime / aud.duration) * 100;
+    sProg.value = p;
+    currTime.textContent = sTimeFormate(aud.currentTime);
+  });
+  sProg.addEventListener("input", () => {
+    if (!aud.duration) return;
+    aud.currentTime = (sProg.value / 100) * aud.duration;
+  });
   
-  // playPause.addEventListener("click", ()=>{
-  //   if(aud.paused){
-  //     aud.play();
-  //   } else {
-  //     aud.pause();
-  //   }
-  // });
-  playPause.addEventListener("click", Pp);
+  
+  //play pause
+  playPause.addEventListener("click", ()=>{
+    if(aud.paused){
+      aud.play();
+    } else {
+      aud.pause();
+    }
+  });
   
   aud.addEventListener("play",()=>{
     playPause.textContent="◇"
@@ -741,7 +758,7 @@ function songControllers(){
     playPause.textContent="■"
     sImg.classList.remove("r-disk");
   });
-
+  // forward
   forw.addEventListener("click",()=>{
     currSong++;
     if(currSong >= songs.length){
@@ -750,6 +767,7 @@ function songControllers(){
     loadSelectedSong(currSong);
     aud.play();
   });
+  // backward
   back.addEventListener("click",()=>{
     currSong--;
     if(currSong < 0){
@@ -758,10 +776,20 @@ function songControllers(){
     loadSelectedSong(currSong);
     aud.play();
   });
-  
+
+  // pause when app closes
+  document.addEventListener("visibilitychange", function(){
+    aud.pause()
+  });
+
+  // pause or keep playing when closes the music player, is the way
 }
 // i used ai just for this
 function sTimeFormate(seconds){
+  if ( isNaN(seconds) || !isFinite(seconds) ) {
+    return "00:00";
+  }
+  
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   
@@ -809,8 +837,8 @@ function sOptSelection(){
 // }
 
 
-sOptSelection();
 songControllers();
+sOptSelection();
 
 
 
