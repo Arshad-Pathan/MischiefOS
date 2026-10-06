@@ -52,8 +52,13 @@
         </div>
 
         <div class="searchbar">
-          <input class="search" type="text" placeholder="Search Anything">
-          <button type="submit" class="searchBtn">🔍</button>
+          <!-- <form action="https://cse.google.com/cse.js?cx=2402cb888b9144dd7" method="get">
+            <input class="search" type="text" placeholder="Search Anything">
+            <button type="submit" class="searchBtn">🔍</button>
+          </form> -->
+          <script async src="https://cse.google.com/cse.js?cx=2402cb888b9144dd7">
+          </script>
+          <div class="gcse-search"></div>
         </div>
       
         <div class="icons_bar">
@@ -100,6 +105,15 @@
               </div>
               <div class="musichvr iconhvr" id="musichvrclose">
                   <img src="close.svg" alt="music icon">
+              </div>
+          </div>
+          
+          <div class="icon">     
+              <div class="icon-img" id="searchopen" title="search">
+                  <img src="images/intro.png" alt="search icon" style="border-radius: 50%">
+              </div>
+              <div class="searchhvr iconhvr" id="searchhvrclose">
+                  <img src="close.svg" alt="search icon">
               </div>
           </div>
         </div>
@@ -342,10 +356,34 @@
             </div>
         
         </div>
+      
+        <!-- search window --->
+        <div class="window search" id="search">
+            <div class="windowheader" id="searchheader">
+              <div class="window_icons">
+                <div class="window_icon" id="searchclose" title="Close" >
+                    <img src="close.svg" alt="closesvg">
+                </div>
+                <div class="window_icon" id="searchmax" title="Maximize">
+                    <img src="max.svg" alt="maxsvg">
+                </div>
+                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
+                <p>⭐ SEARCH ⭐</p>
+              </div>
+            </div>
+            <div class="search_browser" style="height: 600px; width: 600px;" >
+              <div class="search_tabs">
+                <span class="search_home"></span>
+              </div>
+              <script async src="https://cse.google.com/cse.js?cx=2402cb888b9144dd7">
+              </script>
+              <div class="gcse-search"></div>
+              <!-- This embeds the page without the main navigation headers and sidebars -->
 
-        <!---<script async src="https://cse.google.com/cse.js?cx=f321ccad0c0c14bce">
-        </script>
-        <div class="gcse-searchresults-only"></div> --->
+            </div>
+        
+          </div>
+
         <!--
             > starting featues entry message, after ok the window become full window
             > apps are accessible in the app menu

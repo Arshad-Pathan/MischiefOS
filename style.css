@@ -164,7 +164,7 @@ body {
 
 
 .window {
-  position: sticky;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -326,6 +326,7 @@ body {
 .journal {
   width: 730px;
   height: 600px;
+  left: 73%;
 }
 
 .journal_icons {
@@ -424,6 +425,8 @@ body {
 .setting {
   width: 600px;
   height: 400px;
+  top: 30%;
+  left: 60%;
 }
 
 .setting_content {
@@ -549,6 +552,8 @@ body {
 .terminal{
   height: 500px;
   width: 750px;
+  left: 30%;
+  top: 44%;
 }
 .terminal_content{
   height: 100%;
@@ -576,9 +581,10 @@ body {
 }
 
 .music{
-  display: flex;
   height: 500px;
   width: 500px;
+  top: 62%;
+  left: 36%;
 }
 .music_player{
   height: 100%;
@@ -655,3 +661,4 @@ body {
   width: 34px;
   background: #abc234;
 }
+

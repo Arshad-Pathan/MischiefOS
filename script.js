@@ -352,6 +352,7 @@ initializeWindow("journal")
 initializeWindow("setting")
 initializeWindow("terminal")
 initializeWindow("music")
+initializeWindow("search")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
