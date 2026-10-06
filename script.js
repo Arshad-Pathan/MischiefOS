@@ -354,6 +354,7 @@ initializeWindow("terminal")
 initializeWindow("music")
 initializeWindow("search")
 initializeWindow("library")
+initializeWindow("gallery")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -698,7 +699,7 @@ function loadSelectedSong(i){
   var sCreator = document.querySelector(".song_creator");
   var aud = document.getElementById("song");
 
-  var sOptSelection=document.getElementById("song_selection");
+  // var sOptSelection=document.getElementById("song_selection");
   var song = songs[i];
 
   sImg.src = song.img;
@@ -805,7 +806,7 @@ loadSelectedSong(0);
 
 function sOptSelection(){
   var sOptSelection=document.getElementById("song_selection");
-  var opts = document.querySelectorAll("#song_selection .s");
+  // var opts = document.querySelectorAll("#song_selection .s");
 
   sOptSelection.addEventListener("change",function(){
     currSong = this.value;
@@ -871,3 +872,46 @@ function libManagement(){
   });
 }
 libManagement();
+
+
+var galleryImgs = [
+  { src: "images/wall1.jpg", cat: "wallpapers" },
+  { src: "images/ins2.png", cat: "wallpapers" },
+  { src: "images/wall1.jpg", cat: "wallpapers" },
+  { src: "images/ins1.jpg", cat: "memes" },
+  { src: "images/ins1.jpg", cat: "memes" },
+  { src: "images/ins1.jpg", cat: "memes" },
+  { src: "images/Folder 1@2x.png", cat: "Archives" },
+  { src: "images/Folder 1@2x.png", cat: "Archives" },
+  { src: "images/Folder 1@2x.png", cat: "Archives" }
+];
+
+function loadRecents() {
+  var recCon = document.getElementById("rec_con");
+  var albCon = document.getElementById("alb_con");
+
+  var recImgs = galleryImgs;
+  recImgs.forEach(function(img) {
+    // var imgComponent = document.createElement("img");
+    // imgComponent.src = img.src;
+    // recCon.appendChild(imgComponent);
+
+    recCon.innerHTML = `
+    <img src="${img.src}" alt="gallery image" class="rec_img">
+    `;
+  });
+}
+
+function galManagement(){
+  var recent = document.getElementById("recents");
+  var albums = document.getElementById("albums");
+
+  if (albums.classList.contains("active")){
+    loadAlbums();
+  } else {
+    loadRecents();
+  }
+  recent.addEventListener("click",loadRecents);
+  albums.addEventListener("click",loadAlbums);
+}
+galManagement();

@@ -125,6 +125,15 @@
                   <img src="close.svg" alt="library icon">
               </div>
           </div>
+          
+          <div class="icon">     
+              <div class="icon-img" id="galleryopen" title="gallery">
+                  <img src="images/edit.png" alt="gallery icon" style="border-radius: 50%">
+              </div>
+              <div class="galleryhvr iconhvr" id="galleryhvrclose">
+                  <img src="close.svg" alt="gallery icon">
+              </div>
+          </div>
         </div>
         
         
@@ -407,7 +416,8 @@
                 <p>⭐ Library ⭐</p>
               </div>
             </div>
-            <div class="library_files" style="height: 600px; width: 600px;" >
+            
+            <div class="library_files">
                 <span class="files"></span>
                 <span class="files"></span>
                 <span class="files"></span>
@@ -418,53 +428,84 @@
                 <span class="files"></span>
                 <span class="files"></span>
             </div>
-        
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/ani.gif" class="title_img" alt="">
-        <img src="images/wall1.jpg" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/left.png" class="title_img" alt="">
-        <img src="images/right.png" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/ani.gif" class="title_img" alt="">
-        <img src="images/wall1.jpg" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/left.png" class="title_img" alt="">
-        <img src="images/right.png" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/ani.gif" class="title_img" alt="">
-        <img src="images/wall1.jpg" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/left.png" class="title_img" alt="">
-        <img src="images/right.png" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/ani.gif" class="title_img" alt="">
-        <img src="images/wall1.jpg" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/left.png" class="title_img" alt="">
-        <img src="images/right.png" class="main_img" alt="">
-    </div>
-    <div class="indFiles">
-        <span class="cls_file">close</span>
-        <img src="images/ani.gif" class="title_img" alt="">
-        <img src="images/wall1.jpg" class="main_img" alt="">
-    </div>
+        </div>
+
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/ani.gif" class="title_img" alt="">
+            <img src="images/wall1.jpg" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/left.png" class="title_img" alt="">
+            <img src="images/right.png" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/ani.gif" class="title_img" alt="">
+            <img src="images/wall1.jpg" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/left.png" class="title_img" alt="">
+            <img src="images/right.png" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/ani.gif" class="title_img" alt="">
+            <img src="images/wall1.jpg" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/left.png" class="title_img" alt="">
+            <img src="images/right.png" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/ani.gif" class="title_img" alt="">
+            <img src="images/wall1.jpg" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/left.png" class="title_img" alt="">
+            <img src="images/right.png" class="main_img" alt="">
+        </div>
+        <div class="indFiles">
+            <span class="cls_file">close</span>
+            <img src="images/ani.gif" class="title_img" alt="">
+            <img src="images/wall1.jpg" class="main_img" alt="">
+        </div>
+
+        <!-- Gallery window --->
+        <div class="window gallery" id="gallery">
+            <div class="windowheader" id="galleryheader">
+              <div class="window_icons">
+                <div class="window_icon" id="galleryclose" title="Close" >
+                    <img src="close.svg" alt="closesvg">
+                </div>
+                <div class="window_icon" id="gallerymax" title="Maximize">
+                    <img src="max.svg" alt="maxsvg">
+                </div>
+                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
+                <p>⭐ Gallery ⭐</p>
+              </div>
+            </div>
+            
+            <div class="gallery_imgs">
+                <div class="nav_tab">
+                    <span class="img_views active" id="recents">Recents</span>
+                    <span class="img_views" id="albums">Albums</span>
+                </div>
+                <div class="img_containers">
+                    <div class="img_con" id="rec_con">
+
+                    </div>
+                    <div class="img_con" id="alb_con">
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--
             > starting featues entry message, after ok the window become full window
