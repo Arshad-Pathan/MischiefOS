@@ -353,6 +353,7 @@ initializeWindow("setting")
 initializeWindow("terminal")
 initializeWindow("music")
 initializeWindow("search")
+initializeWindow("library")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -845,5 +846,28 @@ sOptSelection();
 
 
 
+// Library
+function libManagement(){
+  var files = document.querySelectorAll(".files");
+  var indFiles = document.querySelectorAll(".indFiles");
+
+  files.forEach(function(file,i){
+    file.addEventListener("click", function(){
+      indFiles.forEach(function(ind){
+        ind.style.display="none";
+        if (files[i]) {
+          indFiles[i].style.display="flex";
+          document.querySelectorAll(".cls_file").forEach((cls)=>{
+            cls.addEventListener("click",()=>{
+              indFiles[i].style.display="none";
+            })
+          });
+            
+        }
+      });
 
 
+    });
+  });
+}
+libManagement();
