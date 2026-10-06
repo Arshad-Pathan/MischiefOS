@@ -888,20 +888,33 @@ var galleryImgs = [
 
 function loadRecents() {
   var recCon = document.getElementById("rec_con");
-  var albCon = document.getElementById("alb_con");
 
   var recImgs = galleryImgs;
   recImgs.forEach(function(img) {
-    // var imgComponent = document.createElement("img");
-    // imgComponent.src = img.src;
-    // recCon.appendChild(imgComponent);
+    var recImg = document.createElement("img");
+    recImg.src = img.src;
+    recCon.appendChild(recImg);
 
-    recCon.innerHTML = `
-    <img src="${img.src}" alt="gallery image" class="rec_img">
-    `;
+    // recCon.innerHTML = `
+    // <img src="${img.src}" alt="gallery image" class="rec_img">
+    // `;
   });
 }
 
+function loadAlbums() {
+  var albCon = document.getElementById("alb_con");
+// ====================  Not completed yet, have to write full logic ==========================
+  var recImgs = galleryImgs;
+  recImgs.forEach(function(img) {
+    var recImg = document.createElement("img");
+    recImg.src = img.src;
+    albCon.appendChild(recImg);
+
+    // recCon.innerHTML = `
+    // <img src="${img.src}" alt="gallery image" class="rec_img">
+    // `;
+  });
+}
 function galManagement(){
   var recent = document.getElementById("recents");
   var albums = document.getElementById("albums");
