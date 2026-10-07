@@ -876,55 +876,67 @@ libManagement();
 
 var galleryImgs = [
   { src: "images/wall1.jpg", cat: "wallpapers" },
+  { src: "images/ins1.jpg", cat: "memes" },
+  { src: "images/Folder 1@2x.png", cat: "Archives" },
   { src: "images/ins2.png", cat: "wallpapers" },
   { src: "images/wall1.jpg", cat: "wallpapers" },
   { src: "images/ins1.jpg", cat: "memes" },
   { src: "images/ins1.jpg", cat: "memes" },
-  { src: "images/ins1.jpg", cat: "memes" },
-  { src: "images/Folder 1@2x.png", cat: "Archives" },
   { src: "images/Folder 1@2x.png", cat: "Archives" },
   { src: "images/Folder 1@2x.png", cat: "Archives" }
 ];
 
+function galManagement(){
+  var recent = document.getElementById("recents");
+  var albums = document.getElementById("albums");
+  var recCon = document.getElementById("rec_con");
+  var albCon = document.getElementById("alb_con");
+
+  // if (albums.classList.contains("active")){
+  //   loadAlbums();
+  // } else {
+  //   loadRecents();
+  // }
+  loadRecents();
+  albCon.style.display = "none";
+  recent.addEventListener("click",()=>{
+    if(!loadRecents){
+      loadRecents();
+      albCon.style.display = "none";
+    }
+  });
+  albums.addEventListener("click",()=>{
+    // if(!loadAlbums){
+      loadAlbums();
+      recCon.style.display = "none";
+    // }
+    
+  });
+}
+galManagement();
+
+
+
 function loadRecents() {
   var recCon = document.getElementById("rec_con");
-
+  recCon.style.display = "grid"; 
   var recImgs = galleryImgs;
   recImgs.forEach(function(img) {
     var recImg = document.createElement("img");
     recImg.src = img.src;
     recCon.appendChild(recImg);
-
-    // recCon.innerHTML = `
-    // <img src="${img.src}" alt="gallery image" class="rec_img">
-    // `;
   });
 }
 
 function loadAlbums() {
   var albCon = document.getElementById("alb_con");
-// ====================  Not completed yet, have to write full logic ==========================
-  var recImgs = galleryImgs;
-  recImgs.forEach(function(img) {
-    var recImg = document.createElement("img");
-    recImg.src = img.src;
-    albCon.appendChild(recImg);
+  albCon.style.display = "flex";
+  // ====================  Not completed yet, have to write full logic ==========================
+  var albImgs = galleryImgs;
+  albImgs.slice(0,3).forEach(function(img) {
+    var albImg = document.createElement("img");
+    albImg.src = img.src;
+    albCon.appendChild(albImg);    
 
-    // recCon.innerHTML = `
-    // <img src="${img.src}" alt="gallery image" class="rec_img">
-    // `;
   });
 }
-function galManagement(){
-  var recent = document.getElementById("recents");
-  var albums = document.getElementById("albums");
-
-  if (albums.classList.contains("active")){
-    loadAlbums();
-  } else {
-    loadRecents();
-  }
-  recent.addEventListener("click",loadRecents);
-  albums.addEventListener("click",loadAlbums);
-}
-galManagement();

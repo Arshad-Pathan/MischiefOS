@@ -728,13 +728,16 @@ body {
   display: flex;
 }
 #rec_con{
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 #alb_con{
-  display: flex;
+  display: none;
   gap: 12px;
+}
+.active{
+  color: #6DA47F;
 }
 /* #alb_con span{
   display: flex;
@@ -742,8 +745,14 @@ body {
   gap: 12px;
 } */
 #rec_con img{
-  width: 100px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+#alb_con img{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
 }
