@@ -380,6 +380,10 @@ function journalEntry(){
   if (!leftTA || !rightTA) {
     return;
   }
+  // if (leftTA.value === "" && rightTA.value === "") {
+  //   alert("Please enter Something");
+  //   return;
+  // }
   var newEntry = {
     leftpage: leftTA.value,
     rightpage: rightTA.value
@@ -550,13 +554,13 @@ function wallPreview(){
   loadedWalls.forEach(function(img){
     img.addEventListener("click",function(){
       preWall.src=img.src;
-      swBtn.addEventListener("click",function(){
-        document.body.style.backgroundImage=`url("${preWall.src}")`;
-        localStorage.setItem("myWallP",preWall.src);
-      });
+      
     });
   });
-
+  swBtn.addEventListener("click", function () {
+    document.body.style.backgroundImage = `url("${preWall.src}")`;
+    localStorage.setItem("myWallP", preWall.src);
+  });
 }
 
 
@@ -601,7 +605,7 @@ function terminalCmd(){
 }
 function displayCmd(line){
   var cmdLine= document.createElement("div");
-  cmdLine.innerHTML = line;
+  cmdLine.textContent = line;
   output.appendChild(cmdLine);
 }
 function runCmd(str){
@@ -900,16 +904,13 @@ function galManagement(){
   loadRecents();
   albCon.style.display = "none";
   recent.addEventListener("click",()=>{
-    if(!loadRecents){
       loadRecents();
       albCon.style.display = "none";
-    }
   });
   albums.addEventListener("click",()=>{
-    // if(!loadAlbums){
+    
       loadAlbums();
       recCon.style.display = "none";
-    // }
     
   });
 }
@@ -920,6 +921,7 @@ galManagement();
 function loadRecents() {
   var recCon = document.getElementById("rec_con");
   recCon.style.display = "grid"; 
+  recCon.innerHTML = ""; 
   var recImgs = galleryImgs;
   recImgs.forEach(function(img) {
     var recImg = document.createElement("img");
@@ -930,13 +932,30 @@ function loadRecents() {
 
 function loadAlbums() {
   var albCon = document.getElementById("alb_con");
-  albCon.style.display = "flex";
+  albCon.style.display = "grid";
+  albCon.innerHTML = "";
   // ====================  Not completed yet, have to write full logic ==========================
   var albImgs = galleryImgs;
   albImgs.slice(0,3).forEach(function(img) {
     var albImg = document.createElement("img");
+    var albName = document.createElement("p");
     albImg.src = img.src;
-    albCon.appendChild(albImg);    
-
+    albName.textContent = img.cat;
+    albCon.appendChild(albImg);
+    albCon.appendChild(albName);
+    img.addEventListener("click", function() {
+      indAlbImg(img.cat);
+    });
+    
   });
+}
+  function indAlbImg(category) {
+    var albCon = document.getElementById("alb_con");
+    albCon.innerHTML = "";
+    var filteredImgs = galleryImgs.filter(item => item.cat === category);
+    filteredImgs.forEach(function(filImg) {
+      var indImg = document.createElement("img");
+      indImg.src = filImg.src;
+      albCon.appendChild(indImg);
+    });
 }

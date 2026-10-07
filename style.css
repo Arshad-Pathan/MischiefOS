@@ -32,8 +32,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #121110;
-  z-index: -100;
+  background: hsl(30, 6%, 7%);
+  z-index: 999;
 }
 
 .nav h4 {
@@ -713,6 +713,7 @@ body {
   width: 900px;
 }
 .gallery_imgs{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -734,6 +735,7 @@ body {
 }
 #alb_con{
   display: none;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 .active{
@@ -753,6 +755,10 @@ body {
 #alb_con img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 12px;
 }
+/* #alb_con span{
+  position: absolute;
+  top: 0;
+} */
