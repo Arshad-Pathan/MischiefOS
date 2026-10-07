@@ -25,7 +25,7 @@ body {
 }
 
 .nav {
-  position: fixed;
+  position: initial;
   top: 0;
   width: 100%; 
   padding: 6px 18px;
@@ -122,7 +122,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
-  padding: 18px;
+  padding: 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -175,10 +175,10 @@ body {
   overflow: auto;
   /* background:  rgba(0, 0, 0, 0.2); */
   background: url("windowbg.svg") rgb(0, 0, 0);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
   border: 3px solid rgb(255, 128, 60);
+  border-radius: 20px;
   z-index: 100;
 }
 
@@ -235,7 +235,6 @@ body {
   justify-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: justify-content;
   align-items: center;
   padding: 12px 18px;
   overflow-y: auto;
@@ -332,6 +331,7 @@ body {
 .journal {
   width: 730px;
   height: 600px;
+  background: none;
   /* display: flex;
   top: 0;
   left: 100%; */
@@ -363,8 +363,8 @@ body {
 }
 
 .journal_icons .edit_icon {
-  height: 38px;
-  width: 38px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
   background-color: rgb(255, 128, 60);
   background-image: url(images/edit.png);
@@ -590,14 +590,20 @@ body {
 }
 
 .music{
-  height: 500px;
-  width: 500px;
   top: 62%;
   left: 36%;
+  background: none;
+  border: none;
 }
+/* .music.maximized{
+  align-items: center;
+} */
 .music_player{
-  height: 100%;
-  width: 100%;
+  position: relative;
+  height: 500px;
+  width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;

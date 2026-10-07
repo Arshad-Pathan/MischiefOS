@@ -209,17 +209,20 @@ function dragElement(element) {
   }
 }
 
+var windowOpened=true;
 //close window fn
 function closeWindow(element) {
     element.style.display = "none"
+    windowOpened = false;
 }
+
 //open window fn
 function openWindow(element) {
   element.style.display = "flex";
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
-
+  windowOpened = true;
 }
 //max window fn
 function maxWindow(element) {
@@ -237,10 +240,7 @@ function maxWindow(element) {
     element.style.width = "100%";
     element.style.height = "calc(100vh - 32px)";
     element.classList.add("maximized");
-    if(startDragging){
-      element.style.width = "80%";
-      element.style.height = "80%";
-    }
+    
   } else {
     element.style.width = element.dataset.originalWidth;
     element.style.height = element.dataset.originalHeight;
@@ -299,14 +299,27 @@ function initializeWindow(elementName) {
   var hvrClose = document.querySelector("#" + elementName + "hvrclose")
   var windowheaders = document.querySelectorAll(".windowheader");
 
+  if (windowOpened){
+    keyFunWindow();
+  }
+  function keyFunWindow() {
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "c" || e.key === "C") {
+        closeWindow(screen);
+      } else if (e.key === "m" || e.key === "M") {
+        maxWindow(screen);
+      } 
+    });
+  }
+  
   closeBtn.addEventListener("click", function() {
-      closeWindow(screen);
+    closeWindow(screen);
   });
   hvrClose.addEventListener("click", function() {
-      closeWindow(screen);
+    closeWindow(screen);
   });
   openBtn.addEventListener("click", function() {
-      openWindow(screen);
+    openWindow(screen);
   });
   openBtn.addEventListener("mouseenter", function() {
     if(screen.style.display==="flex"){
@@ -583,7 +596,7 @@ function initBgSettings(){
 initBgSettings();
 
 
-
+// Terminal app
 function terminalCmd(){
   var terminalC = document.getElementById("terminalC");
   var cmd = document.getElementById("cmd");
@@ -656,6 +669,8 @@ function runCmd(str){
 terminalCmd();
 
 
+
+// Music Player
 var songs = [
   {
     name: "Loki TVA First View",
@@ -714,7 +729,7 @@ function loadSelectedSong(i){
   document.getElementById("sProg").value = 0;
   document.getElementById("currTime").textContent = "00:00";
   document.getElementById("duration").textContent = "00:00";
-  aud.play();
+  aud.load();
 
 
 }
@@ -766,23 +781,26 @@ function songControllers(){
     sImg.classList.remove("r-disk");
   });
   // forward
-  forw.addEventListener("click",()=>{
+  forw.addEventListener("click", forward);
+  function forward(){
     currSong++;
     if(currSong >= songs.length){
       currSong=0;
     }
     loadSelectedSong(currSong);
     aud.play();
-  });
+  }
+
   // backward
-  back.addEventListener("click",()=>{
+  back.addEventListener("click",backward);
+  function backward(){
     currSong--;
     if(currSong < 0){
       currSong=songs.length - 1;
     }
     loadSelectedSong(currSong);
     aud.play();
-  });
+  }
 
   // pause when app closes
   document.addEventListener("visibilitychange", function(){
@@ -810,24 +828,29 @@ loadSelectedSong(0);
 
 function sOptSelection(){
   var sOptSelection=document.getElementById("song_selection");
-  // var opts = document.querySelectorAll("#song_selection .s");
+  var aud = document.getElementById("song");
 
   sOptSelection.addEventListener("change",function(){
     currSong = this.value;
     if(currSong === "0"){
       loadSelectedSong(currSong);
+      aud.play();
     }
     else if(currSong === "1"){
       loadSelectedSong(currSong);
+      aud.play();
     }
     else if(currSong === "2"){
       loadSelectedSong(currSong);
+      aud.play();
     }
     else if(currSong === "3"){
       loadSelectedSong(currSong);
+      aud.play();
     }
     else if(currSong === "4"){
       loadSelectedSong(currSong);
+      aud.play();
     }
   })
   
@@ -843,10 +866,11 @@ function sOptSelection(){
 //   })
 // }
 
-
-songControllers();
-sOptSelection();
-
+function songInit(){  
+  songControllers();
+  sOptSelection();
+}
+songInit();
 
 
 
@@ -968,3 +992,24 @@ function loadAlbums() {
     });
 }
 
+
+function keyPresses(){
+  var musicApp = document.getElementById("music");
+  var play = document.querySelector(".playPause");
+  
+    document.addEventListener("keypress", function(e){
+      if (e.key === " ") {
+        play.focus();
+      } else if (e.key === "T" || e.key === "t") {
+        document.getElementById("rsBtn").focus();
+        document.getElementById("stBtn").focus();
+      } else if (e.key === "s" || e.key === "S") {
+        document.getElementById("timeSelection").focus();
+      }
+    });
+
+  
+}
+keyPresses();
+
+/* gvebev  dvvd  sf  df r  s  d df   dfg ddgffg */
