@@ -901,17 +901,25 @@ function galManagement(){
   // } else {
   //   loadRecents();
   // }
+
   loadRecents();
+  recent.classList.add("active");
   albCon.style.display = "none";
   recent.addEventListener("click",()=>{
-      loadRecents();
-      albCon.style.display = "none";
+    loadRecents();
+    albCon.style.display = "none";
+    if(recent.classList.contains("active")){
+      return;
+    } else {
+      recent.classList.add("active");
+      albums.classList.remove("active");
+    }
   });
   albums.addEventListener("click",()=>{
-    
-      loadAlbums();
-      recCon.style.display = "none";
-    
+    loadAlbums();
+    recCon.style.display = "none";
+    recent.classList.remove("active");
+    albums.classList.add("active");
   });
 }
 galManagement();
@@ -943,7 +951,7 @@ function loadAlbums() {
     albName.textContent = img.cat;
     albCon.appendChild(albImg);
     albCon.appendChild(albName);
-    img.addEventListener("click", function() {
+    albImg.addEventListener("click", function() {
       indAlbImg(img.cat);
     });
     
@@ -959,3 +967,5 @@ function loadAlbums() {
       albCon.appendChild(indImg);
     });
 }
+
+/* dfggfggvvvgvgvg gtyftrdtrdrdrd drdrdfftfft  ddrrdfffffff  r*/
