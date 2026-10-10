@@ -77,3 +77,6 @@ I watched some tutorials, asked chatgpt for different suggestions and how to exe
 so i now i'm going to apply the logic what my mind created and let me go for it for a test.
 
 this the song disk i am thinking to place in music player
+
+
+

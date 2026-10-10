@@ -23,9 +23,18 @@ body {
   background-repeat: no-repeat;
   color: rgb(255, 128, 60);
 }
+.screen{
+  position: sticky;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #d9b79548;
+  overflow: hidden;
 
+ 
+}
 .nav {
-  position: initial;
+  position: sticky;
   top: 0;
   width: 100%; 
   padding: 6px 18px;
@@ -160,14 +169,26 @@ body {
   height: 40px;
 }
 
+.widgets {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  height: 100px;
+  padding: 12px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px) invert(3%);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
 
 
 
 .window {
   position: absolute;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   width: fit-content;
   padding: 0;
   display: none;
@@ -224,9 +245,8 @@ body {
 .intro {
   width: 600px;
   height: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  top: 25%;
+  left: 30%;
   /* overflow-y: auto; */
 }
 
@@ -332,10 +352,8 @@ body {
   width: 730px;
   height: 600px;
   background: none;
-  /* display: flex;
-  top: 0;
-  left: 100%; */
-  /* transform: translate(0,-50%); */
+  left: 50%; 
+  /* transform: translate(0,-50%);*/
 }
 
 .journal_icons {
@@ -434,8 +452,8 @@ body {
 .setting {
   width: 600px;
   height: 400px;
-  /* display: flex;
-  transform: translate(-50%, -50%); */
+  top: 16%;
+  left: 48%;
 }
 
 .setting_content {
@@ -561,8 +579,7 @@ body {
 .terminal{
   height: 500px;
   width: 750px;
-  left: 30%;
-  top: 44%;
+  top: 10%;
 }
 .terminal_content{
   height: 100%;
@@ -590,8 +607,8 @@ body {
 }
 
 .music{
-  top: 62%;
-  left: 36%;
+  left: 30%;
+  top: 14%;
   background: none;
   border: none;
 }
@@ -680,6 +697,8 @@ body {
 .library{
   height: 400px;
   width: 600px;
+  top: 30%;
+  left: 54%;
 }
 .library_files{
   display: grid;
@@ -723,14 +742,19 @@ body {
 }
 
 .gallery{
-  height: 400px;
-  width: 900px;
+  height: fit-content;
+  width: fit-content;
 }
 .gallery_imgs{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 600px;
+  width: 630px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px;
 }
 .nav_tab{
   display: flex;
@@ -743,15 +767,21 @@ body {
   display: flex;
 }
 #rec_con{
+  width: fit-content;
   display: none;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 200px);
   columns: 3;
+  align-content: center;
+  justify-items: center;
   /* column-gap: 12px; */
   gap: 12px;
 }
 #alb_con{
+  width: fit-content;
   display: none;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 200px);
+  align-content: center;
+  justify-items: center;
   gap: 12px;
 }
 .active{
@@ -763,16 +793,25 @@ body {
   gap: 12px;
 } */
 #rec_con img{
-  width: 100%;
+  width: 80%;
   /* height: 100%; */
   /* object-fit: cover; */
   break-inside: avoid;
   border-radius: 12px;
 }
-#alb_con img{
-  width: 100%; 
+#alb_con div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#alb_con div img, #alb_con img{
+  width: 80%; 
   break-inside: avoid;
   border-radius: 12px;
+}
+#alb_con button{
+  width: 100%;
+  height: 100%;
 }
 /* #alb_con span{
   position: absolute;

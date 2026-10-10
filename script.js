@@ -22,6 +22,8 @@ function updateTime() {
 setInterval(updateTime, 1000);
 // time end
 
+const visits_api = "https://script.google.com/macros/s/AKfycbxWQilmTjyUdmj3fhwZA6Fjtca09gkLOS1QTcfwhktfndMcigKP8nBZpVqf4sGmhB4R/exec";
+
 // variables
 var biggestIndex = 1;
 
@@ -152,6 +154,57 @@ rsTimer();
 // // dpSelection();
 // setInterval(dpSelection,1000);
 
+
+
+// Widgets
+// <div class="widgets counter" id="counter">
+//   0
+// </div>
+
+
+
+
+
+
+function showVisitorCount(data) {
+    const counter = document.querySelector(".counter");
+
+    if (counter && data.success) {
+        counter.textContent = data.count;
+    }
+}
+function addVisitScript() {
+  const script = document.createElement("script");
+  
+  script.src = visits_api +
+  "?action=visit&callback=showVisitorCount";
+  
+  script.onerror = function () {
+    console.log("Visitor counter could not load.");
+  };
+  
+  document.body.appendChild(script);
+}
+addVisitScript();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 function dragElement(element) {
@@ -159,20 +212,24 @@ function dragElement(element) {
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
+  // var initialX = 0;
+  // var initialY = 0;
+  // var currentX = 0;
+  // var currentY = 0;
 
   document.getElementById(element.id + "header").onmousedown = startDragging;
 
   function startDragging(e) {
 
-     if(element.classList.contains("maximized")){  
+    if(element.classList.contains("maximized")){  
       element.style.width = "80%";
       element.style.height = "80%";
     }
     e.preventDefault();
-
+    
     initialX = e.clientX;
     initialY = e.clientY;
-
+    
     document.onmouseup = stopDragging;
     document.onmousemove = elementDrag;
   }
@@ -193,7 +250,7 @@ function dragElement(element) {
     var maxTop = window.innerHeight - element.offsetHeight;
     var maxLeft = window.innerWidth - element.offsetWidth;
 
-    newTop = Math.max(0, Math.min(newTop, maxTop));
+    newTop = Math.max(46, Math.min(newTop, maxTop));
     newLeft = Math.max(0, Math.min(newLeft, maxLeft));
 
     element.style.top = newTop + "px";
@@ -233,12 +290,12 @@ function maxWindow(element) {
     element.dataset.originalTop = element.style.top;
     element.dataset.originalLeft = element.style.left;
 
-    element.style.position = "sticky";
-    element.style.top = "0%";
+    element.style.position = "fixed";
+    element.style.top = "46px";
     element.style.left = "0%";
     element.style.transform = "translate(0,0)";
     element.style.width = "100%";
-    element.style.height = "calc(100vh - 32px)";
+    element.style.height = "calc(100vh - 46px)";
     element.classList.add("maximized");
     
   } else {
@@ -304,9 +361,9 @@ function initializeWindow(elementName) {
   }
   function keyFunWindow() {
     document.addEventListener("keydown", function(e) {
-      if (e.key === "c" || e.key === "C") {
+      if (e.key === "c" || e.key === "C" && e.altKey) {
         closeWindow(screen);
-      } else if (e.key === "m" || e.key === "M") {
+      } else if (e.key === "m" || e.key === "M" && e.altKey) {
         maxWindow(screen);
       } 
     });
@@ -368,6 +425,8 @@ initializeWindow("music")
 initializeWindow("search")
 initializeWindow("library")
 initializeWindow("gallery")
+
+dragElement(counter)
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -959,6 +1018,9 @@ function loadRecents() {
     var recImg = document.createElement("img");
     recImg.src = img.src;
     recCon.appendChild(recImg);
+    recImg.addEventListener("mouseover",()=>{
+      recImg.title = `${img.cat}`;
+    })
   });
 }
 
@@ -969,27 +1031,35 @@ function loadAlbums() {
   // ====================  Not completed yet, have to write full logic ==========================
   var albImgs = galleryImgs;
   albImgs.slice(0,3).forEach(function(img) {
+    var alb = document.createElement("div");
     var albImg = document.createElement("img");
     var albName = document.createElement("p");
     albImg.src = img.src;
     albName.textContent = img.cat;
-    albCon.appendChild(albImg);
-    albCon.appendChild(albName);
-    albImg.addEventListener("click", function() {
+    albCon.appendChild(alb);
+    alb.appendChild(albImg);
+    alb.appendChild(albName);
+    alb.addEventListener("click", function() {
       indAlbImg(img.cat);
     });
     
   });
 }
-  function indAlbImg(category) {
-    var albCon = document.getElementById("alb_con");
-    albCon.innerHTML = "";
-    var filteredImgs = galleryImgs.filter(item => item.cat === category);
-    filteredImgs.forEach(function(filImg) {
-      var indImg = document.createElement("img");
-      indImg.src = filImg.src;
-      albCon.appendChild(indImg);
-    });
+function indAlbImg(category) {
+  var albCon = document.getElementById("alb_con");
+  albCon.innerHTML = "";
+  var filteredImgs = galleryImgs.filter(item => item.cat === category);
+  var backBtn = document.createElement("button");
+  backBtn.textContent = "BACK";
+  backBtn.addEventListener("click",()=>{
+    loadAlbums()
+  })
+  albCon.appendChild(backBtn);
+  filteredImgs.forEach(function (filImg) {
+    var indImg = document.createElement("img");
+    indImg.src = filImg.src;
+    albCon.appendChild(indImg);
+  });
 }
 
 
@@ -1007,9 +1077,10 @@ function keyPresses(){
         document.getElementById("timeSelection").focus();
       }
     });
-
-  
 }
 keyPresses();
 
-/* gvebev  dvvd  sf  df r  s  d df   dfg ddgffg */
+/* gvebe;ldlsdcfsfsfsfm dsgs gsgsf sjfndfksvxfv  g gsg sdggsg sgsdfad sdasd  ac a ndfjsdfjsdfjmf kf's
+v dv'd a dsasd dfrsd
+f   dfg ddgffg */
+ 
