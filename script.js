@@ -212,12 +212,9 @@ function dragElement(element) {
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
-  // var initialX = 0;
-  // var initialY = 0;
-  // var currentX = 0;
-  // var currentY = 0;
 
-  document.getElementById(element.id + "header").onmousedown = startDragging;
+  document.getElementById(element.id + "header").onpointerdown = startDragging;
+  // document.getElementById(element.id + "header").onmousedown = startDragging;
 
   function startDragging(e) {
 
@@ -230,8 +227,10 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
     
-    document.onmouseup = stopDragging;
-    document.onmousemove = elementDrag;
+    document.onpointerup = stopDragging;
+    document.onpointermove = elementDrag;
+    // document.onmouseup = stopDragging;
+    // document.onmousemove = elementDrag;
   }
 
   function elementDrag(e) {
@@ -425,8 +424,6 @@ initializeWindow("music")
 initializeWindow("search")
 initializeWindow("library")
 initializeWindow("gallery")
-
-dragElement(counter)
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
