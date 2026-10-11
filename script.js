@@ -213,8 +213,7 @@ function dragElement(element) {
   var currentX = 0;
   var currentY = 0;
 
-  document.getElementById(element.id + "header").onpointerdown = startDragging;
-  // document.getElementById(element.id + "header").onmousedown = startDragging;
+  document.getElementById(element.id + "header").onmousedown = startDragging;
 
   function startDragging(e) {
 
@@ -227,10 +226,8 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
     
-    document.onpointerup = stopDragging;
-    document.onpointermove = elementDrag;
-    // document.onmouseup = stopDragging;
-    // document.onmousemove = elementDrag;
+    document.onmouseup = stopDragging;
+    document.onmousemove = elementDrag;
   }
 
   function elementDrag(e) {
