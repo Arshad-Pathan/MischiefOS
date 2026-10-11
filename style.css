@@ -118,13 +118,6 @@ body {
   font-size: 28px;
 }
 
-.searchbar{
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .icons_bar {
   position: fixed;
   bottom: 12px;
@@ -172,15 +165,74 @@ body {
 .widgets {
   position: absolute;
   top: 54px;
-  left: 0;
-  height: 100px;
   padding: 12px;
   gap: 8px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px) invert(3%);
+  backdrop-filter: blur(2px);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
+.counter{
+  left: 0;
+}
+.wheater{
+  left: 100px;
+}
+.clock{
+  left: 45%;
+  height: 300px;
+  width: 300px;
+}
+.clock::after{
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  background-color: #abc234;
+  border-radius: 50%;
+  z-index: 4;
+}
+/* .hand{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+} */
+.hour_hand{
+  height: 90px;
+  width: 10px;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  transform-origin: 5px 5px;
+  z-index: 1;
+}
+.minute_hand{
+  height: 120px;
+  width: 8px;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  transform-origin: 3px 3px;
+  z-index: 2;
+}
+.second_hand{
+  height: 140px;
+  width: 5px;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: calc(50% - 1px);
+  transform-origin: 1px 1px;
+  z-index: 3;
+}
+/* .hour_hand.time2, .minute_hand.time2{
+  transform: rotate(90deg);
+}
+.hour_hand.time3, .minute_hand.time3{
+  transform: rotate(180deg);
+} */
 
 
 
@@ -478,12 +530,12 @@ body {
   cursor: pointer;
   background-color: #95c292;
 }
-.tab_content .tab_active {
+.set_nav .tab_active {
   background-color: #6DA47F;
   color: #fff;
 }
 /* .tab_content {
-
+  
 } */
 .tab_content .sett {
   display: none;
@@ -492,6 +544,20 @@ body {
   padding: 4px;
   background-color: #ffbaba;
 }
+.tab_content .sett_active{
+  display: flex;
+}
+
+.genS .clock_set{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.genS .clock_set input{
+  width: 25px;
+}
+
+
 .sett.accS div{
   display: flex;
   flex-direction: row;
@@ -694,6 +760,54 @@ body {
   background: #abc234;
 }
 
+
+
+
+.wiki {
+  width: 600px;
+  height: 400px;
+  top: 16%;
+  left: 48%;
+}
+
+.wikipedia {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 12px 18px;
+  gap: 12px;
+  background-color: #ffe4e4;
+  overflow-y: hidden;
+}
+.wikipedia div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background-color: #ffbaba;
+}
+.art_tabs .art_lable {
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #95c292;
+}
+.art_tabs .active_lable {
+  background-color: #6DA47F;
+  color: #fff;
+}
+.articles .article{
+  height: 100%;
+  display: none;
+}
+.articles .read_art{
+  display: flex;
+}
+.articles .article embed{
+  flex: 1;
+}
+
+
 .library{
   height: 400px;
   width: 600px;
@@ -816,4 +930,56 @@ body {
 /* #alb_con span{
   position: absolute;
   top: 0;
+} */
+
+
+
+
+
+
+
+/* 
+
+.weather-widget {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 210px;
+    padding: 12px;
+    box-sizing: border-box;
+
+    background: #191927;
+    color: #f4efdc;
+    border: 3px solid #e8dcb8;
+    outline: 2px solid #191927;
+    box-shadow: 5px 5px 0 #090912;
+
+    font-family: "Courier New", monospace;
+}
+
+.weather-city {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #c1b8a2;
+    text-align: center;
+}
+
+.weather-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0 8px;
+}
+
+.weather-icon {
+    font-size: 38px;
+    color: #f4c96b;
+    line-height: 1;
+}
+ 
+#weatherTemp {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: -1px;
 } */

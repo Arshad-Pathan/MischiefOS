@@ -50,16 +50,6 @@
             </div>
             <p id="timeElement"></p>
         </div>
-
-        <div class="searchbar">
-          <!-- <form action="https://cse.google.com/cse.js?cx=2402cb888b9144dd7" method="get">
-            <input class="search" type="text" placeholder="Search Anything">
-            <button type="submit" class="searchBtn">🔍</button>
-          </form> -->
-          <!-- <script async src="https://cse.google.com/cse.js?cx=2402cb888b9144dd7">
-          </script>
-          <div class="gcse-search"></div> -->
-        </div>
       
         <div class="icons_bar">
           <div class="icon">     
@@ -109,11 +99,11 @@
           </div>
           
           <div class="icon">     
-              <div class="icon-img" id="searchopen" title="search">
-                  <img src="images/intro.png" alt="search icon" style="border-radius: 50%">
+              <div class="icon-img" id="wikiopen" title="WIKIPEDIA">
+                  <img src="images/intro.png" alt="wiki icon" style="border-radius: 50%">
               </div>
-              <div class="searchhvr iconhvr" id="searchhvrclose">
-                  <img src="close.svg" alt="search icon">
+              <div class="wikihvr iconhvr" id="wikihvrclose">
+                  <img src="close.svg" alt="wiki icon">
               </div>
           </div>
           
@@ -138,6 +128,38 @@
         
         <div class="widgets counter" id="counter">            
         </div>
+        
+        <div class="widgets wheater" id="weather">
+            <div class="weather_city" id="weatherCity">AHMEDABAD</div>
+
+            <div class="weather_display">
+                <span id="weatherIcon" class="weather_icon">☀</span>
+                <span id="weatherTemp">°C</span>
+            </div>
+        </div>
+
+        <div class="widgets clock" id="clock">
+            <div class="hour_hand" id="hour1" style="background-color: #45ff11;"></div>
+            <div class="minute_hand" id="minute1" style="background-color: #233ad5;"></div>
+            <div class="second_hand" id="second" style="background-color: #fbff11;"></div>
+            
+            <div class="hour_hand" id="hour2" style="background-color: #ff5a5a;"></div>
+            <div class="minute_hand" id="minute2" style="background-color: #414314;"></div>
+            
+            <div class="hour_hand" id="hour3" style="background-color: #012c2e;"></div>
+            <div class="minute_hand" id="minute3" style="background-color: #4a5b03;"></div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
         
         <!-- intro window --->
         <div class="window intro" id="intro">
@@ -239,14 +261,18 @@
             </div>
             <div class="setting_content">
                 <div class="set_nav">
-                    <p class="set_tab" id="generalS">GENERAL</p>
+                    <p class="set_tab tab_active" id="generalS">GENERAL</p>
                     <p class="set_tab" id="accS">ACCOUNT</p>
                     <p class="set_tab" id="perS">PERSONALIZATION</p>
                     <p class="set_tab" id="guideS">GUIDE</p>
                 </div>
                 <div class="tab_content generalS">
-                    <div class="sett tab_active">
+                    <div class="sett genS sett_active">
                         <p>GENERAL SETTINGS</p>
+                        <div class="clock_set">
+                            <p>Display Clock</p>
+                            <input type="range" id="clockTog" min="0" max="1" value="1">
+                        </div>
                     </div>
                     <div class="sett accS">
                         <p>ACCOUNT SETTINGS</p>
@@ -377,28 +403,41 @@
         
         </div>
       
-        <!-- search window --->
-        <div class="window search" id="search">
-            <div class="windowheader" id="searchheader">
+        <!-- wiki window --->
+        <div class="window wiki" id="wiki">
+            <div class="windowheader" id="wikiheader">
               <div class="window_icons">
-                <div class="window_icon" id="searchclose" title="Close" >
+                <div class="window_icon" id="wikiclose" title="Close" >
                     <img src="close.svg" alt="closesvg">
                 </div>
-                <div class="window_icon" id="searchmax" title="Maximize">
+                <div class="window_icon" id="wikimax" title="Maximize">
                     <img src="max.svg" alt="maxsvg">
                 </div>
                 <div class="window_icon" id="" style="background-color: #45ff11;"></div>
-                <p>⭐ SEARCH ⭐</p>
+                <p>⭐ WIKIPEDIA ⭐</p>
               </div>
             </div>
-            <div class="search_browser" style="height: 600px; width: 600px;" >
-              <div class="search_tabs">
-                <span class="search_home"></span>
+            <div class="wikipedia">
+              <div class="art_tabs">
+                <span class="art_lable active_lable" id="1st">Roxxcart Supermarket (Alabama, 2050)</span>
+                <span class="art_lable" id="2nd">Lamentis-1 (2077)</span>
+                <span class="art_lable" id="3rd">Thor Ragnarok</span>
+                <span class="art_lable" id="4th">Hunter X-5</span>
               </div>
-              <!-- <script async src="https://cse.google.com/cse.js?cx=2402cb888b9144dd7">
-              </script>
-              <div class="gcse-search"></div>
-              This embeds the page without the main navigation headers and sidebars -->
+              <div class="articles">
+                <div class="article read_art">
+                    <embed src="https://mculocationscout.com/2021/06/17/roxxcart-superstore-haven-hills-alabama-mcu-location-scout/">
+                </div>
+                <div class="article">
+                    <embed src="https://mculocationscout.com/2021/06/24/abandoned-mine-lamentis-1-mcu-location-scout/">
+                </div>
+                <div class="article">
+                    <embed src="https://en.wikipedia.org/wiki/Thor:_Ragnarok">
+                </div>
+                <div class="article">
+                    <embed src="https://www.escapistmagazine.com/who-is-brad-wolfe-x-5-marvel-loki-season-2/">
+                </div>
+              </div>
 
             </div>
         

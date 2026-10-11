@@ -155,17 +155,7 @@ rsTimer();
 // setInterval(dpSelection,1000);
 
 
-
-// Widgets
-// <div class="widgets counter" id="counter">
-//   0
-// </div>
-
-
-
-
-
-
+// visitor counter widget
 function showVisitorCount(data) {
     const counter = document.querySelector(".counter");
 
@@ -173,7 +163,7 @@ function showVisitorCount(data) {
         counter.textContent = data.count;
     }
 }
-function addVisitScript() {
+async function addVisitScript() {
   const script = document.createElement("script");
   
   script.src = visits_api +
@@ -186,6 +176,152 @@ function addVisitScript() {
   document.body.appendChild(script);
 }
 addVisitScript();
+// setInterval(function(){
+//   const script = document.createElement("script");
+  
+//   script.src = visits_api +
+//   "?action=visit&callback=showVisitorCount";
+//   document.body.appendChild(script);
+// },1000);
+document.addEventListener("contextmenu",()=>{
+  addVisitScript();
+})
+
+// weather widget
+const city = {
+  name: "SURAT",
+  latitude: 21.170240,
+  longitude: 72.831062
+};
+
+
+async function updateWeather() {
+  const url = `https://api.open-meteo.com/v1/forecast` + `?latitude=${city.latitude}` + `&longitude=${city.longitude}` +
+    `&current=temperature_2m,is_day` + `&timezone=auto`;
+    
+  const response = await fetch(url);
+
+  const data = await response.json();
+  const current = data.current;
+
+  const temp = document.getElementById("weatherTemp");
+  const icon = document.getElementById("weatherIcon");
+
+  document.getElementById("weatherCity").textContent =
+    city.name;
+
+  temp.textContent =
+    `${Math.round(current.temperature_2m)}°C`;
+
+  icon.textContent =
+    current.is_day === 1 ? "☀" : "☾";
+}
+updateWeather();
+setInterval(updateWeather, 60 * 60 * 1000);
+
+
+function UpdClock1(){
+  const date = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+  var localDate = new Date(date);
+
+  // var seconds = date.getSeconds();
+  // var minutes = date.getMinutes();
+  // var hours = date.getHours();
+
+  var secHand = document.getElementById("second");
+  var minHand = document.getElementById("minute1");
+  var hourHand = document.getElementById("hour1");
+
+  var secPos = localDate.getSeconds() * 6;
+  var minPos = localDate.getMinutes() * 6;
+  var hourPos = localDate.getHours() * 30;
+
+  if(secPos === 0){
+    secHand.style.transition = "none";
+  } else {
+    secHand.style.transition = "0.25s linear"
+  }
+  if(minPos === 0){
+    minHand.style.transition = "none";
+  } else {
+    minHand.style.transition = "0.25s linear"
+  }
+  if(hourPos === 0){
+    hourHand.style.transition = "none";
+  } else {
+    hourHand.style.transition = "0.25s linear"
+  }
+
+  secHand.style.transform = `rotate(${secPos -180}deg)`;
+  minHand.style.transform = `rotate(${minPos - 180}deg)`;
+  hourHand.style.transform = `rotate(${hourPos - 180}deg)`;
+}
+function UpdClock2(){
+  const date = new Date().toLocaleString('en-US', { timeZone: 'Pacific/Chatham' });
+  var localDate = new Date(date);
+
+  // var seconds = date.getSeconds();
+  // var minutes = date.getMinutes();
+  // var hours = date.getHours();
+
+  var minHand = document.getElementById("minute2");
+  var hourHand = document.getElementById("hour2");
+
+  var secPos = localDate.getSeconds() * 6;
+  var minPos = localDate.getMinutes() * 6;
+  var hourPos = localDate.getHours() * 30;
+
+  if(minPos === 0){
+    minHand.style.transition = "none";
+  } else {
+    minHand.style.transition = "0.25s linear"
+  }
+  if(hourPos === 0){
+    hourHand.style.transition = "none";
+  } else {
+    hourHand.style.transition = "0.25s linear"
+  }
+
+  minHand.style.transform = `rotate(${minPos - 180}deg)`;
+  hourHand.style.transform = `rotate(${hourPos - 180}deg)`;
+}
+function UpdClock3(){
+  const date = new Date().toLocaleString('en-US', { timeZone: 'Pacific/Apia' });
+  var localDate = new Date(date);
+
+  // var seconds = date.getSeconds();
+  // var minutes = date.getMinutes();
+  // var hours = date.getHours();
+
+  var minHand = document.getElementById("minute3");
+  var hourHand = document.getElementById("hour3");
+
+  var minPos = localDate.getMinutes() * 6;
+  var hourPos = localDate.getHours() * 30;
+
+  if(minPos === 0){
+    minHand.style.transition = "none";
+  } else {
+    minHand.style.transition = "0.25s linear"
+  }
+  if(hourPos === 0){
+    hourHand.style.transition = "none";
+  } else {
+    hourHand.style.transition = "0.25s linear"
+  }
+
+  minHand.style.transform = `rotate(${minPos - 180}deg)`;
+  hourHand.style.transform = `rotate(${hourPos - 180}deg)`;
+}
+setInterval(()=>{
+  UpdClock1();
+  UpdClock2();
+  UpdClock3();
+},1000);
+
+
+
+
 
 
 
@@ -418,7 +554,7 @@ initializeWindow("journal")
 initializeWindow("setting")
 initializeWindow("terminal")
 initializeWindow("music")
-initializeWindow("search")
+initializeWindow("wiki")
 initializeWindow("library")
 initializeWindow("gallery")
 
@@ -533,25 +669,55 @@ initJournal()
 
 
 // settings functions here
+function otherSettings(){
+  var clock = document.getElementById("clock");
+  var clockTog = document.getElementById("clockTog");
+  var toggle = localStorage.getItem("clockTog");
+  clockTog.value=toggle;
+  if(toggle==="0"){
+    clock.style.display="none";
+  } else {
+    clock.style.display="flex";
+  }
+
+  clockTog.addEventListener("change",function (){
+    if (this.value==="0"){
+      // alert("fsd");
+      clock.style.display="none";
+      localStorage.setItem("clockTog",0);
+    } else {
+      clock.style.display="flex";
+      localStorage.setItem("clockTog",1);
+    }
+  });
+}
+otherSettings();
 function activeSetTab() {
   var tabS = document.querySelectorAll(".set_tab");
   var sett = document.querySelectorAll(".sett");
   
   tabS.forEach(function (tab) {      
     tab.addEventListener("click", function () {
+      tabS.forEach(function(t){
+        t.classList.remove("tab_active");
+      });
       sett.forEach(function (s) {
-        s.classList.remove("tab_active");
+        s.classList.remove("sett_active");
       });
         
 
       if (tab.id === "generalS") {
-        sett[0].classList.add("tab_active");
+        sett[0].classList.add("sett_active");
+        tab.classList.add("tab_active");
       } else if (tab.id === "accS") {
-        sett[1].classList.add("tab_active");
+        sett[1].classList.add("sett_active");
+        tab.classList.add("tab_active");
       } else if (tab.id === "perS") {
-        sett[2].classList.add("tab_active");
+        sett[2].classList.add("sett_active");
+        tab.classList.add("tab_active");
       } else if (tab.id === "guideS") {
-        sett[3].classList.add("tab_active");
+        sett[3].classList.add("sett_active");
+        tab.classList.add("tab_active");
       }
     });
   });
@@ -928,6 +1094,43 @@ songInit();
 
 
 
+// Wikipedia here
+function activeArt() {
+  var lables = document.querySelectorAll(".art_lable");
+  var articles = document.querySelectorAll(".article");
+  
+  lables.forEach(function (lab) {      
+    lab.addEventListener("click", function () {
+      lables.forEach(function(l){
+        l.classList.remove("active_lable");
+      });
+      articles.forEach(function (art) {
+        art.classList.remove("read_art");
+      });
+        
+
+      if (lab.id === "1st") {
+        articles[0].classList.add("read_art");
+        lab.classList.add("active_lable");
+      } else if (lab.id === "2nd") {
+        articles[1].classList.add("read_art");
+        lab.classList.add("active_lable");
+      } else if (lab.id === "3rd") {
+        articles[2].classList.add("read_art");
+        lab.classList.add("active_lable");
+      } else if (lab.id === "4th") {
+        articles[3].classList.add("read_art");
+        lab.classList.add("active_lable");
+      }
+    });
+  });
+}
+activeArt();
+
+
+
+
+
 // Library
 function libManagement(){
   var files = document.querySelectorAll(".files");
@@ -1078,3 +1281,12 @@ keyPresses();
 v dv'd a dsasd dfrsd
 f   dfg ddgffg */
  
+
+
+
+
+
+
+
+
+
