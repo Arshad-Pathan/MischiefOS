@@ -668,29 +668,56 @@ initJournal()
 
 
 
+var tOnOff = localStorage.getItem("cToggle");
 // settings functions here
 function otherSettings(){
   var clock = document.getElementById("clock");
   var clockTog = document.getElementById("clockTog");
-  var toggle = localStorage.getItem("clockTog");
-  clockTog.value=toggle;
-  if(toggle==="0"){
+  clockTog.value=tOnOff;
+  if(tOnOff==="0"){
     clock.style.display="none";
+    clockTog.style.background="#d5d0c8";
   } else {
     clock.style.display="flex";
+    clockTog.style.background="#ff803cff";
   }
 
   clockTog.addEventListener("change",function (){
     if (this.value==="0"){
-      // alert("fsd");
       clock.style.display="none";
-      localStorage.setItem("clockTog",0);
+      clockTog.style.background="#d5d0c8";
+      localStorage.setItem("cToggle",0);
     } else {
       clock.style.display="flex";
-      localStorage.setItem("clockTog",1);
+      clockTog.style.background="#ff803cff";
+      localStorage.setItem("cToggle",1);
     }
   });
 }
+// function toogleOnOff(){
+//   var toggle = document.querySelectorAll('.sett input[type="range"]');
+  
+//   toggle.forEach(function(tog){
+//    /*  if(tOnOff.value===0){
+//       tog.style.background="#d5d0c8";
+//     } else {
+//       tog.style.background="#ff803cff";
+//     } */
+//    /*  if(tOnOff.value===0){
+//       tog.style.background="#d5d0c8";
+//     } else {
+//       tog.style.background="#ff803cff";
+//     } */
+//     tog.addEventListener("change",()=>{
+//       if(this.value===0){
+//         tog.style.background="#d5d0c8";
+//       } else {
+//         tog.style.background="#ff803cff";
+//       }
+//     })
+//   })
+// }
+// toogleOnOff();
 otherSettings();
 function activeSetTab() {
   var tabS = document.querySelectorAll(".set_tab");

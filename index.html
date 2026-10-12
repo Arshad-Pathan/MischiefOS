@@ -13,6 +13,16 @@
     <body>
         <div class="nav" id="top">
             <h4>ARSHAD PATHAN</h4>
+            <div class="widgets counter" id="counter">            
+            </div>
+            <div class="widgets wheater" id="weather">
+              <div class="weather_city" id="weatherCity">AHMEDABAD</div>
+  
+              <div class="weather_display">
+                  <span id="weatherIcon" class="weather_icon">☀</span>
+                  <span id="weatherTemp">°C</span>
+              </div>
+            </div>
             <div class="timer">
                 <select name="timer" id="timeSelection">
                     <option class="opTime" value="0" selected>00:00</option>
@@ -126,17 +136,9 @@
           </div>
         </div>
         
-        <div class="widgets counter" id="counter">            
-        </div>
         
-        <div class="widgets wheater" id="weather">
-            <div class="weather_city" id="weatherCity">AHMEDABAD</div>
-
-            <div class="weather_display">
-                <span id="weatherIcon" class="weather_icon">☀</span>
-                <span id="weatherTemp">°C</span>
-            </div>
-        </div>
+        
+        
 
         <div class="widgets clock" id="clock">
             <div class="hour_hand" id="hour1" style="background-color: #45ff11;"></div>
@@ -271,14 +273,14 @@
                         <p>GENERAL SETTINGS</p>
                         <div class="clock_set">
                             <p>Display Clock</p>
-                            <input type="range" id="clockTog" min="0" max="1" value="1">
+                            <input type="range" class="toggle" id="clockTog" min="0" max="1" value="1">
                         </div>
                     </div>
                     <div class="sett accS">
                         <p>ACCOUNT SETTINGS</p>
                         <div>
                           <label>Lock Screen Appearance</label>
-                          <input type="range" value=0 min=0 max=1 style="width: 30px;">
+                          <input type="range" class="toggle" value=0 min=0 max=1>
                         </div>
                     </div>
                     <div class="sett personalS">

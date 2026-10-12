@@ -163,22 +163,18 @@ body {
 }
 
 .widgets {
-  position: absolute;
+/*   position: absolute;
   top: 54px;
-  padding: 12px;
+  padding: 12px; */
   gap: 8px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2px);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
-.counter{
-  left: 0;
-}
-.wheater{
-  left: 100px;
-}
+
 .clock{
+  position: absolute;
   left: 45%;
   height: 300px;
   width: 300px;
@@ -443,6 +439,7 @@ body {
   background-repeat: no-repeat;
 }
 
+
 .journal_book {
   position: relative;
   flex: 1;
@@ -553,15 +550,73 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-.genS .clock_set input{
-  width: 25px;
+.toggle{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 45px;
+  height: fit-content;
+  padding: 4px;
+  border-radius: 60px;
+  background: #d5d0c8;
+  cursor: pointer;
+  transition: 0.15s ease-in;
 }
+.toggle::-webkit-slider-thumb{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  
+}
+/* .genS .clock_set input[type="range"]{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 45px;
+  height: fit-content;
+  padding: 4px;
+  border-radius: 60px;
+  background: #d5d0c8;
+  cursor: pointer;
+  transition: 0.15s ease-in;
+}
+.genS .clock_set input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  
+} */
 
 
 .sett.accS div{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
+/* .accS div input[type="range"]{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 45px;
+  height: fit-content;
+  padding: 4px;
+  border-radius: 60px;
+  background: #d5d0c8;
+  cursor: pointer;
+  transition: 0.15s ease-in;
+}
+.accS div input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  
+} */
 .personalS {
   position: relative;
 }
