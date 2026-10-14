@@ -68,6 +68,22 @@ body {
 .nav p:hover {
   border: 2px dashed rgb(255, 128, 60);
 }
+.widgetsContainer{
+  display: flex;
+  gap: 30px;
+}
+.widgets{
+  display: flex;
+  padding: 4px; 
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+
+
 .timer{
   display: flex;
   align-items: center;
@@ -162,22 +178,16 @@ body {
   height: 40px;
 }
 
-.widgets {
-/*   position: absolute;
-  top: 54px;
-  padding: 12px; */
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(2px);
-  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-}
-
 .clock{
   position: absolute;
   left: 45%;
   height: 300px;
   width: 300px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
 }
 .clock::after{
   content: '';
@@ -982,59 +992,53 @@ body {
   width: 100%;
   height: 100%;
 }
-/* #alb_con span{
+
+.mygame{
+  top: 40%;
+  left: 40%;
+  height: 300px;
+  width: 300px;
+  background: url("game.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mygame #mygamemax{
+  display: none;
+}
+.obj{
   position: absolute;
-  top: 0;
-} */
-
-
-
-
-
-
-
-/* 
-
-.weather-widget {
-    position: absolute;
-    top: 100px;
-    right: 30px;
-    width: 210px;
-    padding: 12px;
-    box-sizing: border-box;
-
-    background: #191927;
-    color: #f4efdc;
-    border: 3px solid #e8dcb8;
-    outline: 2px solid #191927;
-    box-shadow: 5px 5px 0 #090912;
-
-    font-family: "Courier New", monospace;
+  z-index: 1000;
+}
+.obj .portal{
+  position: absolute;
+  display: none;
+  height: 150%;
+  width: 110%;
+  transform-origin: center;
+  background: url("windowbg.svg") rgba(255, 226, 79, 0.69);
+  border: 3px solid rgb(255, 213, 0);
+}
+.plAni{
+  display: flex;
+  animation: timePortal 2s infinite;
 }
 
-.weather-city {
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #c1b8a2;
-    text-align: center;
+@keyframes timePortal {
+  0%{
+    scale: 0;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  }60% {
+    scale: 0 0.3;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 70% {
+    scale: 1.1 0.3;   
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 100% {
+    scale: 1.1;
+  }
 }
-
-.weather-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 15px 0 8px;
+.obj img{
+  height: 100%;
+  width: 100%;
 }
-
-.weather-icon {
-    font-size: 38px;
-    color: #f4c96b;
-    line-height: 1;
-}
- 
-#weatherTemp {
-    font-size: 27px;
-    font-weight: bold;
-    letter-spacing: -1px;
-} */

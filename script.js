@@ -479,6 +479,16 @@ function handleWindowTap(element) {
   deselectIcon(selectedIcon)
 }
 
+function keyFunWindow(screen) {
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "c" || e.key === "C" && e.altKey) {
+      closeWindow(screen);
+    } 
+    // else if (e.key === "m" || e.key === "M" && e.altKey) {
+    //   maxWindow(screen);
+    // } 
+  });
+}
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
   var closeBtn = document.querySelector("#" + elementName + "close")
@@ -488,18 +498,9 @@ function initializeWindow(elementName) {
   var hvrClose = document.querySelector("#" + elementName + "hvrclose")
   var windowheaders = document.querySelectorAll(".windowheader");
 
-  if (windowOpened){
-    keyFunWindow();
-  }
-  function keyFunWindow() {
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "c" || e.key === "C" && e.altKey) {
-        closeWindow(screen);
-      } else if (e.key === "m" || e.key === "M" && e.altKey) {
-        maxWindow(screen);
-      } 
-    });
-  }
+  
+    keyFunWindow(screen);
+  
   
   closeBtn.addEventListener("click", function() {
     closeWindow(screen);
@@ -557,6 +558,7 @@ initializeWindow("music")
 initializeWindow("wiki")
 initializeWindow("library")
 initializeWindow("gallery")
+initializeWindow("mygame")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
@@ -1287,8 +1289,42 @@ function indAlbImg(category) {
 }
 
 
+// game app
+function onStart(){
+  var gmStBtn = document.querySelector(".game_ins button");
+
+  gmStBtn.addEventListener("click", ()=>{
+    // document.querySelectorAll(".portal").forEach(function(e){
+    //   e.classList.add("plAni");
+    // })
+    if(gmStBtn.textContent === "End Game"){
+      gmStBtn.textContent = "Start Game";
+    } else {
+      gmStBtn.textContent = "End Game";
+    }
+    maxWindow(mygame)
+  })
+} 
+onStart();
+
+function tempad(){
+  document.addEventListener("drop",()=>{
+    alert("sdfsd")
+  })
+}
+tempad()
+
+
+
+
+
+
+
+
+
+
+
 function keyPresses(){
-  var musicApp = document.getElementById("music");
   var play = document.querySelector(".playPause");
   
     document.addEventListener("keypress", function(e){
@@ -1308,12 +1344,3 @@ keyPresses();
 v dv'd a dsasd dfrsd
 f   dfg ddgffg */
  
-
-
-
-
-
-
-
-
-

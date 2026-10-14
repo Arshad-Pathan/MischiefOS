@@ -13,23 +13,25 @@
     <body>
         <div class="nav" id="top">
             <h4>ARSHAD PATHAN</h4>
-            <div class="widgets counter" id="counter">            
+            <div class="widgetsContainer">
+                <div class="widgets counter" id="counter">            
+                </div>
+                <div class="widgets weather" id="weather">
+                    <div class="weather_city" id="weatherCity">AHMEDABAD</div>
+                    
+                    <div class="weather_display">
+                        <span id="weatherIcon" class="weather_icon">☀</span>
+                        <span id="weatherTemp">°C</span>
+                    </div>
+                </div>
             </div>
-            <div class="widgets wheater" id="weather">
-              <div class="weather_city" id="weatherCity">AHMEDABAD</div>
-  
-              <div class="weather_display">
-                  <span id="weatherIcon" class="weather_icon">☀</span>
-                  <span id="weatherTemp">°C</span>
-              </div>
-            </div>
-            <div class="timer">
-                <select name="timer" id="timeSelection">
-                    <option class="opTime" value="0" selected>00:00</option>
-                    <option class="opTime" value="1">01:00</option>
-                    <option class="opTime" value="3">03:00</option>
-                    <option class="opTime" value="5">05:00</option>
-                    <option class="opTime" value="15">15:00</option>
+                <div class="timer">
+                    <select name="timer" id="timeSelection">
+                        <option class="opTime" value="0" selected>00:00</option>
+                        <option class="opTime" value="1">01:00</option>
+                        <option class="opTime" value="3">03:00</option>
+                        <option class="opTime" value="5">05:00</option>
+                        <option class="opTime" value="15">15:00</option>
                     <option class="opTime" value="30" >30:00</option>
                     <option class="opTime" value="60">60:00</option>
                     <option class="opTime" value="CUSTOM">CUSTOM</option>
@@ -134,13 +136,22 @@
                   <img src="close.svg" alt="gallery icon">
               </div>
           </div>
+          
+          <div class="icon">     
+              <div class="icon-img" id="mygameopen" title="mygame">
+                  <img src="images/edit.png" alt="mygame icon" style="border-radius: 50%">
+              </div>
+              <div class="mygamehvr iconhvr" id="mygamehvrclose">
+                  <img src="close.svg" alt="mygame icon">
+              </div>
+          </div>
         </div>
         
         
         
         
 
-        <div class="widgets clock" id="clock">
+        <div class="clock" id="clock">
             <div class="hour_hand" id="hour1" style="background-color: #45ff11;"></div>
             <div class="minute_hand" id="minute1" style="background-color: #233ad5;"></div>
             <div class="second_hand" id="second" style="background-color: #fbff11;"></div>
@@ -445,7 +456,7 @@
         
           </div>
         
-          <!-- Library window --->
+        <!-- Library window --->
         <div class="window library" id="library">
             <div class="windowheader" id="libraryheader">
               <div class="window_icons">
@@ -546,6 +557,50 @@
                     <div class="img_con" id="alb_con">
 
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MyGame window --->
+        <div class="window mygame" id="mygame">
+            <div class="windowheader" id="mygameheader">
+              <div class="window_icons">
+                <div class="window_icon" id="mygameclose" title="Close" >
+                    <img src="close.svg" alt="closesvg">
+                </div>
+                <div class="window_icon" id="mygamemax" title="Maximize">
+                    <img src="max.svg" alt="maxsvg">
+                </div>
+                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
+                <p>⭐ My Game ⭐</p>
+              </div>
+            </div>
+            
+            <div class="game_ins">
+                <button>Start Game</button>
+                <div class="obj" style="height: 100px;width: 100px;top: 7%;left: 50px;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
+                </div>
+                <div class="obj" style="height: 10px;width: 10px;top: 2%;right: 30px;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
+                </div>
+                <div class="obj" style="height: 50px;width: 50px;top: 13%;right: 40%;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
+                </div>
+                <div class="obj" style="height: 20px;width: 20px;bottom: 54px;right: 40%;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
+                </div>
+                <div class="obj" style="height: 50px;width: 50px;top: 50%;right: 10%;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
+                </div>
+                <div class="obj" style="height: 30px;width: 30px;bottom: 30%;left: 30%;">
+                    <div class="portal"></div>
+                    <img src="loki.gif" alt="">
                 </div>
             </div>
         </div>
