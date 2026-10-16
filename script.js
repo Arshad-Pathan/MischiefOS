@@ -1308,8 +1308,8 @@ function onStart(){
 onStart();
 
 function tempad(){
-  document.addEventListener("drop",()=>{
-    alert("sdfsd")
+  document.addEventListener("contextmenu",()=>{
+    alert("sdfghjh hyysd")
   })
 }
 tempad()
@@ -1341,6 +1341,8 @@ function keyPresses(){
 keyPresses();
 
 /* gvebe;ldlsdcfsfsfsfm dsgs gsgsf sjfndfksvxfv  g gsg sdggsg sgsdfad sdasd  ac a ndfjsdfjsdfjmf kf's
-v dv'd a dsasd dfrsd
+v dv'd a dsasvgg 
+uyy h 
+ug 6d dfrsd
 f   dfg ddgffg */
  
