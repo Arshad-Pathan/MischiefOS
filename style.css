@@ -258,8 +258,6 @@ body {
   border: 3px solid rgb(255, 128, 60);
   border-radius: 20px;
   z-index: 100;
-  /* transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
-  transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .windowheader {
