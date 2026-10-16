@@ -1290,29 +1290,53 @@ function indAlbImg(category) {
 
 
 // game app
-function onStart(){
-  var gmStBtn = document.querySelector(".game_ins button");
+function game(){
+  var game = document.getElementById("mygame");
+  var gmStBtn = document.getElementById("gmStBtn");
+  var objs = document.querySelectorAll(".obj");
+  var loki = document.querySelectorAll(".obj img");
+  var portals = document.querySelectorAll(".portal");
 
-  gmStBtn.addEventListener("click", ()=>{
+  var gameState = true;
+  
+  function gmStart(){
     // document.querySelectorAll(".portal").forEach(function(e){
     //   e.classList.add("plAni");
     // })
-    if(gmStBtn.textContent === "End Game"){
-      gmStBtn.textContent = "Start Game";
-    } else {
-      gmStBtn.textContent = "End Game";
-    }
-    maxWindow(mygame)
-  })
-} 
-onStart();
+    gameState=true;
+    game.style.background = 'url("game.png") center / cover no-repeat';
+    gmStBtn.textContent = "End Game";
+    objs.forEach(function(obj) {
+      obj.classList.add("showObj");
+    })
+    loki.forEach((l) => l.style.animation = "stGame 4s ease-in");
+    portals.forEach((p) => p.style.animation = "timePortal 6s forwards");
+  }
+  function gmEnd() {
+    gameState=false;
+    game.style.background = 'url("nexus.jpg") center / cover no-repeat';
+    gmStBtn.textContent = "Start Game";
+    objs.forEach(function(obj) {
+      obj.classList.remove("showObj");
+    })
+    loki.forEach((l) => l.style.animation = "stGame 4s ease-in reverse");
+    portals.forEach((p) => p.style.animation = "timePortal 6s reverse"); 
+  }
+  gmStBtn.addEventListener("click", ()=>{
+      if(!gameState){
+        gmEnd();
+      } else {
+        gmStart();
+      }
+  });
+}
+game();
 
 function tempad(){
   document.addEventListener("contextmenu",()=>{
     alert("sdfghjh hyysd")
   })
 }
-tempad()
 
 
 
@@ -1326,17 +1350,21 @@ tempad()
 
 function keyPresses(){
   var play = document.querySelector(".playPause");
-  
-    document.addEventListener("keypress", function(e){
-      if (e.key === " ") {
-        play.focus();
-      } else if (e.key === "T" || e.key === "t") {
-        document.getElementById("rsBtn").focus();
-        document.getElementById("stBtn").focus();
-      } else if (e.key === "s" || e.key === "S") {
-        document.getElementById("timeSelection").focus();
-      }
-    });
+
+  document.addEventListener("keypress", function(e){
+    if (e.key === " ") {
+      play.focus();
+    } else if (e.key === "T" || e.key === "t") {
+      document.getElementById("rsBtn").focus();
+      document.getElementById("stBtn").focus();
+    } else if (e.key === "s" || e.key === "S") {
+      document.getElementById("timeSelection").focus();
+    } else if (e.key === "a" || e.key === "A"){
+      document.querySelector(".icons_bar").style.display="flex";
+    } else if (e.key === "h" || e.key === "H"){
+      document.querySelector(".icons_bar").style.display="none";
+    }
+  });
 }
 keyPresses();
 

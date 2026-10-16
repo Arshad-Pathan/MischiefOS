@@ -994,51 +994,85 @@ body {
 }
 
 .mygame{
-  top: 40%;
-  left: 40%;
-  height: 300px;
-  width: 300px;
-  background: url("game.png");
-  background-position: center;
+  /* top: 40%;
+  left: 40%; */
+  height: calc(100vh - 46px);
+  width: 100%;
+  /* height: 300px;
+  width: 300px; */
+  display: flex;
+  background: url("nexus.jpg") center / cover no-repeat;
+  /* background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 .mygame #mygamemax{
   display: none;
+  
 }
+
 .obj{
   position: absolute;
   z-index: 1000;
 }
+.obj img{
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.showObj img{
+  display: initial;
+  /* animation: stGame 4s ease-in; */
+}
 .obj .portal{
   position: absolute;
+  top: 0;
+  left: 0;
   display: none;
   height: 150%;
   width: 110%;
   transform-origin: center;
-  background: url("windowbg.svg") rgba(255, 226, 79, 0.69);
-  border: 3px solid rgb(255, 213, 0);
+  /* scale: 1.1; */
+  background: rgba(255, 187, 0, 0.46);
+  backdrop-filter: blur(2px);
+  border: 3px solid transparent;
+  border-image: linear-gradient(rgb(255, 230, 0), #ffffff, rgb(255, 230, 0), #ffffff, rgb(255, 230, 0)) 1;
 }
-.plAni{
+.showObj .portal{
   display: flex;
-  animation: timePortal 2s infinite;
+  /* animation: timePortal 6s forwards; */
 }
 
+@keyframes stGame {
+  0%{
+    opacity: 0;
+  } 60% {
+    opacity: 0;
+  } 70% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
+}
 @keyframes timePortal {
   0%{
     scale: 0;
-    animation-timing-function: cubic-bezier(1,0,0,1);
-  }60% {
+  } 30% {
     scale: 0 0.3;
     animation-timing-function: cubic-bezier(1,0,0,1);
-  } 70% {
+  } 35% {
     scale: 1.1 0.3;   
     animation-timing-function: cubic-bezier(1,0,0,1);
-  } 100% {
+  } 50% {
     scale: 1.1;
-  }
-}
-.obj img{
-  height: 100%;
-  width: 100%;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 60% {
+    scale: 1.1 0.3;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 70% {
+    scale: 0 0.3;   
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 100% {
+    scale: 0;
+  } 
 }

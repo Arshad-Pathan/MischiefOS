@@ -574,37 +574,200 @@
                 <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ My Game ⭐</p>
               </div>
+              <div class="game_icon">
+                  <button id="gmStBtn">Start Game</button>
+
+              </div>
             </div>
             
+            <!-- <div class="game-area" id="gameArea">
+                <img src="images/background.jpg" class="background">
+            
+                <div class="portal" style="left: 25%; top: 40%;"></div>
+                <img src="loki.gif" class="hidden-object" style="left: 25%; top: 40%;">
+            
+                <div class="portal" style="left: 60%; top: 30%;"></div>
+                <img src="loki.gif" class="hidden-object" style="left: 60%; top: 30%;">
+            
+            </div>
+            
+            <button id="gameBtn">Start Game</button> -->
             <div class="game_ins">
-                <button>Start Game</button>
                 <div class="obj" style="height: 100px;width: 100px;top: 7%;left: 50px;">
-                    <div class="portal"></div>
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
-                <div class="obj" style="height: 10px;width: 10px;top: 2%;right: 30px;">
-                    <div class="portal"></div>
+                <div class="obj" style="height: 20px;width: 20px;top: 10%;right: 30px;">
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 50px;width: 50px;top: 13%;right: 40%;">
-                    <div class="portal"></div>
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
-                <div class="obj" style="height: 20px;width: 20px;bottom: 54px;right: 40%;">
-                    <div class="portal"></div>
+                <div class="obj" style="height: 200px;width: 200px;top: 30%;right: 50%;">
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
+                </div>
+                <div class="obj" style="height: 30px;width: 30px;bottom: 54px;right: 40%;">
+                    <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 50px;width: 50px;top: 50%;right: 10%;">
-                    <div class="portal"></div>
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
+                </div>
+                <div class="obj" style="height: 50px;width: 50px;bottom: 10%;left: 10%;">
+                    <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 30px;width: 30px;bottom: 30%;left: 30%;">
-                    <div class="portal"></div>
                     <img src="loki.gif" alt="">
+                    <div class="portal"></div>
                 </div>
             </div>
         </div>
       
+
+<!-- 
+        
+<style>
+    .game-area {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.portal,
+.hidden-object {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.portal {
+    width: 65px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        transparent 35%,
+        #7c35ff 45%,
+        #00eaff 60%,
+        transparent 72%
+    );
+
+    box-shadow: 0 0 20px #793cff;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hidden-object {
+    width: 55px;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.portal.open {
+    animation: portalOpen 0.8s ease forwards;
+}
+
+.portal.close {
+    animation: portalClose 0.6s ease forwards;
+}
+
+.hidden-object.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes portalOpen {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes portalClose {
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        opacity: 0;
+        scale: 0;
+    }
+}
+</style> -->
+<!-- <script>
+    const gameBtn = document.querySelector("#gameBtn");
+const portals = document.querySelectorAll(".portal");
+const objects = document.querySelectorAll(".hidden-object");
+
+let gameRunning = false;
+let timers = [];
+
+const delays = [1000, 4000]; // milliseconds
+
+function startGame() {
+    gameRunning = true;
+    gameBtn.textContent = "End Game";
+
+    portals.forEach((portal, i) => {
+        portal.classList.remove("close");
+        portal.classList.add("open");
+
+        const timer = setTimeout(() => {
+            if (!gameRunning) return;
+
+            objects[i].classList.add("visible");
+        }, delays[i] + 800);
+
+        timers.push(timer);
+    });
+}
+
+function endGame() {
+    gameRunning = false;
+    gameBtn.textContent = "Start Game";
+
+    // Stop all scheduled appearances
+    timers.forEach(clearTimeout);
+    timers = [];
+
+    portals.forEach(portal => {
+        portal.classList.remove("open");
+        portal.classList.add("close");
+    });
+
+    objects.forEach(object => {
+        object.classList.remove("visible");
+    });
+}
+
+gameBtn.addEventListener("click", () => {
+    if (gameRunning) {
+        endGame();
+    } else {
+        startGame();
+    }
+});
+</script> -->
         <!--
             > starting featues entry message, after ok the window become full window
             > apps are accessible in the app menu
