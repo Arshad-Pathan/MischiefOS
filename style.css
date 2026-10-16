@@ -137,8 +137,7 @@ body {
 .icons_bar {
   position: fixed;
   bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-left: 12px;
   width: fit-content;
   padding: 0;
   display: flex;
@@ -259,6 +258,8 @@ body {
   border: 3px solid rgb(255, 128, 60);
   border-radius: 20px;
   z-index: 100;
+  /* transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
+  transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .windowheader {
@@ -1000,11 +1001,7 @@ body {
   width: 100%;
   /* height: 300px;
   width: 300px; */
-  display: flex;
-  background: url("nexus.jpg") center / cover no-repeat;
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
+  background: url("game.png") center / cover no-repeat;
 }
 .mygame #mygamemax{
   display: none;
@@ -1019,10 +1016,7 @@ body {
   height: 100%;
   width: 100%;
   display: none;
-}
-.showObj img{
-  display: initial;
-  /* animation: stGame 4s ease-in; */
+  animation: none;
 }
 .obj .portal{
   position: absolute;
@@ -1035,12 +1029,42 @@ body {
   /* scale: 1.1; */
   background: rgba(255, 187, 0, 0.46);
   backdrop-filter: blur(2px);
+  animation: none;
   border: 3px solid transparent;
   border-image: linear-gradient(rgb(255, 230, 0), #ffffff, rgb(255, 230, 0), #ffffff, rgb(255, 230, 0)) 1;
 }
+.winning_Box, .instruction_Box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 300px;
+  width: 300px;
+  background: #312c26;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.instruction_Box{
+  display: flex;
+}
+.showObj img{
+  display: initial;
+  animation: stGame 2s forwards ease-in;
+}
+.hideObj img{
+  display: initial;
+  animation: endGame 2s forwards ease-in;
+}
 .showObj .portal{
   display: flex;
-  /* animation: timePortal 6s forwards; */
+  animation: timePortal 4s forwards;
+}
+.hideObj .portal{
+  display: flex;
+  animation: reTimePortal 4s forwards;
 }
 
 @keyframes stGame {
@@ -1054,9 +1078,21 @@ body {
     opacity: 1;
   }
 }
+@keyframes endGame {
+  0%{
+    opacity: 1;
+  } 60% {
+    opacity: 1;
+  } 70% {
+    opacity: 1;
+  } 100% {
+    opacity: 0;
+  }
+}
 @keyframes timePortal {
   0%{
     scale: 0;
+    animation-timing-function: cubic-bezier(1,0,0,1);
   } 30% {
     scale: 0 0.3;
     animation-timing-function: cubic-bezier(1,0,0,1);
@@ -1066,10 +1102,33 @@ body {
   } 50% {
     scale: 1.1;
     animation-timing-function: cubic-bezier(1,0,0,1);
-  } 60% {
+  } 80% {
     scale: 1.1 0.3;
     animation-timing-function: cubic-bezier(1,0,0,1);
-  } 70% {
+  } 85% {
+    scale: 0 0.3;   
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 100% {
+    scale: 0;
+  } 
+}
+@keyframes reTimePortal {
+  0%{
+    scale: 0;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 30% {
+    scale: 0 0.3;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 35% {
+    scale: 1.1 0.3;   
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 50% {
+    scale: 1.1;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 80% {
+    scale: 1.1 0.3;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+  } 85% {
     scale: 0 0.3;   
     animation-timing-function: cubic-bezier(1,0,0,1);
   } 100% {

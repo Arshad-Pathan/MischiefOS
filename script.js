@@ -33,7 +33,7 @@ var selectedIcon = undefined
 
 
 var interval;
-var countdown = 0;
+var countdown = 0 || localStorage.getItem("timer");
 
 function rnTimer() {
   clearInterval(interval);
@@ -95,19 +95,20 @@ function tmSelection(){
   var csTimer = document.querySelector(".csTimer");
   var dpTimer = document.querySelector(".displayTimer");
   var timeDrpdown=document.getElementById("timeSelection");
-
+  var tValue = Number(timeDrpdown.value) || localStorage.getItem("timer");
+  countdown = tValue * 60;
   timeDrpdown.addEventListener("change", function(){
-
-    // var time = Number(this.value);
-    if(this.value==="CUSTOM"){
+    tValue=this.value;
+    if(tValue==="CUSTOM"){
       csTimer.style.display="flex";
       dpTimer.style.display="none";
       tkTime();
     } else {
       csTimer.style.display="none";
       dpTimer.style.display="flex";
-      countdown = this.value * 60;
+      countdown = tValue * 60;
       dpSelection();
+      rnTimer();
     }
   });
 }
@@ -118,6 +119,7 @@ function stTimer(){
     document.getElementById("rsBtn").style.display="flex";
     tmSelection();
     dpTimer.style.display="flex";
+    
     rnTimer();
   });
 }
@@ -1293,41 +1295,66 @@ function indAlbImg(category) {
 function game(){
   var game = document.getElementById("mygame");
   var gmStBtn = document.getElementById("gmStBtn");
+  var gmEndBtn = document.getElementById("gmEndBtn");
+  var insBox = document.querySelector(".instruction_Box");
+  var winBox = document.querySelector(".winning_Box");
   var objs = document.querySelectorAll(".obj");
-  var loki = document.querySelectorAll(".obj img");
-  var portals = document.querySelectorAll(".portal");
+  var lokiC = document.querySelector(".lokiC");
+  // var loki = document.querySelectorAll(".obj img");
+  // var portals = document.querySelectorAll(".portal");
 
-  var gameState = true;
-  
+  var gameState = false;
+  var lokiCounter = 0;
+  function selCount() {
+    lokiCounter = lokiCounter + 1;
+  }
   function gmStart(){
-    // document.querySelectorAll(".portal").forEach(function(e){
-    //   e.classList.add("plAni");
-    // })
     gameState=true;
-    game.style.background = 'url("game.png") center / cover no-repeat';
-    gmStBtn.textContent = "End Game";
     objs.forEach(function(obj) {
+      obj.classList.remove("selected");
       obj.classList.add("showObj");
+      obj.classList.remove("hideObj");
+      obj.addEventListener("click", ()=>{
+        if(obj.classList.contains("selected")){
+          return;
+        } else {
+          obj.classList.add("selected");
+          selCount()
+          lokiC.textContent = `${lokiCounter}/8`;
+          if(lokiCounter === 7){
+            winBox.style.display="flex";
+            document.querySelector(".winning_Box h1").textContent="You always loose, One more there";
+          } 
+          if (lokiCounter === 8) {
+            document.querySelector(".winning_Box h1").textContent="You win";
+          }
+          // else if(lokiCounter === 7) {
+          //   winBox.style.display="flex";
+          //   document.querySelector(".winning_Box h1").textContent="You always loose";
+          // } 
+          
+        }
+        
+      })
     })
-    loki.forEach((l) => l.style.animation = "stGame 4s ease-in");
-    portals.forEach((p) => p.style.animation = "timePortal 6s forwards");
+    // portals.forEach((p) => p.style.animation = "timePortal 6s forwards");
   }
   function gmEnd() {
     gameState=false;
-    game.style.background = 'url("nexus.jpg") center / cover no-repeat';
-    gmStBtn.textContent = "Start Game";
     objs.forEach(function(obj) {
+      obj.classList.remove("selected");
       obj.classList.remove("showObj");
+      obj.classList.add("hideObj");
     })
-    loki.forEach((l) => l.style.animation = "stGame 4s ease-in reverse");
-    portals.forEach((p) => p.style.animation = "timePortal 6s reverse"); 
   }
   gmStBtn.addEventListener("click", ()=>{
-      if(!gameState){
-        gmEnd();
-      } else {
-        gmStart();
-      }
+    gmStart();
+    insBox.style.display="none";
+  });
+  gmEndBtn.addEventListener("click", ()=>{
+    gmEnd();
+    winBox.style.display="none";
+    insBox.style.display="flex";
   });
 }
 game();
@@ -1373,4 +1400,3 @@ v dv'd a dsasvgg
 uyy h 
 ug 6d dfrsd
 f   dfg ddgffg */
- 
