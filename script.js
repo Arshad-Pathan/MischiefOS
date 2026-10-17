@@ -323,8 +323,23 @@ setInterval(()=>{
 
 
 
-
-
+function icons(){
+  var app_trigger = document.querySelector(".apps");
+  var app_container = document.querySelector(".icon_container");
+  app_trigger.addEventListener("click",()=>{
+    if(app_container.classList.contains("fit-content")){
+      app_container.classList.remove("fit-content")
+    } else {
+      app_container.classList.add("fit-content")
+    }
+    // if(app_container.style.width === "fit-content"){
+    //   app_container.style.width = "0";
+    // } else {
+    //   app_container.style.width = "fit-content";
+    // }
+  })
+}
+icons();
 
 
 
