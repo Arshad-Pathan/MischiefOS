@@ -21,7 +21,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: rgb(255, 128, 60);
+  color: #ff803c;
+}
+::-webkit-scrollbar{
+  background-color: transparent;
+}
+::-webkit-scrollbar-track{
+  width: 20px;
+}
+::-webkit-scrollbar-thumb{
+  background: url("loki.gif") #2d4535 center / auto 30% no-repeat;
 }
 .screen{
   position: sticky;
@@ -30,8 +39,6 @@ body {
   width: 100%;
   background: #d9b79548;
   overflow: hidden;
-
- 
 }
 .nav {
   position: sticky;
@@ -41,20 +48,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: hsl(30, 6%, 7%);
+  background: url("assets/s.png") center / cover no-repeat;
   z-index: 999;
 }
 
 .nav h4 {
   font-family: "VT323", monospace;
   font-size: 22px;
-  /* padding: 4px; */
+  padding: 4px 10px;
   cursor: pointer;
-  border: 2px dashed #00000000;
+  background: url("assets/screen.svg") center / cover no-repeat;
+  border-top: 3px solid #303030;
+  border-left: 3px solid #303030;
+  border-bottom: 3px solid #171616;
+  border-right: 3px solid #171616;
 }
 
 .nav h4:hover {
-  border: 2px dashed rgb(255, 128, 60);
+  outline: 2px dashed rgb(255, 128, 60);
 }
 
 .nav p {
@@ -62,11 +73,16 @@ body {
   font-size: 14px;
   letter-spacing: 2.1px;
   cursor: none;
-  border: 2px dashed #00000000;
+  padding: 4px 10px;
+  background: url("assets/screen.svg") center / cover no-repeat;
+  border-top: 3px solid #303030;
+  border-left: 3px solid #303030;
+  border-bottom: 3px solid #171616;
+  border-right: 3px solid #171616;
 }
 
 .nav p:hover {
-  border: 2px dashed rgb(255, 128, 60);
+  outline: 2px dashed rgb(255, 128, 60);
 }
 .widgetsContainer{
   display: flex;
@@ -74,38 +90,72 @@ body {
 }
 .widgets{
   display: flex;
-  padding: 4px; 
+  align-items: center;
+  padding: 4px 10px; 
   gap: 8px;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2px);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  border-radius: 8px; */
+  background: url("assets/screen.svg") center / cover no-repeat;
+  border-top: 3px solid #303030;
+  border-left: 3px solid #303030;
+  border-bottom: 3px solid #171616;
+  border-right: 3px solid #171616;
 }
 
 
 
 .timer{
+  position: relative;
   display: flex;
   align-items: center;
 }
+.timer select, ::picker(select){
+  appearance: base-select;
+  padding: 4px 10px;
+}
 .timer select{
-  padding: 4px;
+  border-radius: 0;
+  background: url("assets/screen.svg") center / cover no-repeat;
+  border-top: 3px solid #303030;
+  border-left: 3px solid #303030;
+  border-bottom: 3px solid #171616;
+  border-right: 3px solid #171616;
 }
-.timer select option{
-  display: flex;
-  flex-direction: column;
+::picker(select) {
+  background-color: #171616;
+  color: #fff;
+  /* border: 1px solid #ff803c; */
 }
+.timer select option:checked{
+  color: #ff803c;
+  border: 1px solid #ff803c;
+}
+::picker-icon {
+  color: #ff803c;
+}
+
 .timer button{
-  height: 24px;
-  width: 24px;
+  outline: none;
+  border: none;
+  height: 28px;
+  width: 28px;
   padding: 12px;
 }
 .timer #stBtn{
-  background: #6DA47F;
+  background: url("assets/obtn.svg") center / cover no-repeat;
+}
+.timer #stBtn:active{
+  background: url("assets/oabtn.svg") center / cover no-repeat;
 }
 .timer #rsBtn{
   display: none;
-  background: #df0000;
+  background: url("assets/cbtn.svg") center / cover no-repeat;
+}
+.timer #rsBtn:active{
+  display: none;
+  background: url("assets/cabtn.svg") center / cover no-repeat;
 }
 
 .displayTimer, .csTimer{
