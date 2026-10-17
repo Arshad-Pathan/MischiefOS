@@ -1,4 +1,6 @@
 /*
+  font-family: "Doto", sans-serif;
+
  font-family: "Inter", sans-serif;
 font-family: "Playfair", serif;
 font-family: "Jacquarda Bastarda 9", serif;
@@ -53,36 +55,40 @@ body {
 }
 
 .nav h4 {
-  font-family: "VT323", monospace;
+  font-family: "Doto", sans-serif;
   font-size: 22px;
   padding: 4px 10px;
   cursor: pointer;
-  background: url("assets/screen.svg") center / cover no-repeat;
+  background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
   border-left: 3px solid #303030;
   border-bottom: 3px solid #171616;
   border-right: 3px solid #171616;
+  outline: 2px dashed #ff803c;
+  outline-offset: -7px;
 }
 
 .nav h4:hover {
-  outline: 2px dashed rgb(255, 128, 60);
+  outline: 2px outset rgb(255, 128, 60);
 }
 
 .nav p {
-  font-family: "VT323", monospace;
+  font-family: "Doto", sans-serif;
   font-size: 14px;
   letter-spacing: 2.1px;
   cursor: none;
   padding: 4px 10px;
-  background: url("assets/screen.svg") center / cover no-repeat;
+  background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
   border-left: 3px solid #303030;
   border-bottom: 3px solid #171616;
   border-right: 3px solid #171616;
+  outline: 2px dashed #ff803c;
+  outline-offset: -7px;
 }
 
 .nav p:hover {
-  outline: 2px dashed rgb(255, 128, 60);
+  outline: 2px outset rgb(255, 128, 60);
 }
 .widgetsContainer{
   display: flex;
@@ -93,15 +99,18 @@ body {
   align-items: center;
   padding: 4px 10px; 
   gap: 8px;
+  font-family: "Doto", sans-serif;
   /* background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2px);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
   border-radius: 8px; */
-  background: url("assets/screen.svg") center / cover no-repeat;
+  background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
   border-left: 3px solid #303030;
   border-bottom: 3px solid #171616;
   border-right: 3px solid #171616;
+  outline: 2px inset #ff803c;
+  outline-offset: -7px;
 }
 
 
@@ -110,6 +119,9 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 4px;
+  font-family: "Doto", sans-serif;
+
 }
 .timer select, ::picker(select){
   appearance: base-select;
@@ -117,11 +129,13 @@ body {
 }
 .timer select{
   border-radius: 0;
-  background: url("assets/screen.svg") center / cover no-repeat;
+  background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
   border-left: 3px solid #303030;
   border-bottom: 3px solid #171616;
   border-right: 3px solid #171616;
+  outline: 2px inset #ff803c;
+  outline-offset: -7px;
 }
 ::picker(select) {
   background-color: #171616;
@@ -169,7 +183,9 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-family: "Inter", sans-serif;
-  background: #6DA47F;
+  background: url("assets/screen.svg") center / auto no-repeat;
+  /* background: #6DA47F; */
+  border: 2px inset #ff803c;
   z-index: 999;
 }
 .displayTimer div, .csTimer div{
@@ -182,8 +198,17 @@ body {
 }
 .displayTimer div span, .csTimer div input{
   font-size: 28px;
+  font-family: "Doto", sans-serif;
+  color: #ff803c;
+  background: none;
+  border: 1px dashed #ff803c;
 }
-
+.csTimer div input::-webkit-inner-spin-button{
+  appearance: none;
+}
+.csTimer div input:focus{
+  outline: none;
+}
 .icons_bar {
   position: fixed;
   bottom: 12px;
@@ -261,19 +286,20 @@ body {
   height: 300px;
   width: 300px;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2px);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  border-radius: 8px; */
+  background: url("assets/clock.png") center / cover no-repeat;
 }
 .clock::after{
   content: '';
   position: absolute;
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   top: calc(50% - 8px);
   left: calc(50% - 8px);
-  background-color: #abc234;
+  background-color: #fff;
   border-radius: 50%;
   z-index: 4;
 }
@@ -284,31 +310,34 @@ body {
   transform-origin: bottom center;
 } */
 .hour_hand{
-  height: 90px;
+  height: 60px;
   width: 10px;
   position: absolute;
   top: calc(50% - 5px);
   left: calc(50% - 5px);
   transform-origin: 5px 5px;
   z-index: 1;
+  background: url("assets/hour.svg") center / cover no-repeat;
 }
 .minute_hand{
-  height: 120px;
+  height: 90px;
   width: 8px;
   position: absolute;
   top: calc(50% - 3px);
   left: calc(50% - 3px);
   transform-origin: 3px 3px;
   z-index: 2;
+  background: url("assets/minute.svg") center / cover no-repeat;
 }
 .second_hand{
-  height: 140px;
+  height: 110px;
   width: 5px;
   position: absolute;
   top: calc(50% - 1px);
   left: calc(50% - 1px);
   transform-origin: 1px 1px;
   z-index: 3;
+  background: url("assets/second.svg") center / cover no-repeat;
 }
 /* .hour_hand.time2, .minute_hand.time2{
   transform: rotate(90deg);

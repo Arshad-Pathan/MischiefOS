@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 914 3709" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-2230.585942,14.479167)">
+        <g>
+            <g transform="matrix(-2.149391,-0,0,-1.285795,11292.518044,3823.394003)">
+                <path d="M4003.592,2285.788L4209.311,2629.675L4003.592,2973.563L3797.874,2629.675L4003.592,2285.788Z" style="stroke:black;stroke-width:16.35px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,2687.234418,846.818018)">
+                <path d="M0,736.276C-119.433,355.968 -238.865,-24.341 -358.298,-404.649C-238.865,-515.191 -119.433,-625.733 0,-736.276C119.433,-625.733 238.865,-515.191 358.298,-404.649C238.865,-24.341 119.433,355.968 0,736.276Z" style="stroke:black;stroke-width:28.96px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,2687.234418,1251.466728)">
+                <path d="M0,1030.382C-91.476,417.156 -182.951,-196.071 -274.427,-809.297C-182.951,-882.992 -91.476,-956.687 0,-1030.382C91.476,-956.687 182.951,-882.992 274.427,-809.297C182.951,-196.071 91.476,417.156 0,1030.382Z" style="stroke:black;stroke-width:28.96px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,2687.234418,1656.115437)">
+                <path d="M0,1324.488C-63.519,478.344 -127.037,-367.801 -190.556,-1213.946C-127.037,-1250.794 -63.519,-1287.641 0,-1324.488C63.519,-1287.641 127.037,-1250.794 190.556,-1213.946C127.037,-367.801 63.519,478.344 0,1324.488Z" style="stroke:black;stroke-width:28.96px;"/>
+            </g>
+            <g transform="matrix(-0.45615,-0,0,-0.434276,4507.910477,3679.358984)">
+                <path d="M3991.399,0L4225.279,7454.221L3757.518,7454.221L3991.399,0Z" style="stroke:black;stroke-width:65.02px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
