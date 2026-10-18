@@ -938,34 +938,28 @@ terminalCmd();
 // Music Player
 var songs = [
   {
-    name: "Loki TVA First View",
+    name: "TVA First View",
     creator: "NATALIE HOLT",
-    img: "images/Folder 1@2x.png",
-    audio: "images/Loki TVA First View.mp3"
+    img: "assets/TVA_First_View.png",
+    audio: "assets/TVA First View.mp3"
   },
   {
-    name: "Season6",
+    name: "History Is Now",
     creator: "NATALIE HOLT",
-    img: "images/intro.png",
-    audio: "images/LOKI Season 2 EPISODE 6 END CREDITS Theme _ Natalie Holt _ Epic Version [2DnydJsvZt0].mp3"
+    img: "assets/History_Is_Now.png",
+    audio: "assets/History Is Now.mp3"
   },
   {
     name: "Purpose Is Glorious",
     creator: "NATALIE HOLT",
-    img: "images/intro.png",
-    audio: "images/Purpose Is Glorious (From Loki Season 2 - Vol. 2 (Episodes 4-6) Score Audio Only).mp3"
+    img: "assets/Purpose_Is_Glorious.png",
+    audio: "assets/Purpose Is Glorious.mp3"
   },
   {
     name: "DB COOPER",
     creator: "NATALIE HOLT",
-    img: "images/Folder 1@2x.png",
-    audio: "images/DB Cooper [yPksQPjUmmY].mp3"
-  },
-  {
-    name: "GONE, GONE THANK YOU",
-    creator: "Tyler, The Creator",
-    img: "images/intro.png",
-    audio: "images/Tyler, The Creator - GONE, GONE THANK YOU.mp3"
+    img: "assets/DB_COOPER.png",
+    audio: "assets/DB Cooper.mp3"
   }
 ];
 
@@ -1110,10 +1104,6 @@ function sOptSelection(){
       aud.play();
     }
     else if(currSong === "3"){
-      loadSelectedSong(currSong);
-      aud.play();
-    }
-    else if(currSong === "4"){
       loadSelectedSong(currSong);
       aud.play();
     }
