@@ -843,7 +843,9 @@ body {
   color: #fff;
 }
 
+/* Music Player */
 .music{
+  display: flex;
   left: 30%;
   top: 14%;
   background: none;
@@ -854,8 +856,8 @@ body {
 } */
 .music_player{
   position: relative;
-  height: 500px;
-  width: 500px;
+  height: fit-content;
+  width: fit-content;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -873,19 +875,68 @@ body {
   
 }
 .disk{
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  background: #777766;
+  padding: 36px;
+  /* background: #777766; */
+  /* background: url("assets/s.png") center / cover no-repeat; */
+}
+.disk::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/s.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: -1;
 }
 .disk img{
-  width: 50%;
+  width: 90%;
   border-radius: 50%;
   transform: rotate(0deg);
 }
 .r-disk{
   animation: round 10s linear infinite;
+}
+.player{
+  position: absolute;
+  left: 0;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.player input[type="range"],::-webkit-slider-runnable-track,::-webkit-slider-thumb{
+  appearance: none;
+  background: transparent;
+  box-sizing: border-box;
+}
+.player input::-webkit-slider-runnable-track{
+  height: 20px;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  /* border-image: url("assets/s.png") 10 round; */
+  border: 4px solid #232323;
+  border-radius: 20px;
+}
+.player input::-webkit-slider-thumb{
+  height: 15px;
+  width: 15px;
+  margin-top: -1px;
+  border-radius: 50px;
+  background: #2d4535;
+}
+.player div{
+  display: none;
+  justify-content: space-between;
+  padding: 0 4px;
 }
 @keyframes round{
   0%{
@@ -895,8 +946,20 @@ body {
   }
 }
 .info{
+  width: 90%;
   box-sizing: border-box;
+  
   padding: 10px;
+  font-family: "Doto", sans-serif;
+  color: #fff;
+  background: url("assets/screen.svg") center / auto no-repeat;
+  /* border-top: 3px solid #303030;
+  border-left: 3px solid #303030;
+  border-bottom: 3px solid #171616;
+  border-right: 3px solid #171616; */
+  border: 3px outset #303030;
+  outline: 2px inset #fff;
+  outline-offset: -9px;
 }
 .info .song-name{
   font-size: 20px;
@@ -905,17 +968,6 @@ body {
 .info .song-creator{
   font-size: 16px;
   font-weight: 400;
-}
-.player{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-}
-.player div{
-  display: flex;
-  justify-content: space-between;
-  padding: 0 4px;
 }
 .controls{
   height: 100%;

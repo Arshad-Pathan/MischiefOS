@@ -25,16 +25,73 @@ setInterval(updateTime, 1000);
 const visits_api = "https://script.google.com/macros/s/AKfycbxWQilmTjyUdmj3fhwZA6Fjtca09gkLOS1QTcfwhktfndMcigKP8nBZpVqf4sGmhB4R/exec";
 
 // variables
-var biggestIndex = 1;
+var biggestIndex = 10;
 
 var topBar = document.querySelector("#top")
 
 var selectedIcon = undefined
 
 
+
+
+// visitor counter widget
+function showVisitorCount(data) {
+    const counter = document.querySelector(".counter");
+
+    if (counter && data.success) {
+        counter.textContent = data.count;
+    }
+}
+async function addVisitScript() {
+  const script = document.createElement("script");
+  
+  script.src = visits_api +
+  "?action=visit&callback=showVisitorCount";
+  
+  script.onerror = function () {
+    console.log("Visitor counter could not load.");
+  };
+  
+  document.body.appendChild(script);
+}
+addVisitScript();
+
+document.addEventListener("contextmenu",()=>{
+  addVisitScript();
+})
+
+// weather widget
+const city = {
+  name: "SURAT",
+  latitude: 21.170240,
+  longitude: 72.831062
+};
+async function updateWeather() {
+  const url = `https://api.open-meteo.com/v1/forecast` + `?latitude=${city.latitude}` + `&longitude=${city.longitude}` +
+    `&current=temperature_2m,is_day` + `&timezone=auto`;
+    
+  const response = await fetch(url);
+
+  const data = await response.json();
+  const current = data.current;
+
+  const temp = document.getElementById("weatherTemp");
+  const icon = document.getElementById("weatherIcon");
+
+  document.getElementById("weatherCity").textContent =
+    city.name;
+
+  temp.textContent =
+    `${Math.round(current.temperature_2m)}°C`;
+
+  icon.textContent =
+    current.is_day === 1 ? "☀" : "☾";
+}
+updateWeather();
+setInterval(updateWeather, 60 * 60 * 1000);
+
 var interval;
 var countdown = 0 || localStorage.getItem("timer");
-
 function rnTimer() {
   clearInterval(interval);
   dpSelection();
@@ -50,7 +107,6 @@ function rnTimer() {
   }, 1000);
 
 }
-
 function dpSelection(){
   var minutes = Math.floor(countdown/60);
   var seconds = countdown % 60;
@@ -75,7 +131,6 @@ function tkTime(){
     rnTimer();
   });
 }
-
 function cstTimer(){
   var csMin = document.getElementById("csMin");
   var csSec = document.getElementById("csSec");
@@ -157,71 +212,8 @@ rsTimer();
 // setInterval(dpSelection,1000);
 
 
-// visitor counter widget
-function showVisitorCount(data) {
-    const counter = document.querySelector(".counter");
 
-    if (counter && data.success) {
-        counter.textContent = data.count;
-    }
-}
-async function addVisitScript() {
-  const script = document.createElement("script");
-  
-  script.src = visits_api +
-  "?action=visit&callback=showVisitorCount";
-  
-  script.onerror = function () {
-    console.log("Visitor counter could not load.");
-  };
-  
-  document.body.appendChild(script);
-}
-addVisitScript();
-// setInterval(function(){
-//   const script = document.createElement("script");
-  
-//   script.src = visits_api +
-//   "?action=visit&callback=showVisitorCount";
-//   document.body.appendChild(script);
-// },1000);
-document.addEventListener("contextmenu",()=>{
-  addVisitScript();
-})
-
-// weather widget
-const city = {
-  name: "SURAT",
-  latitude: 21.170240,
-  longitude: 72.831062
-};
-
-
-async function updateWeather() {
-  const url = `https://api.open-meteo.com/v1/forecast` + `?latitude=${city.latitude}` + `&longitude=${city.longitude}` +
-    `&current=temperature_2m,is_day` + `&timezone=auto`;
-    
-  const response = await fetch(url);
-
-  const data = await response.json();
-  const current = data.current;
-
-  const temp = document.getElementById("weatherTemp");
-  const icon = document.getElementById("weatherIcon");
-
-  document.getElementById("weatherCity").textContent =
-    city.name;
-
-  temp.textContent =
-    `${Math.round(current.temperature_2m)}°C`;
-
-  icon.textContent =
-    current.is_day === 1 ? "☀" : "☾";
-}
-updateWeather();
-setInterval(updateWeather, 60 * 60 * 1000);
-
-
+// Clock widget
 function UpdClock1(){
   const date = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
   var localDate = new Date(date);
@@ -998,24 +990,24 @@ function songControllers(){
   var sImg = document.querySelector(".disk .sI");
 
   var sProg = document.getElementById("sProg");
-  var currTime = document.getElementById("currTime");
-  var duration = document.getElementById("duration");
+  // var currTime = document.getElementById("currTime");
+  // var duration = document.getElementById("duration");
   
   var playPause = document.querySelector(".playPause");
   var back = document.querySelector(".back");
   var forw = document.querySelector(".forward");
 
   // song range
-  aud.addEventListener("loadedmetadata", ()=>{
-    duration.textContent = sTimeFormate(aud.duration);
-  });
+  // aud.addEventListener("loadedmetadata", ()=>{
+  //   duration.textContent = sTimeFormate(aud.duration);
+  // });
 
-  aud.addEventListener("timeupdate", ()=>{
-    if (!aud.duration) return;
-    const p = (aud.currentTime / aud.duration) * 100;
-    sProg.value = p;
-    currTime.textContent = sTimeFormate(aud.currentTime);
-  });
+  // aud.addEventListener("timeupdate", ()=>{
+  //   if (!aud.duration) return;
+  //   const p = (aud.currentTime / aud.duration) * 100;
+  //   sProg.value = p;
+  //   currTime.textContent = sTimeFormate(aud.currentTime);
+  // });
   sProg.addEventListener("input", () => {
     if (!aud.duration) return;
     aud.currentTime = (sProg.value / 100) * aud.duration;
@@ -1069,20 +1061,20 @@ function songControllers(){
   // pause or keep playing when closes the music player, is the way
 }
 // i used ai just for this
-function sTimeFormate(seconds){
-  if ( isNaN(seconds) || !isFinite(seconds) ) {
-    return "00:00";
-  }
+// function sTimeFormate(seconds){
+//   if ( isNaN(seconds) || !isFinite(seconds) ) {
+//     return "00:00";
+//   }
   
-  const minutes = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
+//   const minutes = Math.floor(seconds / 60);
+//   const secs = Math.floor(seconds % 60);
   
-  return (
-        String(minutes).padStart(2, "0")
-        + ":" +
-        String(secs).padStart(2, "0")
-    );
-}
+//   return (
+//         String(minutes).padStart(2, "0")
+//         + ":" +
+//         String(secs).padStart(2, "0")
+//     );
+// }
 loadSelectedSong(0);
 
 function sOptSelection(){
