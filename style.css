@@ -42,6 +42,113 @@ body {
   background: #d9b79548;
   overflow: hidden;
 }
+
+.grid_screen{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+.container{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 26px;
+  background: #567e4c;
+}
+.container div{
+  height: 100%;
+  width: 100%;
+  gap: 26px;
+  padding: 0;
+  background: #737337;
+}
+
+.container .b1{
+  display: grid;
+  grid-template-rows: 1fr 0.2fr 2fr;
+}
+
+.container .b1 div{
+  background: #333333;
+  border-radius: 20px;
+}
+.container .b1 .bi1{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.container .b1 .bi1 div{
+  background: #999999;
+  border-radius: 20px;
+}
+.container .b1 .bi3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.container .b1 .bi3 div{
+  background: #999999;
+  border-radius: 20px;
+}
+.container .b1 .bi3 .c1{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.container .b1 .bi3 .c1 div{
+  background: #d39494;
+  border-radius: 20px;
+}
+.container .b2{
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+.container .b2 div{
+  background: #333333;
+  border-radius: 20px;
+}
+.container .b2 .profile{
+  background: url("assets/profile.png") center / cover no-repeat;
+}
+.container .b2 .desk{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.container .b2 .desk div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #2d4535; 
+}
+.container .b2 .desk .deskinfo{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  justify-items: center;
+  align-content: center;
+}
+/* .container .b2 .desk .deskinfo p{
+  height: 100%;
+  width: 100%;
+  border: 2px solid #ff23ff;
+  
+} */
+
+
+
+
+
+
+
+
+
 .nav {
   position: sticky;
   top: 0;
@@ -845,8 +952,8 @@ body {
 
 /* Music Player */
 .music{
-  display: flex;
-  left: 30%;
+/*   display: flex;
+ */  left: 30%;
   top: 14%;
   background: none;
   border: none;
