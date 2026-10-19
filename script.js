@@ -131,7 +131,7 @@ function gridMusic(){
       if(currSong >= songs.length){
         currSong=0;
       }
-      loadSelectedSong(currSong);
+      gloadSelectedSong(currSong);
       aud.play();
     }
   
@@ -142,20 +142,19 @@ function gridMusic(){
       if(currSong < 0){
         currSong=songs.length - 1;
       }
-      loadSelectedSong(currSong);
+      gloadSelectedSong(currSong);
       aud.play();
     }
   
     // pause when app closes
-    // document.addEventListener("visibilitychange", function(){
-    //   aud.pause()
-    // });  
+    document.addEventListener("visibilitychange", function(){
+      aud.pause()
+    });  
   }
-  gloadSelectedSong(0);
   gsongControllers();
+  gloadSelectedSong(0);
 }
-
-
+gridMusic();
 
 
 

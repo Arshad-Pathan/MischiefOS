@@ -49,7 +49,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 56px;
@@ -84,7 +84,7 @@ body {
 .bi2,
 .bi3 > .c2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .cc2,
+.bi3 > .c1 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo
@@ -97,7 +97,7 @@ body {
 .bi2,
 .bi3 > .c2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .cc2,
+.bi3 > .c1 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo{
@@ -108,7 +108,10 @@ body {
   display: grid;
   grid-template-rows: 1fr 0.3fr 2fr;
 }
-
+.b1 > .bi1{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
 .b1 > .bi1 > .gridcounter,
 .b1 > .bi1 > .gridTime{
   display: flex;
@@ -135,7 +138,14 @@ body {
     transform: translateX(-100%);
   }
 }
-
+.b1 > .bi3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.b1 > .bi3 > .c1{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
 .b1 > .bi3 > .c1 > .gridMusic{
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -162,38 +172,17 @@ body {
 .gridMusic .gplayer div{
   background-color: #726373;
 }
+.gridMusic .gplayer .gcontrols{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
-.container .b1 .bi1{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-.container .b1 .bi1{
-  background: none;
-}
-.container .b1 .bi1 div{
-}
-.container .b1 .bi2{
-}
-.container .b1 .bi3{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.container .b1 .bi3 div{
-}
-.container .b1 .bi3 .c1{
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.container .b1 .bi3 .c1 div{
-}
 .container .b2{
   display: grid;
   grid-template-rows: 3fr 1fr;
-}
-.container .b2 div{
-  /* background: #333333; */
 }
 .container .b2 .profile{
   background: url("assets/profile.png") center / cover no-repeat;
@@ -215,15 +204,6 @@ body {
   justify-items: center;
   align-content: center;
 }
-/* .container .b2 .desk .deskinfo div{
-  height: 100%;
-} */
-/* .container .b2 .desk .deskinfo p{
-  height: 100%;
-  width: 100%;
-  border: 2px solid #ff23ff;
-  
-} */
 
 
 
