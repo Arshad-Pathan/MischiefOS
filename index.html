@@ -13,21 +13,49 @@
     <body>
       <section class="grid_screen">
         <div class="container">
-          <div class="b1">
+          <div class="b1"> <!-- 1st c -->
             <div class="bi1">
-              <div class="c1"></div>
-              <div class="c2"></div>
+              <div class="gridcounter"></div>
+              <div class="gridTime"></div>
             </div>
-            <div class="bi2"></div>
+            <div class="bi2">
+                <q>Love is a Dagger.  It's a weapon to be wielded far away or up close.  You can see yourself in it. It's beautiful. Until it makes you bleed.</q>
+                <!-- <q>No one bad is ever truly bad. And no one good is ever truly good.</q> -->
+            </div>
             <div class="bi3">
               <div class="c1">
-                <div class="cc1"></div>
+                <div class="gridMusic">
+                    <div class="gdisk">
+                        <img class="sI" src="assets/TVA_First_View.png">
+                    </div>
+                    <div class="gplayer">
+                        <div class="ginfo">
+                            <h3 class="gsong_name">song name</h3>
+                            <label class="gsong_creator">creator name</label>
+                        </div>
+                        <div class="gplayer">
+                            <input type="range" id="gsProg" value=0 min=0 max=100>
+                        </div>
+                        <div class="gcontrols">
+                            <span>
+                                <button class="gback">«</button>
+                            </span>
+                            <span id="gplaySong">
+                                <button class="gplayPause">■</button>
+                            </span>
+                            <span>
+                                <button class="gforward">»</button>
+                            </span>
+                        </div>
+                        <audio src="" id="gsong"></audio>
+                    </div>
+                </div>
                 <div class="cc2"></div>
               </div>
               <div class="c2"></div>
             </div>
           </div>
-          <div class="b2">
+          <div class="b2"> <!-- 2nd c -->
             <div class="profile"></div>
             <div class="desk">
               <div class="name">
@@ -35,10 +63,9 @@
                 <p>Employee of All Time</p>
               </div>
               <div class="deskinfo">
-                <p>TREE OF LIFE</p>
-                <p>Executive Dep.</p>
-              </div>
-              
+                <div>TREE OF LIFE</div>
+                <div>Executive Dep.</div>
+              </div>  
             </div>
           </div>
         </div>
@@ -437,6 +464,10 @@
                   </div>
                 </div>
               </div>
+            
+
+
+
               <div class="info">
                 <h3 class="song_name">song name</h3>
                 <label class="song_creator">creator name</label>

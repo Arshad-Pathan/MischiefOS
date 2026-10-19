@@ -16,8 +16,15 @@ function updateTime() {
     var currentTime = new Date()
     var time=currentTime.toLocaleTimeString();
     var date=currentTime.toLocaleDateString();
+
+    var hours = String(currentTime.getHours()).padStart(2, '0');
+    var minutes = String(currentTime.getMinutes()).padStart(2, '0');
+    var seconds = String(currentTime.getSeconds()).padStart(2, '0');
+
     var timeText = document.querySelector("#timeElement");
+    var gridTime = document.querySelector(".gridTime");
     timeText.innerHTML = `${time}<br>${date}`;
+    gridTime.innerHTML = `${hours}:${minutes}:${seconds}`;
 }
 setInterval(updateTime, 1000);
 // time end
@@ -32,14 +39,151 @@ var topBar = document.querySelector("#top")
 var selectedIcon = undefined
 
 
+// Music Player
+var songs = [
+  {
+    name: "TVA First View",
+    creator: "NATALIE HOLT",
+    img: "assets/TVA_First_View.png",
+    audio: "assets/TVA First View.mp3"
+  },
+  {
+    name: "History Is Now",
+    creator: "NATALIE HOLT",
+    img: "assets/History_Is_Now.png",
+    audio: "assets/History Is Now.mp3"
+  },
+  {
+    name: "Purpose Is Glorious",
+    creator: "NATALIE HOLT",
+    img: "assets/Purpose_Is_Glorious.png",
+    audio: "assets/Purpose Is Glorious.mp3"
+  },
+  {
+    name: "DB COOPER",
+    creator: "NATALIE HOLT",
+    img: "assets/DB_COOPER.png",
+    audio: "assets/DB Cooper.mp3"
+  }
+];
+
+var currSong = 0;
+
+
+
+
+
+// grid music
+function gridMusic(){
+  function gloadSelectedSong(i){
+    var sImg = document.querySelector(".gdisk .sI");
+    var sName = document.querySelector(".gsong_name");
+    var sCreator = document.querySelector(".gsong_creator");
+    var aud = document.getElementById("gsong");
+  
+    // var sOptSelection=document.getElementById("song_selection");
+    var song = songs[i];
+  
+    sImg.src = song.img;
+    sName.innerText = song.name;
+    sCreator.innerText = song.creator;
+    aud.src = song.audio;
+    document.getElementById("gsProg").value = 0;
+    aud.load();
+  }
+
+  function gsongControllers(){
+    var aud = document.getElementById("gsong");
+    var sImg = document.querySelector(".gdisk .sI");
+  
+    var sProg = document.getElementById("gsProg");
+    
+    var playPause = document.querySelector(".gplayPause");
+    var back = document.querySelector(".gback");
+    var forw = document.querySelector(".gforward");
+  
+    sProg.addEventListener("input", () => {
+      if (!aud.duration) return;
+      aud.currentTime = (sProg.value / 100) * aud.duration;
+    });
+    
+    //play pause
+    playPause.addEventListener("click", ()=>{
+      if(aud.paused){
+        aud.play();
+      } else {
+        aud.pause();
+      }
+    });
+    
+    aud.addEventListener("play",()=>{
+      playPause.textContent="◇"
+      sImg.classList.add("r-disk");
+    });
+    aud.addEventListener("pause",()=>{
+      playPause.textContent="■"
+      sImg.classList.remove("r-disk");
+    });
+    // forward
+    forw.addEventListener("click", forward);
+    function forward(){
+      currSong++;
+      if(currSong >= songs.length){
+        currSong=0;
+      }
+      loadSelectedSong(currSong);
+      aud.play();
+    }
+  
+    // backward
+    back.addEventListener("click",backward);
+    function backward(){
+      currSong--;
+      if(currSong < 0){
+        currSong=songs.length - 1;
+      }
+      loadSelectedSong(currSong);
+      aud.play();
+    }
+  
+    // pause when app closes
+    // document.addEventListener("visibilitychange", function(){
+    //   aud.pause()
+    // });  
+  }
+  gloadSelectedSong(0);
+  gsongControllers();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // visitor counter widget
 function showVisitorCount(data) {
     const counter = document.querySelector(".counter");
+    const gridcounter = document.querySelector(".gridcounter");
 
     if (counter && data.success) {
         counter.textContent = data.count;
+    }
+    if (gridcounter && data.success) {
+        gridcounter.textContent = data.count;
     }
 }
 async function addVisitScript() {
@@ -926,42 +1070,6 @@ function runCmd(str){
 terminalCmd();
 
 
-
-// Music Player
-var songs = [
-  {
-    name: "TVA First View",
-    creator: "NATALIE HOLT",
-    img: "assets/TVA_First_View.png",
-    audio: "assets/TVA First View.mp3"
-  },
-  {
-    name: "History Is Now",
-    creator: "NATALIE HOLT",
-    img: "assets/History_Is_Now.png",
-    audio: "assets/History Is Now.mp3"
-  },
-  {
-    name: "Purpose Is Glorious",
-    creator: "NATALIE HOLT",
-    img: "assets/Purpose_Is_Glorious.png",
-    audio: "assets/Purpose Is Glorious.mp3"
-  },
-  {
-    name: "DB COOPER",
-    creator: "NATALIE HOLT",
-    img: "assets/DB_COOPER.png",
-    audio: "assets/DB Cooper.mp3"
-  }
-];
-
-var currSong = 0;
-
-// var sProg = document.getElementById("sProg");
-// var currTime = document.getElementById("currTime");
-// var duration = document.getElementById("duration");
-
-// var playSong = document.querySelector("#playSong");
 
 function loadSelectedSong(i){
   var sImg = document.querySelector(".disk .sI");

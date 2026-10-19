@@ -62,56 +62,138 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 26px;
-  background: #567e4c;
+  /* background: #567e4c; */
 }
 .container div{
   height: 100%;
   width: 100%;
-  gap: 26px;
   padding: 0;
-  background: #737337;
+  /* background: #737337; */
+}
+.container > div,
+.bi1, 
+.bi3,
+.bi3 > .c1
+{
+  gap: 14px;
 }
 
+.container > div,
+.bi1 > .gridcounter,
+.bi1 > .gridTime,
+.bi2,
+.bi3 > .c2,
+.bi3 > .c1 > .gridMusic,
+.bi3 > .c1 > .cc2,
+.profile,
+.desk > .name,
+.desk > .deskinfo
+{
+  border-radius: 36px;
+}
+
+.bi1 > .gridcounter,
+.bi1 > .gridTime,
+.bi2,
+.bi3 > .c2,
+.bi3 > .c1 > .gridMusic,
+.bi3 > .c1 > .cc2,
+.profile,
+.desk > .name,
+.desk > .deskinfo{
+  background: #2d4535;
+  
+}
 .container .b1{
   display: grid;
-  grid-template-rows: 1fr 0.2fr 2fr;
+  grid-template-rows: 1fr 0.3fr 2fr;
 }
 
-.container .b1 div{
-  background: #333333;
-  border-radius: 20px;
+.b1 > .bi1 > .gridcounter,
+.b1 > .bi1 > .gridTime{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 56px; */
 }
+.b1 > .bi2{
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.b1 > .bi2 > q{
+  display: flex;
+  width: max-content;
+  animation: qscroll 15s infinite linear;
+}
+@keyframes qscroll {
+  0%{
+    transform: translateX(70%);
+  }100% {
+    transform: translateX(-100%);
+  }
+}
+
+.b1 > .bi3 > .c1 > .gridMusic{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-content: center;
+  justify-items: center;
+  padding: 12px;
+
+}
+.gridMusic .gdisk{
+  height: 100%;
+  width: 100%;
+}
+.gridMusic .gdisk img{
+  height: 100%;
+  width: 100%;
+}
+.gridMusic .gplayer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+.gridMusic .gplayer div{
+  background-color: #726373;
+}
+
+
+
 .container .b1 .bi1{
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
+.container .b1 .bi1{
+  background: none;
+}
 .container .b1 .bi1 div{
-  background: #999999;
-  border-radius: 20px;
+}
+.container .b1 .bi2{
 }
 .container .b1 .bi3{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .container .b1 .bi3 div{
-  background: #999999;
-  border-radius: 20px;
 }
 .container .b1 .bi3 .c1{
   display: grid;
   grid-template-rows: 1fr 1fr;
 }
 .container .b1 .bi3 .c1 div{
-  background: #d39494;
-  border-radius: 20px;
 }
 .container .b2{
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 3fr 1fr;
 }
 .container .b2 div{
-  background: #333333;
-  border-radius: 20px;
+  /* background: #333333; */
 }
 .container .b2 .profile{
   background: url("assets/profile.png") center / cover no-repeat;
@@ -125,15 +207,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #2d4535; 
 }
 .container .b2 .desk .deskinfo{
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
   justify-items: center;
   align-content: center;
 }
+/* .container .b2 .desk .deskinfo div{
+  height: 100%;
+} */
 /* .container .b2 .desk .deskinfo p{
   height: 100%;
   width: 100%;
@@ -328,7 +412,7 @@ body {
   backdrop-filter: blur(5px) invert(3%);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
   border-radius: 20px; */
-  z-index: 1000;
+  z-index: 999;
 }
 .apps {
   height: 70px;
