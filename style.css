@@ -55,14 +55,14 @@ body {
   padding: 56px;
   backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: all 1s ease-in;
+  transition: all 1s cubic-bezier(1, 0, 0.500, 1);
 }
 .grid_screen > .lSTrigger{
-  height: 100px;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+  padding: 14px;
   background: #6DA47F;
 }
 .container{

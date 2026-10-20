@@ -76,15 +76,32 @@ var currSong = 0;
 function gridOp() {
   var lockScreen = document.querySelector(".grid_screen");
   var lSTrigger = document.querySelector(".lSTrigger");
+  // var tempinput = document.createElement("input");
+  // document.querySelector(".container .gridTime").appendChild(tempinput);
+  // tempinput.focus();
+  var blockClick = false;
+  function bc(){
+    document.querySelector(".gridMusic").addEventListener("mouseenter",()=>{
+      blockClick = true;
+    })
+    document.querySelector(".gridMusic").addEventListener("mouseleave",()=>{
+      blockClick = false;
+    })
+    
+  }
+  bc();
   function hideLock(e) {
-    lockScreen.style.transform = "translateY(-100%)"; 
+    if(blockClick){
+      return;
+    } else {
+      lockScreen.style.transform = "translateY(-100%)";
+    }
   }
   lSTrigger.addEventListener("click",function(){
     lockScreen.style.transform = "translateY(0)";
-    alert("triggered")
   });
-  document.addEventListener("click",hideLock);
-  document.addEventListener("keydown",hideLock);
+  document.querySelector(".container").addEventListener("click",hideLock);
+  document.querySelector(".container").addEventListener("keydown",hideLock);
 }
 gridOp();
 // grid music
