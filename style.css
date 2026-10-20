@@ -44,24 +44,33 @@ body {
 }
 
 .grid_screen{
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 56px;
   backdrop-filter: blur(10px);
   z-index: 1000;
+  transition: all 1s ease-in;
+}
+.grid_screen > .lSTrigger{
+  height: 100px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6DA47F;
 }
 .container{
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 26px;
+  gap: 14px;
   /* background: #567e4c; */
 }
 .container div{
@@ -82,9 +91,9 @@ body {
 .bi1 > .gridcounter,
 .bi1 > .gridTime,
 .bi2,
-.bi3 > .c2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .appGrid,
+.bi3 > .c1 > .cc2,
+.bi3 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo
@@ -95,9 +104,9 @@ body {
 .bi1 > .gridcounter,
 .bi1 > .gridTime,
 .bi2,
-.bi3 > .c2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .appGrid,
+.bi3 > .c1 > .cc2,
+.bi3 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo{
@@ -170,12 +179,23 @@ body {
   gap: 6px;
 }
 .gridMusic .gplayer div{
-  background-color: #726373;
+  /* background-color: #726373; */
 }
 .gridMusic .gplayer .gcontrols{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.bi3 > .appGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 14px;
+}
+.bi3 > .appGrid div{
+  height: 30px;
+}
+.bi3 > .appGrid div img{
+  height: 100%;
 }
 
 

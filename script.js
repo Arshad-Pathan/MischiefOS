@@ -73,6 +73,20 @@ var currSong = 0;
 
 
 
+function gridOp() {
+  var lockScreen = document.querySelector(".grid_screen");
+  var lSTrigger = document.querySelector(".lSTrigger");
+  function hideLock(e) {
+    lockScreen.style.transform = "translateY(-100%)"; 
+  }
+  lSTrigger.addEventListener("click",function(){
+    lockScreen.style.transform = "translateY(0)";
+    alert("triggered")
+  });
+  document.addEventListener("click",hideLock);
+  document.addEventListener("keydown",hideLock);
+}
+gridOp();
 // grid music
 function gridMusic(){
   function gloadSelectedSong(i){
