@@ -52,18 +52,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 56px;
-  backdrop-filter: blur(10px);
+  padding: 36px 164px;
   z-index: 1000;
   transition: all 1s cubic-bezier(1, 0, 0.500, 1);
 }
-.grid_screen > .lSTrigger{
+.lSTrigger{
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 14px;
+  padding: 6px 7px;
   background: #6DA47F;
+  z-index: 1000;
 }
 .container{
   height: 100%;
@@ -88,30 +88,29 @@ body {
 }
 
 .container > div,
-.bi1 > .gridcounter,
+.bi1 > .lokiPoster,
 .bi1 > .gridTime,
 .bi2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .cc2,
+.bi3 > .c1 > .fanart,
 .bi3 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo
 {
-  border-radius: 36px;
+  border-radius: 16px;
 }
 
-.bi1 > .gridcounter,
 .bi1 > .gridTime,
 .bi2,
 .bi3 > .c1 > .gridMusic,
-.bi3 > .c1 > .cc2,
 .bi3 > .appGrid,
 .profile,
 .desk > .name,
 .desk > .deskinfo{
-  background: #2d4535;
-  
+  /* background: #2d4535; */
+  backdrop-filter: blur(5px);
+  border: 2px solid #ffffff30;
 }
 .container .b1{
   display: grid;
@@ -120,6 +119,9 @@ body {
 .b1 > .bi1{
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+.b1 > .bi1 > .lokiPoster{
+  background: url("assets/Loki\ poster.jpg") center / cover no-repeat;
 }
 .b1 > .bi1 > .gridcounter,
 .b1 > .bi1 > .gridTime{
@@ -177,6 +179,7 @@ body {
   justify-content: center;
   text-align: center;
   gap: 6px;
+  padding: 7px;
 }
 .gridMusic .gplayer div{
   /* background-color: #726373; */
@@ -186,16 +189,38 @@ body {
   align-items: center;
   justify-content: center;
 }
+.b1 > .bi3 > .c1 > .fanart{
+  background: url("assets/fanart.svg") center / cover no-repeat;
+}
+
 .bi3 > .appGrid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   padding: 14px;
+  gap: 14px;
+  backdrop-filter: none;
+  border: none;
 }
-.bi3 > .appGrid div{
-  height: 30px;
+.bi3 > .appGrid > div{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
 }
-.bi3 > .appGrid div img{
-  height: 100%;
+.bi3 > .appGrid > div > div{
+  display: flex;
+}
+.bi3 > .appGrid > div:nth-child(1){
+  justify-content: start;
+}
+.bi3 > .appGrid > div:nth-child(2){
+  justify-content: center;
+}
+.bi3 > .appGrid > div:nth-child(3){
+  justify-content: end;
+}
+.bi3 > .appGrid div > div > img{
+  height: 50px;
+  width: 50px;
+  background-color: #000;
 }
 
 
@@ -205,11 +230,12 @@ body {
   grid-template-rows: 3fr 1fr;
 }
 .container .b2 .profile{
-  background: url("assets/profile.png") center / cover no-repeat;
+  background: url("assets/profile.jpg") center / cover no-repeat;
 }
 .container .b2 .desk{
   display: grid;
   grid-template-rows: 1fr 1fr;
+  gap: 14px;
 }
 .container .b2 .desk div{
   display: flex;
@@ -220,9 +246,14 @@ body {
 .container .b2 .desk .deskinfo{
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   justify-items: center;
   align-content: center;
+}
+.container .b2 .desk .deskinfo > .gridweather{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 
@@ -237,12 +268,15 @@ body {
   position: sticky;
   top: 0;
   width: 100%; 
-  padding: 6px 18px;
+  padding: 0 18px;
+  transform: translateY(-60px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* backdrop-filter: blur(5px); */
   background: url("assets/s.png") center / cover no-repeat;
   z-index: 999;
+  transition: all 1s cubic-bezier(1, 0, 0.500, 1);
 }
 
 .nav h4 {
@@ -400,28 +434,34 @@ body {
 .csTimer div input:focus{
   outline: none;
 }
-.icons_bar {
-  position: fixed;
+/* .icons_bar {
+  position: absolute;
   bottom: 12px;
-  margin-left: 12px;
-  width: fit-content;
+  left: 12px;
+  margin-left: 0;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 8px;
-  /* background: rgba(255, 255, 255, 0.2);
+  flex-direction: column;
+  overflow: hidden;
+  gap: 7px;
+  transition: all 1s ease-in;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px) invert(3%);
   box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 20px; */
+  border-radius: 20px; 
   z-index: 999;
-}
+} */
 .apps {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
   height: 70px;
   width: 70px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #181818;
+  z-index: 999;
 }
 
 .apps img{
@@ -429,46 +469,45 @@ body {
   width: 54px;
 }
 
-.icon_container{
-  position: relative;
-  width: 0;
-  transform-origin: left;
+.icons_bar{
+  position: absolute;
+  bottom: -100%;
+  left: 14px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   overflow: hidden;
-  transition: width 1s ease-in;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px) invert(3%);
-  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
+  gap: 7px;
+  transform-origin: bottom;
+  transition: all 1s ease-in;
+  z-index: 999;
+  padding: 14px;
+  background: url("assets/screen.svg") center / auto 115% no-repeat;
+  border: 3px inset #ff803c;
+
+  /* backdrop-filter: blur(5px) invert(3%); */
 }
-.icon_container.fit-content{
-  width: 100%;
+.icons_bar.fit-content{
+  bottom: 100px;
+}
+.icon_container.fit-content .icons_bar{
+  height: max-content;
 }
 .icon {
-  height: 70px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
-
+.icon div{
+  height: 100%;
+}
 .icon div img{
-  height: 54px;
+  height: 100%;
 }
 
 .icon .icon-img:hover img{
-  height: 70px;
-}
-
-.iconhvr{
-  height: 70px;
-  position: absolute;
-  top: -40px;
-  display: none;
-  cursor: pointer;
-}
-.icon .iconhvr img{
-  height: 40px;
+  scale: 1.1;
 }
 
 .clock{
@@ -553,8 +592,9 @@ body {
   background: url("windowbg.svg") rgb(0, 0, 0);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
-  border: 3px solid rgb(255, 128, 60);
-  border-radius: 20px;
+  border: 3px inset transparent;
+  border-image: linear-gradient(270deg, #d26931, #84431f 70%) 1;
+  border-radius: 0;
   z-index: 100;
 }
 
@@ -567,9 +607,10 @@ body {
   justify-content: space-between;
   cursor: move;
   padding: 6px 12px;
-  background-color: rgb(90, 40, 11);
-  border-bottom: 3px solid rgb(255, 128, 60);
-  border-radius: 17px 17px 0 0;
+  background: url(assets/s2.png) center / cover no-repeat;
+  /* background-color: rgb(90, 40, 11); */
+  border-bottom: 3px solid #ff803c;
+  /* border-radius: 17px 17px 0 0; */
   z-index: 100;
 }
 
@@ -586,13 +627,17 @@ body {
   align-items: center;
   /* border-radius: 50%; */
   cursor: pointer;
+  border: 3px inset #ff803c;
+}
+.window_icons .window_icon:active{
+  border: 3px outset #ff803c;
 }
 .window_icon img{
-  height: 18px;
-  width: 18px;
+  height: 22px;
+  width: 22px;
 }
 .window_icons p {
-  
+  color: #2d4535;
   margin-left: 6px;
 }
 
@@ -704,8 +749,6 @@ body {
 
 /* journal window */
 .journal {
-  width: 730px;
-  height: 600px;
   background: none;
   left: 50%; 
   /* transform: translate(0,-50%);*/
@@ -725,57 +768,71 @@ body {
 .journal_icons .save_btn {
   /*height: 38px;
   width: 62px;*/
-
+  
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  border-radius: 20px;
+  padding: 2px 7px;
   color: #181818;
   background-color: rgb(255, 128, 60);
+  border: 3px inset #ff803c;
+}
+.journal_icons .save_btn:active{
+  border: 3px outset #ff803c;
 }
 
+
 .journal_icons .edit_icon {
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
+  height: 24px;
+  width: 24px;
   background-color: rgb(255, 128, 60);
-  background-image: url(images/edit.png);
+  background-image: url(assets/edit.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 3px inset #ff803c;
+}
+.journal_icons .edit_icon:active{
+  border: 3px outset #ff803c;
 }
 
 
 .journal_book {
   position: relative;
-  flex: 1;
-  margin: 2px 12px 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
   display: flex;
   flex-direction: column;
 }
 
 .journal_book img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+.journal_content {
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
-  border-radius: 16px;
-  z-index: -1;
-}
-
-.journal_content {
-  position: relative;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 18px;
+  padding: 0 58px;
   gap: 45px;
+  background: none;
 }
 
 .journal_content .part {
-  display: block;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 16px 0;
 }
 
 .pagination {
@@ -800,9 +857,8 @@ body {
 }
 
 .md_content {
-
   height: 100%;
-  width: 300px;
+  width: 100%;
 }
 
 .setting {
@@ -1036,9 +1092,8 @@ body {
 
 /* Music Player */
 .music{
-/*   display: flex;
- */  left: 30%;
-  top: 14%;
+  left: 30%;
+  top: 8%;
   background: none;
   border: none;
 }
@@ -1055,7 +1110,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #726373;
+}
+.music_player #song{
+  opacity: 0;
 }
 .head{
   width: 100%;
@@ -1063,32 +1120,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background: linear-gradient(0, #00000050, #00000050), url("assets/gadget.png") center / cover no-repeat;
+}
+.head select{
+  color: #ff803c;
+  background: url("assets/screen.svg") center / auto no-repeat;
+  border: 3px inset #303030;
+}
+.head select:focus{
+  outline: none;
+}
+.head select option{
+  color: #000;
 }
 .disk{
   width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 36px;
-  /* background: #777766; */
-  /* background: url("assets/s.png") center / cover no-repeat; */
+  padding: 0;
+  background: linear-gradient(0, #00000000, #00000051), url("assets/gadget.png") center / cover no-repeat;
+  border-bottom: 2px inset #000;
+  box-shadow: inset 0 -8px 6px -6px #000;
 }
-.disk::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('assets/s.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.7;
-  z-index: -1;
-}
+
 .disk img{
-  width: 90%;
+  width: 80%;
   border-radius: 50%;
   transform: rotate(0deg);
 }
@@ -1111,18 +1168,23 @@ body {
 .player input::-webkit-slider-runnable-track{
   height: 20px;
   width: 100%;
-  padding: 0;
-  background-color: transparent;
+  padding: 0 2px;
+  background: url(assets/gadget.png) center / cover no-repeat;
   /* border-image: url("assets/s.png") 10 round; */
-  border: 4px solid #232323;
+  border: 2px solid transparent;
+  border-image: url(assets/gadget.png) center / cover no-repeat;
   border-radius: 20px;
+  outline: 1px solid #00000042;
+  box-shadow: 0px 0px 5px #0000004a;
 }
 .player input::-webkit-slider-thumb{
   height: 15px;
   width: 15px;
-  margin-top: -1px;
+  margin-top: 0.5px;
+  /* margin-left: 2px;
+  margin-right: 2px; */
   border-radius: 50px;
-  background: #2d4535;
+  background: linear-gradient(90deg, #0000008f, #000000ba), url("assets/obtn.svg") center / cover no-repeat;
 }
 .player div{
   display: none;
@@ -1136,42 +1198,49 @@ body {
     transform: rotate(360deg);
   }
 }
+.player_bottom{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 7px;
+  padding: 14px;
+  background: linear-gradient(165deg, #00000000, #00000075), url("assets/gadget.png") center / cover no-repeat;
+}
 .info{
-  width: 90%;
-  box-sizing: border-box;
-  
+  width: 100%;
   padding: 10px;
   font-family: "Doto", sans-serif;
   color: #fff;
   background: url("assets/screen.svg") center / auto no-repeat;
-  /* border-top: 3px solid #303030;
-  border-left: 3px solid #303030;
-  border-bottom: 3px solid #171616;
-  border-right: 3px solid #171616; */
   border: 3px outset #303030;
   outline: 2px inset #fff;
   outline-offset: -9px;
 }
-.info .song-name{
-  font-size: 20px;
+.info > .song_name{
+  font-size: 10px;
   font-weight: 400;
 }
-.info .song-creator{
-  font-size: 16px;
+.info > .song_creator{
+  font-size: 10px;
   font-weight: 400;
 }
 .controls{
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background: #aaafff;
+  justify-content: center;
 }
-.controls span{
-  height: 34px;
-  width: 34px;
-  background: #abc234;
+.controls div{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.controls div button{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(165deg, #00000000, #00000075), url("assets/gadget.png") center / auto no-repeat;
 }
 
 
@@ -1223,23 +1292,30 @@ body {
 
 
 .library{
-  height: 400px;
-  width: 600px;
   top: 30%;
   left: 54%;
 }
 .library_files{
+  height: 400px;
+  width: 600px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-content: center;
+  place-items: center;
   gap: 12px;
+  background: url("assets/table.png") center / cover no-repeat;
+}
+.library.maximized .library_files{
+  height: 100%;
+  width: 100%;
 }
 .files{
   height: 100px;
   width: 100px;
-  background-color: rgb(68, 159, 182);
+  background: url("assets/casefile.svg") center / cover no-repeat;
+  /* background-color: rgb(68, 159, 182); */
 }
 
 .indFiles{
@@ -1250,7 +1326,7 @@ body {
   width: 100vw;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   backdrop-filter: blur(10px);
   z-index: 2000;
@@ -1259,13 +1335,18 @@ body {
 .indFiles .cls_file{
   height: 30px;
   width: 30px;
+  position: absolute;
+  top: 16px;
 }
 .indFiles .title_img{
-  height: 100px;
+  height: 300px;
   width: 100%;
 }
 .indFiles .main_img{
-  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 600px;
   width: 100%;
 }
 
@@ -1349,7 +1430,7 @@ body {
   width: 100%;
   /* height: 300px;
   width: 300px; */
-  background: url("game.png") center / cover no-repeat;
+  background: url("assets/game.png") center / cover no-repeat;
 }
 .mygame #mygamemax{
   display: none;

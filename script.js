@@ -36,8 +36,8 @@ var biggestIndex = 10;
 
 var topBar = document.querySelector("#top")
 
-var selectedIcon = undefined
-
+var selectedIcon = undefined;
+var editing = false;
 
 // Music Player
 var songs = [
@@ -76,32 +76,32 @@ var currSong = 0;
 function gridOp() {
   var lockScreen = document.querySelector(".grid_screen");
   var lSTrigger = document.querySelector(".lSTrigger");
+  var nav = document.querySelector(".nav");
+  var gsong = document.getElementById("gsong");
   // var tempinput = document.createElement("input");
   // document.querySelector(".container .gridTime").appendChild(tempinput);
   // tempinput.focus();
   var blockClick = false;
-  function bc(){
-    document.querySelector(".gridMusic").addEventListener("mouseenter",()=>{
-      blockClick = true;
-    })
-    document.querySelector(".gridMusic").addEventListener("mouseleave",()=>{
-      blockClick = false;
-    })
-    
-  }
-  bc();
+  document.querySelector(".gridMusic").addEventListener("mouseenter",()=>{
+    blockClick = true;
+  })
+  document.querySelector(".gridMusic").addEventListener("mouseleave",()=>{
+    blockClick = false;
+  })
   function hideLock(e) {
     if(blockClick){
       return;
     } else {
       lockScreen.style.transform = "translateY(-100%)";
+      nav.style.transform = "translateY(0)";
     }
   }
   lSTrigger.addEventListener("click",function(){
     lockScreen.style.transform = "translateY(0)";
+    nav.style.transform = "translateY(-60px)";
   });
   document.querySelector(".container").addEventListener("click",hideLock);
-  document.querySelector(".container").addEventListener("keydown",hideLock);
+  lockScreen.addEventListener("keydown",hideLock);
 }
 gridOp();
 // grid music
@@ -251,15 +251,18 @@ async function updateWeather() {
 
   const temp = document.getElementById("weatherTemp");
   const icon = document.getElementById("weatherIcon");
+  // for grid
+  const gtemp = document.getElementById("gweatherTemp");
+  const gicon = document.getElementById("gweatherIcon");
 
-  document.getElementById("weatherCity").textContent =
-    city.name;
-
-  temp.textContent =
-    `${Math.round(current.temperature_2m)}°C`;
-
-  icon.textContent =
-    current.is_day === 1 ? "☀" : "☾";
+  document.getElementById("weatherCity").textContent = city.name;
+  temp.textContent = `${Math.round(current.temperature_2m)}°C`;
+  icon.textContent = current.is_day === 1 ? "☀" : "☾";
+  
+  // for grid
+  document.getElementById("gweatherCity").textContent = city.name;
+  gtemp.textContent = `${Math.round(current.temperature_2m)}°C`;
+  gicon.textContent = current.is_day === 1 ? "☀" : "☾";
 }
 updateWeather();
 setInterval(updateWeather, 60 * 60 * 1000);
@@ -365,25 +368,6 @@ function rsTimer(){
 tmSelection();
 stTimer();
 rsTimer();
-// function dpSelection(){
-//   var options=document.querySelectorAll(".opTime");
-//   options.forEach(fuwnction(option){
-//     option.addEventListener("click", function(){
-//       countdown = option.value * 60;
-//     });
-//   });
-
-//   const minutes = Math.floor((countdown % 60));
-//   const seconds = countdown % 60;
-
-//   var dpMinutes = document.getElementById("dpMinutes");
-//   var dpSeconds = document.getElementById("dpSeconds");
-
-//   dpMinutes.innerText = String(minutes).padStart(2,"0");
-//   dpSeconds.innerText = String(seconds).padStart(2,"0");
-// }
-// // dpSelection();
-// setInterval(dpSelection,1000);
 
 
 
@@ -491,7 +475,7 @@ setInterval(()=>{
 
 function icons(){
   var app_trigger = document.querySelector(".apps");
-  var app_container = document.querySelector(".icon_container");
+  var app_container = document.querySelector(".icons_bar");
   app_trigger.addEventListener("click",()=>{
     if(app_container.classList.contains("fit-content")){
       app_container.classList.remove("fit-content")
@@ -565,7 +549,7 @@ function dragElement(element) {
     var maxTop = window.innerHeight - element.offsetHeight;
     var maxLeft = window.innerWidth - element.offsetWidth;
 
-    newTop = Math.max(46, Math.min(newTop, maxTop));
+    newTop = Math.max(60, Math.min(newTop, maxTop));
     newLeft = Math.max(0, Math.min(newLeft, maxLeft));
 
     element.style.top = newTop + "px";
@@ -662,54 +646,24 @@ function handleWindowTap(element) {
   deselectIcon(selectedIcon)
 }
 
-function keyFunWindow(screen) {
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "c" || e.key === "C" && e.altKey) {
-      closeWindow(screen);
-    } 
-    // else if (e.key === "m" || e.key === "M" && e.altKey) {
-    //   maxWindow(screen);
-    // } 
-  });
-}
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
   var closeBtn = document.querySelector("#" + elementName + "close")
   var openBtn = document.querySelector("#" + elementName + "open")
-  var maxBtn = document.querySelector("#" + elementName + "max")
-  var hvrBtn = document.querySelector("." + elementName + "hvr")
-  var hvrClose = document.querySelector("#" + elementName + "hvrclose")
-  var windowheaders = document.querySelectorAll(".windowheader");
-
+  var maxBtn = document.querySelector("#" + elementName + "max")  
   
-    keyFunWindow(screen);
-  
-  
-  closeBtn.addEventListener("click", function() {
+  document.querySelector(".nav h4").addEventListener("click",() => {
     closeWindow(screen);
-  });
-  hvrClose.addEventListener("click", function() {
+  })
+  closeBtn.addEventListener("click", function() {
     closeWindow(screen);
   });
   openBtn.addEventListener("click", function() {
     openWindow(screen);
   });
-  openBtn.addEventListener("mouseenter", function() {
-    if(screen.style.display==="flex"){
-      
-      hvrBtn.style.display =  "flex";
-    }
+  openBtn.addEventListener("dblclick", function() {
+    closeWindow(screen);
   });
-  openBtn.addEventListener("mouseleave", function() {
-      hvrBtn.style.display =  "none";
-  });
-  hvrBtn.addEventListener("mouseenter", function() {
-      hvrBtn.style.display =  "flex";
-  });
-  hvrBtn.addEventListener("mouseleave", function() {
-      hvrBtn.style.display =  "none";
-  });
-  
   openBtn.addEventListener("click", function () {
     handleIconTap(openBtn);
   });
@@ -835,10 +789,12 @@ function initJournal() {
   var next = document.getElementById("next");
 
   editBtn.addEventListener('click', function(){
+    editing = true;
     journalEditor();
     saveBtn.style.display = "flex";
   });
   saveBtn.addEventListener('click', function(){
+    editing = false;
     journalEntry();
     saveBtn.style.display = "none";
   });
@@ -848,6 +804,11 @@ function initJournal() {
   next.addEventListener('click', function(){
     nextPage();
   });
+  // document.querySelector(".journal_content").addEventListener("keydown",(e)=>{
+  //   document.addEventListener("keydown",()=>{
+  //     return;
+  //   })
+  // })
 }
 initJournal()
 
@@ -953,8 +914,6 @@ function activeSet() {
         sets[1].classList.add("set_active");
       } else if (style.id === "s3") {
         sets[2].classList.add("set_active");
-      } else if (style.id === "s4") {
-        sets[3].classList.add("set_active");
       }
     });
   });
@@ -1192,7 +1151,10 @@ function songControllers(){
   }
 
   // pause when app closes
-  document.addEventListener("visibilitychange", function(){
+  document.addEventListener("visibilitychange", ()=>{
+    aud.pause()
+  });
+  document.querySelector(".music #musicclose").addEventListener("click",()=>{
     aud.pause()
   });
 
@@ -1512,9 +1474,13 @@ function tempad(){
 
 function keyPresses(){
   var play = document.querySelector(".playPause");
+  var apps = document.querySelector(".icons_bar");
+  var edit = document.querySelector(".part textarea");
 
   document.addEventListener("keypress", function(e){
-    if (e.key === " ") {
+    if (editing) {
+
+    } else if (e.key === " ") {
       play.focus();
     } else if (e.key === "T" || e.key === "t") {
       document.getElementById("rsBtn").focus();
@@ -1522,10 +1488,12 @@ function keyPresses(){
     } else if (e.key === "s" || e.key === "S") {
       document.getElementById("timeSelection").focus();
     } else if (e.key === "a" || e.key === "A"){
-      document.querySelector(".icons_bar").style.display="flex";
-    } else if (e.key === "h" || e.key === "H"){
-      document.querySelector(".icons_bar").style.display="none";
-    }
+      if (apps.classList.contains("fit-content")) {
+        apps.classList.remove("fit-content");
+      } else {
+        apps.classList.add("fit-content");
+      }
+    } 
   });
 }
 keyPresses();

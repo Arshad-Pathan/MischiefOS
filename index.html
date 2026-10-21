@@ -11,11 +11,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
 
     <body>
-      <section class="grid_screen">
-        <section class="container" tabindex="1">
+        <section class="grid_screen">
+            <section class="container" tabindex="1">
           <div class="b1"> <!-- 1st c -->
             <div class="bi1">
-              <div class="gridcounter"></div>
+              <div class="lokiPoster"></div>
               <div class="gridTime"></div>
             </div>
             <div class="bi2">
@@ -50,12 +50,42 @@
                         <audio src="" id="gsong"></audio>
                     </div>
                 </div>
-                <div class="cc2">
+                <div class="fanart">
                 </div>
               </div>
               <div class="appGrid">
-                <div class="icon-img" title="setting" onclick="initializeWindow(setting)">
-                    <img src="images/edit.png" alt="setting icon">
+                <div>
+                    <div class="icon-img" title="intro" style="align-items: start;">
+                        <img src="assets/edit.png" alt="intro icon" onclick="openWindow(intro)">
+                    </div>
+                    <div class="icon-img" title="journal" style="align-items: center;">
+                        <img src="assets/edit.png" alt="journal icon" onclick="openWindow(journal)">
+                    </div>
+                    <div class="icon-img" title="setting" style="align-items: end;">
+                        <img src="assets/edit.png" alt="setting icon" onclick="openWindow(setting)">
+                    </div>
+                </div>
+                <div>
+                    <div class="icon-img" title="terminal" style="align-items: start;">
+                        <img src="assets/edit.png" alt="terminal icon" onclick="openWindow(terminal)">
+                    </div>
+                    <div class="icon-img" title="music" style="align-items: center;">
+                        <img src="assets/edit.png" alt="music icon" onclick="openWindow(music)">
+                    </div>
+                    <div class="icon-img" title="WIKIPEDIA" style="align-items: end;">
+                        <img src="assets/edit.png" alt="WIKIPEDIA icon" onclick="openWindow(wiki)">
+                    </div>
+                </div>
+                <div>
+                    <div class="icon-img" title="library" style="align-items: start;">
+                        <img src="assets/edit.png" alt="library icon" onclick="openWindow(library)">
+                    </div>
+                    <div class="icon-img" title="gallery" style="align-items: center;">
+                        <img src="assets/edit.png" alt="gallery icon" onclick="openWindow(gallery)">
+                    </div>
+                    <div class="icon-img" title="mygame" style="align-items: end;">
+                        <img src="assets/edit.png" alt="mygame icon" onclick="openWindow(mygame)">
+                    </div>
                 </div>
               </div>
             </div>
@@ -68,14 +98,18 @@
                 <p>Employee of All Time</p>
               </div>
               <div class="deskinfo">
-                <div>TREE OF LIFE</div>
-                <div>Executive Dep.</div>
+                <div class="gridcounter"></div>
+                <div class="gridweather">
+                    <span id="gweatherIcon"></span>
+                    <span id="gweatherTemp"></span>
+                    <span id="gweatherCity"></span>
+                </div>
               </div>  
             </div>
           </div>
+            </section>
+            <div class="lSTrigger" tabindex="2">open</div>
         </section>
-        <div class="lSTrigger" tabindex="2">open</div>
-      </section>
         <div class="nav" id="top">
             <h4>ARSHAD PATHAN</h4>
             <div class="widgetsContainer">
@@ -129,95 +163,66 @@
         </div>
       
         <div class="icons_bar">
-            <div class="apps">
-                <img src="images/edit.png" alt="">
-            </div>
-            <div class="icon_container">
+            
+            <!-- <div class="icon_container"> -->
                 <div class="icon">
                     <div class="icon-img" id="introopen" title="intro">
-                        <img src="images/intro.png" alt="intro icon" style="border-radius: 50%">
-                    </div>
-                    <div class="introhvr iconhvr" id="introhvrclose">
-                        <img src="close.svg" alt="intro icon">
+                        <img src="assets/intro.png" alt="intro icon" style="border-radius: 50%">
                     </div>
                 </div>
             
                 <div class="icon">
                     <div class="icon-img" id="journalopen" title="journal">
-                        <img src="images/handbook.png" alt="journal icon">
-                    </div>
-                    <div class="journalhvr iconhvr" id="journalhvrclose">
-                        <img src="close.svg" alt="journal icon">
+                        <img src="assets/handbook.png" alt="journal icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="settingopen" title="setting">
-                        <img src="images/edit.png" alt="setting icon">
-                    </div>
-                    <div class="settinghvr iconhvr" id="settinghvrclose">
-                        <img src="close.svg" alt="setting icon">
+                        <img src="assets/edit.png" alt="setting icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="terminalopen" title="terminal">
-                        <img src="images/edit.png" alt="terminal icon">
-                    </div>
-                    <div class="terminalhvr iconhvr" id="terminalhvrclose">
-                        <img src="close.svg" alt="terminal icon">
+                        <img src="assets/edit.png" alt="terminal icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="musicopen" title="music">
-                        <img src="images/intro.png" alt="music player icon" style="border-radius: 50%">
-                    </div>
-                    <div class="musichvr iconhvr" id="musichvrclose">
-                        <img src="close.svg" alt="music icon">
+                        <img src="assets/intro.png" alt="music player icon" style="border-radius: 50%">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="wikiopen" title="WIKIPEDIA">
-                        <img src="images/intro.png" alt="wiki icon" style="border-radius: 50%">
+                        <img src="assets/intro.png" alt="wiki icon" style="border-radius: 50%">
                     </div>
-                    <div class="wikihvr iconhvr" id="wikihvrclose">
-                        <img src="close.svg" alt="wiki icon">
-                    </div>
-                </div>
+                </div> 
                 
                 <div class="icon">
                     <div class="icon-img" id="libraryopen" title="library">
-                        <img src="images/edit.png" alt="library icon" style="border-radius: 50%">
-                    </div>
-                    <div class="libraryhvr iconhvr" id="libraryhvrclose">
-                        <img src="close.svg" alt="library icon">
+                        <img src="assets/edit.png" alt="library icon" style="border-radius: 50%">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="galleryopen" title="gallery">
-                        <img src="images/edit.png" alt="gallery icon" style="border-radius: 50%">
-                    </div>
-                    <div class="galleryhvr iconhvr" id="galleryhvrclose">
-                        <img src="close.svg" alt="gallery icon">
+                        <img src="assets/edit.png" alt="gallery icon" style="border-radius: 50%">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="mygameopen" title="mygame">
-                        <img src="images/edit.png" alt="mygame icon" style="border-radius: 50%">
-                    </div>
-                    <div class="mygamehvr iconhvr" id="mygamehvrclose">
-                        <img src="close.svg" alt="mygame icon">
+                        <img src="assets/edit.png" alt="mygame icon" style="border-radius: 50%">
                     </div>
                 </div>
 
-            </div>
+            <!-- </div> -->
         </div>
-        <div class="appsStore">
-            
+        <div class="apps">
+            <img src="assets/edit.png" alt="">
         </div>
         
         
@@ -251,12 +256,11 @@
             <div class="windowheader" id="introheader">
               <div class="window_icons">
                 <div class="window_icon closeIcon" id="introclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="intromax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ INTRO ⭐</p>
               </div>
             </div>
@@ -264,7 +268,7 @@
               
               <div class="intro1">
                 <div class="label">
-                  <img src="images/mischief.png" alt="My image">
+                  <img src="assets/intro.png" alt="My image">
                   <h1>MischiefOS</h1>
                 </div>
                 <h4>MischiefOS is a themed OS Inspired by Loki
@@ -276,10 +280,10 @@
                 <div class="label">
                   <h1>Theme Inspiration</h1>
                 </div>
-                <img src="images/ani.gif">
+                <img src="assets/ani.gif">
                 <div class="ins">
-                  <img src="images/ins1.jpg">
-                  <img src="images/ins2.png">
+                  <img src="assets/ins1.jpg">
+                  <img src="assets/ins2.png">
                 </div>
                 <p>Read Full Explaination, Visit <a href="https://github.com/Arshad-Pathan/MischiefOS">MischiefOS</a></p>
               </div>
@@ -295,12 +299,11 @@
             <div class="windowheader" id="journalheader">
                 <div class="window_icons">
                     <div class="window_icon" id="journalclose" title="Close">
-                        <img src="close.svg" alt="closesvg">
+                        <img src="assets/close.svg" alt="closesvg">
                     </div>
                     <div class="window_icon" id="journalmax" title="Maximize">
-                        <img src="max.svg" alt="maxsvg">
+                        <img src="assets/max.svg" alt="maxsvg">
                     </div>
-                    <div class="window_icon" style="background-color: #45ff11;"></div>
                     <p>⭐ JOURNAL ⭐</p>
                 </div>
 
@@ -310,12 +313,12 @@
                 </div>
             </div>
             <div class="pagination">
-                <button id="prev" style="background-image:url(images/left.png)"></button>
+                <button id="prev" style="background-image:url(assets/left.png)"></button>
                 <button id="pNumber"></button>
-                <button id="next" style="background-image:url(images/right.png)"></button>
+                <button id="next" style="background-image:url(assets/right.png)"></button>
             </div>
             <div class="journal_book" id="j_content">
-                <img src="images/page.png" alt="">
+                <img src="assets/journal.svg" alt="">
                 
                 <div class="journal_content">
                     <div class="part" id="leftTADiv">
@@ -335,12 +338,11 @@
             <div class="windowheader" id="settingheader">
                 <div class="window_icons">
                     <div class="window_icon" id="settingclose" title="Close">
-                        <img src="close.svg" alt="closesvg">
+                        <img src="assets/close.svg" alt="closesvg">
                     </div>
                     <div class="window_icon" id="settingmax" title="Maximize">
-                        <img src="max.svg" alt="maxsvg">
+                        <img src="assets/max.svg" alt="maxsvg">
                     </div>
-                    <div class="window_icon" style="background-color: #45ff11;"></div>
                     <p>⭐ SETTINGS ⭐</p>
                 </div>
             </div>
@@ -377,7 +379,6 @@
                             <span class="style" id="s1">Wallpaper</span>
                             <span class="style" id="s2">Live Wallpaper</span>
                             <span class="style" id="s3">Custom fit</span>
-                            <span class="style" id="s4">Solid BG</span>
                         </div>
                         <div class="sets set_active">
                             <img src="wallpapers/wall1.png" alt="">
@@ -411,12 +412,11 @@
             <div class="windowheader" id="terminalheader">
               <div class="window_icons">
                 <div class="window_icon" id="terminalclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="terminalmax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ TERMINAL ⭐</p>
               </div>
             </div>
@@ -440,57 +440,55 @@
         <!-- music player window --->
         <div class="window music" id="music">
             <div class="windowheader" id="musicheader">
-              <div class="window_icons">
-                <div class="window_icon" id="musicclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                <div class="window_icons">
+                    <div class="window_icon" id="musicclose" title="Close">
+                        <img src="assets/close.svg" alt="closesvg">
+                    </div>
+                    <div class="window_icon" id="musicmax" title="Maximize">
+                        <img src="assets/max.svg" alt="maxsvg">
+                    </div>
+                    <p>⭐ MUSIC PLAYER ⭐</p>
                 </div>
-                <div class="window_icon" id="musicmax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
-                </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
-                <p>⭐ MUSIC PLAYER ⭐</p>
-              </div>
             </div>
             <div class="music_player">
-              <div class="head">
-                <select name="songs" id="song_selection">
-                  <option class="s" value="0" selected>TVA First View</option>
-                  <option class="s" value="1">Season6</option>
-                  <option class="s" value="2">Purpose Is Glorious</option>
-                  <option class="s" value="3">DB COOPER</option>
-                </select>
-              </div>
-              <div class="disk">
-                <img class="sI" src="assets/TVA_First_View.png">
-                <div class="player">
-                  <input type="range" id="sProg" value=0 min=0 max=100>
-                  <div>
-                    <span id="currTime">00:00</span>
-                    <span id="duration">11:00</span>
-                  </div>
+                <div class="head">
+                    <select name="songs" id="song_selection">
+                        <option class="s" value="0" selected>TVA First View</option>
+                        <option class="s" value="1">Season6</option>
+                        <option class="s" value="2">Purpose Is Glorious</option>
+                        <option class="s" value="3">DB COOPER</option>
+                    </select>
                 </div>
-              </div>
-            
-
-
-
-              <div class="info">
-                <h3 class="song_name">song name</h3>
-                <label class="song_creator">creator name</label>
-              </div>
-              <audio src="" id="song"></audio>
-              <div class="controls">
-                <span>
-                  <button class="back">«</button>
-                </span>
-                <span id="playSong">
-                  <button class="playPause">■</button>
-                </span>
-                <span>
-                  <button class="forward">»</button>
-                </span>
-              </div>
-              
+                <div class="disk">
+                    <img class="sI" src="assets/TVA_First_View.png">
+                    <div class="player">
+                        <input type="range" id="sProg" value=0 min=0 max=100>
+                        <div>
+                            <span id="currTime">00:00</span>
+                            <span id="duration">11:00</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <audio src="" id="song"></audio>
+                <div class="player_bottom">
+                    <div class="info">
+                        <p class="song_name">song name</p>
+                        <label class="song_creator">creator name</label>
+                    </div>
+                    <div class="controls">
+                        <div>
+                            <button class="back">«</button>
+                        </div>
+                        <div id="playSong">
+                            <button class="playPause">■</button>
+                        </div>
+                        <div>
+                            <button class="forward">»</button>
+                        </div>
+                    </div>
+                </div>
+        
             </div>
         
         </div>
@@ -500,12 +498,11 @@
             <div class="windowheader" id="wikiheader">
               <div class="window_icons">
                 <div class="window_icon" id="wikiclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="wikimax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ WIKIPEDIA ⭐</p>
               </div>
             </div>
@@ -540,12 +537,11 @@
             <div class="windowheader" id="libraryheader">
               <div class="window_icons">
                 <div class="window_icon" id="libraryclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="librarymax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ Library ⭐</p>
               </div>
             </div>
@@ -557,56 +553,38 @@
                 <span class="files"></span>
                 <span class="files"></span>
                 <span class="files"></span>
-                <span class="files"></span>
-                <span class="files"></span>
-                <span class="files"></span>
             </div>
         </div>
 
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/ani.gif" class="title_img" alt="">
-            <img src="images/wall1.jpg" class="main_img" alt="">
+            <img src="assets/lokilable.svg" class="title_img" alt="">
+            <img src="assets/LOKIFILE.svg" class="main_img" alt="">
         </div>
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/left.png" class="title_img" alt="">
-            <img src="images/right.png" class="main_img" alt="">
+            <img src="assets/sylvielable.svg" class="title_img" alt="">
+            <img src="assets/SYLVIEFILE.svg" class="main_img" alt="">
         </div>
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/ani.gif" class="title_img" alt="">
-            <img src="images/wall1.jpg" class="main_img" alt="">
+            <img src="assets/mobiuslable.svg" class="title_img" alt="">
+            <img src="assets/MOBIUSFILE.svg" class="main_img" alt="">
         </div>
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/left.png" class="title_img" alt="">
-            <img src="images/right.png" class="main_img" alt="">
+            <img src="assets/renslable.svg" class="title_img" alt="">
+            <img src="assets/RENSFILE.svg" class="main_img" alt="">
         </div>
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/ani.gif" class="title_img" alt="">
-            <img src="images/wall1.jpg" class="main_img" alt="">
+            <img src="assets/b15lable.svg" class="title_img" alt="">
+            <img src="assets/B15FILE.svg" class="main_img" alt="">
         </div>
         <div class="indFiles">
             <span class="cls_file">close</span>
-            <img src="images/left.png" class="title_img" alt="">
-            <img src="images/right.png" class="main_img" alt="">
-        </div>
-        <div class="indFiles">
-            <span class="cls_file">close</span>
-            <img src="images/ani.gif" class="title_img" alt="">
-            <img src="images/wall1.jpg" class="main_img" alt="">
-        </div>
-        <div class="indFiles">
-            <span class="cls_file">close</span>
-            <img src="images/left.png" class="title_img" alt="">
-            <img src="images/right.png" class="main_img" alt="">
-        </div>
-        <div class="indFiles">
-            <span class="cls_file">close</span>
-            <img src="images/ani.gif" class="title_img" alt="">
-            <img src="images/wall1.jpg" class="main_img" alt="">
+            <img src="assets/x5lable.svg" class="title_img" alt="">
+            <img src="assets/X5FILE.svg" class="main_img" alt="">
         </div>
 
         <!-- Gallery window --->
@@ -614,12 +592,11 @@
             <div class="windowheader" id="galleryheader">
               <div class="window_icons">
                 <div class="window_icon" id="galleryclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="gallerymax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ Gallery ⭐</p>
               </div>
             </div>
@@ -645,19 +622,17 @@
             <div class="windowheader" id="mygameheader">
               <div class="window_icons">
                 <div class="window_icon" id="mygameclose" title="Close" >
-                    <img src="close.svg" alt="closesvg">
+                    <img src="assets/close.svg" alt="closesvg">
                 </div>
                 <div class="window_icon" id="mygamemax" title="Maximize">
-                    <img src="max.svg" alt="maxsvg">
+                    <img src="assets/max.svg" alt="maxsvg">
                 </div>
-                <div class="window_icon" id="" style="background-color: #45ff11;"></div>
                 <p>⭐ My Game ⭐</p>
               </div>
               <div class="lokiC">
                 <p></p>
               </div>
               <div class="game_icon">
-                  <!-- <button id="gmBtn">Start Game</button> -->
 
               </div>
             </div>
@@ -666,35 +641,35 @@
                 
                 
                 <div class="obj" style="height: 100px;width: 100px;top: 7%;left: 50px;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 20px;width: 20px;top: 10%;right: 30px;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 50px;width: 50px;top: 13%;right: 40%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 200px;width: 200px;top: 30%;right: 50%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 30px;width: 30px;bottom: 54px;right: 40%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 50px;width: 50px;top: 50%;right: 10%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 50px;width: 50px;bottom: 10%;left: 10%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
                 <div class="obj" style="height: 30px;width: 30px;bottom: 30%;left: 30%;">
-                    <img src="loki.gif" alt="">
+                    <img src="assets/loki.gif" alt="">
                     <div class="portal"></div>
                 </div>
 
