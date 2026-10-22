@@ -1,10 +1,10 @@
 /*
 font-family: "Doto", sans-serif;
+font-family: "Orbitron", sans-serif;
+font-family: "Barlow Condensed", sans-serif;
+font-family: "Cinzel", serif;
 
- font-family: "Inter", sans-serif;
-font-family: "Playfair", serif;
 font-family: "Jacquarda Bastarda 9", serif;
-font-family: "VT323", monospace; 
 */
 
 
@@ -13,14 +13,14 @@ font-family: "VT323", monospace;
   margin: 0;
   user-select: none;
   box-sizing: border-box;
-  cursor: url("assets/cursor.png"), auto;
+  cursor: url("assets/Arrow.cur"), auto;
 }
 
 body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-image: url("images/ani.gif");
+  background-image: url("wallpapers/anim1.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -30,6 +30,7 @@ body {
   background-color: transparent;
 }
 ::-webkit-scrollbar-track{
+  cursor: url("assets/IBeam.cur"), auto;
   width: 20px;
 }
 ::-webkit-scrollbar-thumb{
@@ -66,7 +67,6 @@ body {
   padding: 6px 7px;
   background: #6DA47F;
   z-index: 1000;
-  cursor: url("assets/cursor_hover.png"), auto;
 }
 .container{
   height: 100%;
@@ -102,7 +102,7 @@ body {
 .desk > .deskinfo
 {
   border-radius: 16px;
-  cursor: url("assets/cursor_hover.png"), auto;
+   
 }
 
 .bi1 > .gridTime,
@@ -127,12 +127,20 @@ body {
 .b1 > .bi1 > .lokiPoster{
   background: url("assets/Loki\ poster.jpg") center / cover no-repeat;
 }
-.b1 > .bi1 > .gridcounter,
+.b2 .gridcounter,
 .b1 > .bi1 > .gridTime{
   display: flex;
   align-items: center;
   justify-content: center;
   /* font-size: 56px; */
+}
+.b1 > .bi1 > .gridTime{
+  font-family: "Orbitron", sans-serif;
+  font-size: 88px;
+}
+.b2 .gridcounter{
+  font-family: "Orbitron", sans-serif;
+  font-size: 28px;
 }
 .b1 > .bi2{
   display: flex;
@@ -142,6 +150,10 @@ body {
   white-space: nowrap;
 }
 .b1 > .bi2 > q{
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: oblique;
   display: flex;
   width: max-content;
   animation: qscroll 15s infinite linear;
@@ -188,10 +200,28 @@ body {
 .gridMusic .gplayer div{
   /* background-color: #726373; */
 }
+.gsong_name{
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: oblique;
+}
+.gsong_creator{
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+#gsProg{
+  width: 90%;
+}
 .gridMusic .gplayer .gcontrols{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.gridMusic .gplayer .gcontrols button{
+  height: 34px;
+  width: 34px;
 }
 .b1 > .bi3 > .c1 > .fanart{
   background: url("assets/fanart.svg") center / cover no-repeat;
@@ -240,6 +270,13 @@ body {
   grid-template-rows: 1fr 1fr;
   gap: 14px;
 }
+.container .b2 .desk .name h1{
+  font-family: 'Times New Roman', Times, serif;
+}
+.container .b2 .desk .name p{
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+}
 .container .b2 .desk div{
   display: flex;
   flex-direction: column;
@@ -286,7 +323,6 @@ body {
   font-family: "Doto", sans-serif;
   font-size: 22px;
   padding: 4px 10px;
-  cursor: pointer;
   background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
   border-left: 3px solid #303030;
@@ -294,7 +330,7 @@ body {
   border-right: 3px solid #171616;
   outline: 2px dashed #ff803c;
   outline-offset: -7px;
-  cursor: url("assets/cursor_hover.png"), auto;
+   
 }
 
 .nav h4:hover {
@@ -305,7 +341,6 @@ body {
   font-family: "Doto", sans-serif;
   font-size: 14px;
   letter-spacing: 2.1px;
-  cursor: none;
   padding: 4px 10px;
   background: url("assets/screen.svg") center / auto no-repeat;
   border-top: 3px solid #303030;
@@ -314,7 +349,7 @@ body {
   border-right: 3px solid #171616;
   outline: 2px dashed #ff803c;
   outline-offset: -7px;
-  cursor: url("assets/cursor_hover.png"), auto;
+   
 }
 
 .nav p:hover {
@@ -341,7 +376,7 @@ body {
   border-right: 3px solid #171616;
   outline: 2px inset #ff803c;
   outline-offset: -7px;
-  cursor: url("assets/cursor_hover.png"), auto;
+   
 }
 
 
@@ -387,7 +422,7 @@ body {
   height: 28px;
   width: 28px;
   padding: 12px;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Loki.cur"), auto;
 }
 .timer #stBtn{
   background: url("assets/obtn.svg") center / cover no-repeat;
@@ -469,9 +504,10 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Help.cur"), auto;
 }
 .guideappIcon{
+  
   position: absolute;
   bottom: 14px;
   left: 84px;
@@ -481,7 +517,7 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Help.cur"), auto;
 }
 
 .apps img, .guideappIcon img{
@@ -518,13 +554,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  cursor: url("assets/Help.cur"), auto;
 }
 .icon div{
   height: 100%;
 }
 .icon div img{
   height: 100%;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Help.cur"), auto;
+   
 }
 
 .icon .icon-img:hover img{
@@ -626,7 +664,8 @@ body {
   flex: 0 0 24px;
   align-items: center;
   justify-content: space-between;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Sall.cur"), auto;
+   
   padding: 6px 12px;
   background: url(assets/s2.png) center / cover no-repeat;
   /* background-color: rgb(90, 40, 11); */
@@ -647,7 +686,7 @@ body {
   display: flex;
   align-items: center;
   /* border-radius: 50%; */
-  cursor: pointer;
+  cursor: url("assets/Help.cur"), auto;
   border: 3px inset #ff803c;
 }
 .window_icons .window_icon:active{
@@ -656,9 +695,11 @@ body {
 .window_icon img{
   height: 22px;
   width: 22px;
-  cursor: url("assets/cursor_hover.png"), auto;
+  cursor: url("assets/Help.cur"), auto;
+   
 }
 .window_icons p {
+  font-family: "Cinzel", serif;
   color: #2d4535;
   margin-left: 6px;
 }
@@ -680,17 +721,26 @@ body {
   align-items: center;
   padding: 12px 18px;
   overflow-y: auto;
-  
+  overflow-x: hidden;
 }
 
 .intro_content div {
-  flex: 1 0 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
+.intro1{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px 0;
+}
+.intro1 {
+  position: relative;
+  padding: 50px 0;
+}
 .intro1 .label {  
   display: flex;
   flex-direction: row;
@@ -729,22 +779,32 @@ body {
   font-style: oblique;
 }
 
+.intro2 div > .ins_pagination {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .intro2 div > .ins_pagination > div{
+  height: 36px;
+  width: 36px;
+} */
+.intro2 div > .ins_pagination div img{
+  height: 36px;
+  width: 36px;
+}
 
-.intro2 img{
+.intro2 div > .ins_content{
+  height: 300px;
+  width: 100%;
+}
+.intro2 div > .ins_content img{
+  height: 100%;
   width: 100%;
 }
 
-.intro2 .ins {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.intro2 .ins img {
-  width: 50%;
-  height: 300px;
-}
 
 .intro2 p {
   margin-top: 12px;
@@ -784,7 +844,7 @@ body {
   align-items: center;
   padding: 0 0;
   gap: 24px;
-  cursor: pointer;
+  cursor: url("assets/Help.cur"), auto;
 }
 
 .journal_icons .save_btn {
@@ -909,7 +969,7 @@ body {
 .set_nav .set_tab {
   padding: 8px;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: url("assets/Help.cur"), auto;
   background-color: #95c292;
 }
 .set_nav .tab_active {
@@ -943,7 +1003,7 @@ body {
   padding: 4px;
   border-radius: 60px;
   background: #d5d0c8;
-  cursor: pointer;
+  cursor: url("assets/Help.cur"), auto;
   transition: 0.15s ease-in;
 }
 .toggle::-webkit-slider-thumb{
@@ -955,53 +1015,13 @@ body {
   background: #fff;
   
 }
-/* .genS .clock_set input[type="range"]{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 45px;
-  height: fit-content;
-  padding: 4px;
-  border-radius: 60px;
-  background: #d5d0c8;
-  cursor: pointer;
-  transition: 0.15s ease-in;
-}
-.genS .clock_set input[type="range"]::-webkit-slider-thumb{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  
-} */
-
 
 .sett.accS div{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-/* .accS div input[type="range"]{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 45px;
-  height: fit-content;
-  padding: 4px;
-  border-radius: 60px;
-  background: #d5d0c8;
-  cursor: pointer;
-  transition: 0.15s ease-in;
-}
-.accS div input[type="range"]::-webkit-slider-thumb{
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  
-} */
+
 .personalS {
   position: relative;
 }
@@ -1071,7 +1091,6 @@ body {
 .sets img {
   width: 10vw;
   border-radius: 12px;
-  cursor: pointer;
   object-fit: fit;
 }
 .personalS .set_active{
@@ -1092,7 +1111,7 @@ body {
   padding: 10px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
-  cursor: text;
+  cursor: url("assets/Pen_2.cur"), auto;
   color:#fff;
 }
 .output{
@@ -1294,7 +1313,6 @@ body {
 .art_tabs .art_lable {
   padding: 8px;
   border-radius: 4px;
-  cursor: pointer;
   background-color: #95c292;
 }
 .art_tabs .active_lable {
@@ -1375,6 +1393,7 @@ body {
 .gallery{
   height: fit-content;
   width: fit-content;
+  left: 20%;
 }
 .gallery_imgs{
   position: relative;
@@ -1458,6 +1477,9 @@ body {
   display: none;
   
 }
+.lokiC{
+  color: #2d4535;
+}
 
 .obj{
   position: absolute;
@@ -1495,11 +1517,21 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   z-index: 1000;
+  padding: 30px;
+}
+.winning_Box button, .instruction_Box button{
+  padding: 6px;
+  background: #ff803c;
+  border: 2px inset #ff803c;
+}
+.winning_Box{
+  background: url("assets/winningbox.jpg") center / cover no-repeat;
 }
 .instruction_Box{
   display: flex;
+  background: url("assets/gameins.jpg") center / cover no-repeat;
 }
 .showObj img{
   display: initial;
@@ -1589,24 +1621,40 @@ body {
 
 
 .guide{
-  display: flex;
-  top: 30%;
-  left: 30%;
+  left: 40%;
 }
 .guide_book{
+  position: relative;
   height: 600px;
   width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 .guide_book .guide_pagination{
+  position: absolute;
+  top: 0;
+  height: 36px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.guide_book .guide_pagination > button{
-  width: 34px;
-  padding: 10px 50px;
+.guide_book .guide_pagination > div{
+  height: 100%;
+}
+.guide_book .guide_pagination > div > img{
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.guide_book > .guide_content{
+  position: relative;
+  top: 36px;
+  height: calc(100% - 36px);
+  width: 100%;
+}
+.guide_book > .guide_content img{
+  height: 100%;
+  width: 100%;
 }

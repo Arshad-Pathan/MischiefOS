@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@400..900&family=Doto:wght@100..900&family=Jacquarda+Bastarda+9&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <body>
         <section class="grid_screen">
             <section class="container" tabindex="1">
@@ -111,7 +110,7 @@
             <div class="lSTrigger" tabindex="2">open</div>
         </section>
         <div class="nav" id="top">
-            <h4>ARSHAD PATHAN</h4>
+            <h4>MischiefOS</h4>
             <div class="widgetsContainer">
                 <div class="widgets counter" id="counter">            
                 </div>
@@ -215,8 +214,7 @@
                 
                 <div class="icon">
                     <div class="icon-img" id="mygameopen" title="mygame">
-                        <img src="assets/mygame.png" alt="mygame icon"
-                        >
+                        <img src="assets/mygame.png" alt="mygame icon">
                     </div>
                 </div>
 
@@ -284,10 +282,15 @@
                 <div class="label">
                   <h1>Theme Inspiration</h1>
                 </div>
-                <img src="assets/ani.gif">
                 <div class="ins">
-                  <img src="assets/ins1.jpg">
-                  <img src="assets/ins2.png">
+                    <div class="ins_pagination">
+                        <div id="iprev"><img src="assets/left.png" alt=""></div>
+                        <div id="ipNumber"></div>
+                        <div id="inext"><img src="assets/right.png" alt=""></div>
+                    </div>
+                    <div class="ins_content">
+                        <img src="guidebook/g1.png" id="iPage" alt="">
+                    </div>
                 </div>
                 <p>Read Full Explaination, Visit <a href="https://github.com/Arshad-Pathan/MischiefOS">MischiefOS</a></p>
               </div>
@@ -355,7 +358,6 @@
                     <p class="set_tab tab_active" id="generalS">GENERAL</p>
                     <p class="set_tab" id="accS">ACCOUNT</p>
                     <p class="set_tab" id="perS">PERSONALIZATION</p>
-                    <p class="set_tab" id="guideS">GUIDE</p>
                 </div>
                 <div class="tab_content generalS">
                     <div class="sett genS sett_active">
@@ -368,8 +370,8 @@
                     <div class="sett accS">
                         <p>ACCOUNT SETTINGS</p>
                         <div>
-                          <label>Lock Screen Appearance</label>
-                          <input type="range" class="toggle" value=0 min=0 max=1>
+                          <label>Top bar Appearance</label>
+                          <input type="range" class="toggle" id="navtoggle" value=0 min=0 max=1>
                         </div>
                     </div>
                     <div class="sett personalS">
@@ -403,9 +405,6 @@
                         <div class="sets">
                             <input type='file' id='customImage' accept='image/*' alt='Custom Wallpaper'>
                         </div>
-                    </div>
-                    <div class="sett guideS">
-                        <p>GUIDE SETTINGS</p>
                     </div>
                 </div>
             </div>
@@ -678,7 +677,6 @@
                 </div>
 
                 <div class="instruction_Box">
-                    <p>Instructions Here</p>
                     <button id="gmStBtn">Start Game</button>
                 </div>
                 <div class="winning_Box">
@@ -705,16 +703,15 @@
                     <p>⭐ MischiefOS Guidebook ⭐</p>
                 </div>
             </div>
-            <div class="guide_book" id="j_content">                
+            <div class="guide_book">                
                 <div class="guide_pagination">
-                    <button id="gprev" style="background-image:url(assets/left.png)"></button>
-                    <button id="gpNumber"></button>
-                    <button id="gnext" style="background-image:url(assets/right.png)"></button>
+                    <div id="gprev"><img src="assets/left.png" alt=""></div>
+                    <div id="gpNumber"></div>
+                    <div id="gnext"><img src="assets/right.png" alt=""></div>
                 </div>
-                <div class="journal_content">
+                <div class="guide_content">
                     <img src="guidebook/g1.png" id="gPage" alt="">
                 </div>
-
             </div>
         </div>
       

@@ -698,6 +698,88 @@ initializeWindow("gallery")
 initializeWindow("mygame")
 initializeWindow("guide")
 
+
+
+
+
+// intro
+var intro_pages = [
+  {
+    url: "guidebook/1.jpg"
+  },
+  {
+    url: "guidebook/2.jpg"
+  },
+  {
+    url: "guidebook/3.jpg"
+  },
+  {
+    url: "guidebook/4.jpg"
+  },
+  {
+    url: "guidebook/5.jpg"
+  },
+  {
+    url: "guidebook/6.jpg"
+  },
+  {
+    url: "guidebook/7.jpg"
+  }
+  
+];
+var currIPage = 0;
+
+function introapp(){
+  var iPage = document.getElementById("iPage");
+  var iPrev = document.getElementById("iprev");
+  var iNext = document.getElementById("inext");
+  var ipNumber = document.getElementById("ipNumber");
+
+  function loadIPage(g) {
+    var iUrl = intro_pages[g];
+    iPage.src=iUrl.url;
+    ipNumber.textContent = `${currIPage}/${intro_pages.length}`;
+  }
+  iPrev.addEventListener("click",iDecre);
+  iNext.addEventListener("click",iIncre);
+  function iIncre(){
+    currIPage++;
+    if(currIPage>=intro_pages.length){
+      currIPage = 0;
+    }
+    loadIPage(currIPage);
+  }
+  function iDecre(){
+    currIPage--;
+    if(currIPage < 0){
+      currIPage = intro_pages.length - 1;
+    }
+    loadIPage(currIPage);
+  }
+  loadIPage(0);
+}
+introapp();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
 
@@ -816,11 +898,19 @@ initJournal()
 
 
 var tOnOff = localStorage.getItem("cToggle");
+var nOnOff = localStorage.getItem("nToggle");
+
 // settings functions here
 function otherSettings(){
   var clock = document.getElementById("clock");
   var clockTog = document.getElementById("clockTog");
   clockTog.value=tOnOff;
+
+  var nav = document.getElementById("top");
+  var navToggle = document.getElementById("navtoggle");
+  navToggle.value = nOnOff;
+
+  // clockc setting
   if(tOnOff==="0"){
     clock.style.display="none";
     clockTog.style.background="#d5d0c8";
@@ -828,7 +918,6 @@ function otherSettings(){
     clock.style.display="flex";
     clockTog.style.background="#ff803cff";
   }
-
   clockTog.addEventListener("change",function (){
     if (this.value==="0"){
       clock.style.display="none";
@@ -840,32 +929,33 @@ function otherSettings(){
       localStorage.setItem("cToggle",1);
     }
   });
+
+  // nav setting
+  if(nOnOff==="0"){
+    nav.style.backdropFilter="none";
+    nav.style.background="url('assets/s.png') center / cover no-repeat";
+    navToggle.style.background="#d5d0c8";
+  } else {
+    nav.style.backdropFilter="blur(10px)";
+    nav.style.background="none";
+    navToggle.style.background="#ff803cff";
+  }
+  navToggle.addEventListener("change",function (){
+    if (this.value==="0"){
+      nav.style.backdropFilter="none";
+      nav.style.background="url('assets/s.png') center / cover no-repeat";
+      navToggle.style.background="#d5d0c8";
+      localStorage.setItem("nToggle",0);
+    } else {
+      nav.style.backdropFilter="blur(10px)";
+      nav.style.background="none";
+      navToggle.style.background="#ff803cff";
+      localStorage.setItem("nToggle",1);
+    }
+  });
 }
-// function toogleOnOff(){
-//   var toggle = document.querySelectorAll('.sett input[type="range"]');
-  
-//   toggle.forEach(function(tog){
-//    /*  if(tOnOff.value===0){
-//       tog.style.background="#d5d0c8";
-//     } else {
-//       tog.style.background="#ff803cff";
-//     } */
-//    /*  if(tOnOff.value===0){
-//       tog.style.background="#d5d0c8";
-//     } else {
-//       tog.style.background="#ff803cff";
-//     } */
-//     tog.addEventListener("change",()=>{
-//       if(this.value===0){
-//         tog.style.background="#d5d0c8";
-//       } else {
-//         tog.style.background="#ff803cff";
-//       }
-//     })
-//   })
-// }
-// toogleOnOff();
 otherSettings();
+
 function activeSetTab() {
   var tabS = document.querySelectorAll(".set_tab");
   var sett = document.querySelectorAll(".sett");
@@ -889,10 +979,7 @@ function activeSetTab() {
       } else if (tab.id === "perS") {
         sett[2].classList.add("sett_active");
         tab.classList.add("tab_active");
-      } else if (tab.id === "guideS") {
-        sett[3].classList.add("sett_active");
-        tab.classList.add("tab_active");
-      }
+      } 
     });
   });
 }
@@ -1020,7 +1107,7 @@ function runCmd(str){
   if (command === "echo"){
     displayCmd(arg);
   } else if(command === "help"){
-    displayCmd(`echo "text"<br>open "appname"<br>close "appname"<br>status<br>time<br>date<br>about<br>exit<br>clear`)
+    displayCmd(`echo "text" ___or___ open "appname" ___or___ close "appname" ___or___ status ___or___ time ___or___ date ___or___ about ___or___ exit ___or___ clear`)
   } else if (command === "open") {
     if(arg==="intro"){
       openWindow(intro)
@@ -1288,15 +1375,20 @@ libManagement();
 
 
 var galleryImgs = [
-  { src: "images/wall1.jpg", cat: "wallpapers" },
-  { src: "images/ins1.jpg", cat: "memes" },
-  { src: "images/Folder 1@2x.png", cat: "Archives" },
-  { src: "images/ins2.png", cat: "wallpapers" },
-  { src: "images/wall1.jpg", cat: "wallpapers" },
-  { src: "images/ins1.jpg", cat: "memes" },
-  { src: "images/ins1.jpg", cat: "memes" },
-  { src: "images/Folder 1@2x.png", cat: "Archives" },
-  { src: "images/Folder 1@2x.png", cat: "Archives" }
+  { src: "wallpapers/e1.jpg", cat: "wallpapers" },
+  { src: "wallpapers/m1.jpg", cat: "memes" },
+  { src: "wallpapers/a1.jpg", cat: "Archives" },
+  { src: "wallpapers/e2.jpg", cat: "wallpapers" },
+  { src: "wallpapers/e3.jpg", cat: "wallpapers" },
+  { src: "wallpapers/e4.jpg", cat: "wallpapers" },
+  { src: "wallpapers/e5.jpg", cat: "wallpapers" },
+  { src: "wallpapers/e6.jpg", cat: "wallpapers" },
+  { src: "wallpapers/m2.jpg", cat: "memes" },
+  { src: "wallpapers/m3.jpg", cat: "memes" },
+  { src: "wallpapers/m4.jpg", cat: "memes" },
+  { src: "wallpapers/a2.jpg", cat: "Archives" },
+  { src: "wallpapers/a3.jpg", cat: "Archives" },
+  { src: "wallpapers/a4.jpg", cat: "Archives" }
 ];
 
 function galManagement(){
@@ -1459,31 +1551,55 @@ game();
 
 
 var guide_pages = [
-  "guidebook/g1.png",
-  "guidebook/g1.png",
-  "guidebook/g1.png"
+  {
+    url: "guidebook/1.jpg"
+  },
+  {
+    url: "guidebook/2.jpg"
+  },
+  {
+    url: "guidebook/3.jpg"
+  },
+  {
+    url: "guidebook/4.jpg"
+  },
+  {
+    url: "guidebook/5.jpg"
+  },
+  {
+    url: "guidebook/6.jpg"
+  },
+  {
+    url: "guidebook/7.jpg"
+  }
+  
 ];
 var currGPage = 0;
+
 function guideapp(){
   var gPage = document.getElementById("gPage");
   var gPrev = document.getElementById("gprev");
   var gNext = document.getElementById("gnext");
+  var gpNumber = document.getElementById("gpNumber");
+
   function loadGPage(g) {
-    gPage.url=guide_pages(g);
+    var gUrl = guide_pages[g];
+    gPage.src=gUrl.url;
+    gpNumber.textContent = `${currIPage}/${intro_pages.length}`;
   }
-  gPrev.addEventListener("click",gIncre);
-  gNext.addEventListener("click",gDecre);
+  gPrev.addEventListener("click",gDecre);
+  gNext.addEventListener("click",gIncre);
   function gIncre(){
     currGPage++;
     if(currGPage>=guide_pages.length){
-      alert("end");
+      currGPage = 0;
     }
     loadGPage(currGPage);
   }
   function gDecre(){
     currGPage--;
-    if(currGPage<=guide_pages.length){
-      alert("start");
+    if(currGPage < 0){
+      currGPage = guide_pages.length - 1;
     }
     loadGPage(currGPage);
   }
