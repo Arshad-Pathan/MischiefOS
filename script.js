@@ -1457,11 +1457,55 @@ function game(){
 }
 game();
 
+
+var guide_pages = [
+  "guidebook/g1.png",
+  "guidebook/g1.png",
+  "guidebook/g1.png"
+];
+var currGPage = 0;
+function guideapp(){
+  var gPage = document.getElementById("gPage");
+  var gPrev = document.getElementById("gprev");
+  var gNext = document.getElementById("gnext");
+  function loadGPage(g) {
+    gPage.url=guide_pages(g);
+  }
+  gPrev.addEventListener("click",gIncre);
+  gNext.addEventListener("click",gDecre);
+  function gIncre(){
+    currGPage++;
+    if(currGPage>=guide_pages.length){
+      alert("end");
+    }
+    loadGPage(currGPage);
+  }
+  function gDecre(){
+    currGPage--;
+    if(currGPage<=guide_pages.length){
+      alert("start");
+    }
+    loadGPage(currGPage);
+  }
+  loadGPage(0);
+}
+guideapp();
+
+
+
+
+
+
+
 function tempad(){
   document.addEventListener("contextmenu",()=>{
     alert("sdfghjh hyysd")
   })
 }
+
+
+
+
 
 
 

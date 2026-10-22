@@ -1607,6 +1607,6 @@ body {
   justify-content: space-between;
 }
 .guide_book .guide_pagination > button{
-  width: max-content;
+  width: 34px;
   padding: 10px 50px;
 }
