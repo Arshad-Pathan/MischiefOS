@@ -696,6 +696,7 @@ initializeWindow("wiki")
 initializeWindow("library")
 initializeWindow("gallery")
 initializeWindow("mygame")
+initializeWindow("guide")
 
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;

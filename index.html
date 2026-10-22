@@ -56,35 +56,35 @@
               <div class="appGrid">
                 <div>
                     <div class="icon-img" title="intro" style="align-items: start;">
-                        <img src="assets/edit.png" alt="intro icon" onclick="openWindow(intro)">
+                        <img src="assets/intro.png" alt="intro icon" onclick="openWindow(intro)">
                     </div>
                     <div class="icon-img" title="journal" style="align-items: center;">
-                        <img src="assets/edit.png" alt="journal icon" onclick="openWindow(journal)">
+                        <img src="assets/journal.png" alt="journal icon" onclick="openWindow(journal)">
                     </div>
                     <div class="icon-img" title="setting" style="align-items: end;">
-                        <img src="assets/edit.png" alt="setting icon" onclick="openWindow(setting)">
+                        <img src="assets/setting.png" alt="setting icon" onclick="openWindow(setting)">
                     </div>
                 </div>
                 <div>
                     <div class="icon-img" title="terminal" style="align-items: start;">
-                        <img src="assets/edit.png" alt="terminal icon" onclick="openWindow(terminal)">
+                        <img src="assets/terminal.png" alt="terminal icon" onclick="openWindow(terminal)">
                     </div>
                     <div class="icon-img" title="music" style="align-items: center;">
-                        <img src="assets/edit.png" alt="music icon" onclick="openWindow(music)">
+                        <img src="assets/music.png" alt="music icon" onclick="openWindow(music)">
                     </div>
                     <div class="icon-img" title="WIKIPEDIA" style="align-items: end;">
-                        <img src="assets/edit.png" alt="WIKIPEDIA icon" onclick="openWindow(wiki)">
+                        <img src="assets/wiki.png" alt="WIKIPEDIA icon" onclick="openWindow(wiki)">
                     </div>
                 </div>
                 <div>
                     <div class="icon-img" title="library" style="align-items: start;">
-                        <img src="assets/edit.png" alt="library icon" onclick="openWindow(library)">
+                        <img src="assets/library.png" alt="library icon" onclick="openWindow(library)">
                     </div>
                     <div class="icon-img" title="gallery" style="align-items: center;">
-                        <img src="assets/edit.png" alt="gallery icon" onclick="openWindow(gallery)">
+                        <img src="assets/gallery.png" alt="gallery icon" onclick="openWindow(gallery)">
                     </div>
                     <div class="icon-img" title="mygame" style="align-items: end;">
-                        <img src="assets/edit.png" alt="mygame icon" onclick="openWindow(mygame)">
+                        <img src="assets/mygame.png" alt="mygame icon" onclick="openWindow(mygame)">
                     </div>
                 </div>
               </div>
@@ -167,62 +167,66 @@
             <!-- <div class="icon_container"> -->
                 <div class="icon">
                     <div class="icon-img" id="introopen" title="intro">
-                        <img src="assets/intro.png" alt="intro icon" style="border-radius: 50%">
+                        <img src="assets/intro.png" alt="intro icon">
                     </div>
                 </div>
             
                 <div class="icon">
                     <div class="icon-img" id="journalopen" title="journal">
-                        <img src="assets/handbook.png" alt="journal icon">
+                        <img src="assets/journal.png" alt="journal icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="settingopen" title="setting">
-                        <img src="assets/edit.png" alt="setting icon">
+                        <img src="assets/setting.png" alt="setting icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="terminalopen" title="terminal">
-                        <img src="assets/edit.png" alt="terminal icon">
+                        <img src="assets/terminal.png" alt="terminal icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="musicopen" title="music">
-                        <img src="assets/intro.png" alt="music player icon" style="border-radius: 50%">
+                        <img src="assets/music.png" alt="music player icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="wikiopen" title="WIKIPEDIA">
-                        <img src="assets/intro.png" alt="wiki icon" style="border-radius: 50%">
+                        <img src="assets/wiki.png" alt="wiki icon">
                     </div>
                 </div> 
                 
                 <div class="icon">
                     <div class="icon-img" id="libraryopen" title="library">
-                        <img src="assets/edit.png" alt="library icon" style="border-radius: 50%">
+                        <img src="assets/library.png" alt="library icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="galleryopen" title="gallery">
-                        <img src="assets/edit.png" alt="gallery icon" style="border-radius: 50%">
+                        <img src="assets/gallery.png" alt="gallery icon">
                     </div>
                 </div>
                 
                 <div class="icon">
                     <div class="icon-img" id="mygameopen" title="mygame">
-                        <img src="assets/edit.png" alt="mygame icon" style="border-radius: 50%">
+                        <img src="assets/mygame.png" alt="mygame icon"
+                        >
                     </div>
                 </div>
 
             <!-- </div> -->
         </div>
         <div class="apps">
-            <img src="assets/edit.png" alt="">
+            <img src="assets/apps.png" alt="">
+        </div>
+        <div class="guideappIcon">
+            <img src="assets/guide.png" id="guideopen" alt="">
         </div>
         
         
@@ -682,6 +686,34 @@
                     <button id="gmEndBtn">End Game</button>
                 </div>
 
+
+            </div>
+        </div>
+
+
+        <!-- Guide window --->
+        <div class="window guide" id="guide">
+            
+            <div class="windowheader" id="guideheader">
+                <div class="window_icons">
+                    <div class="window_icon" id="guideclose" title="Close">
+                        <img src="assets/close.svg" alt="closesvg">
+                    </div>
+                    <div class="window_icon" id="guidemax" title="Maximize">
+                        <img src="assets/max.svg" alt="maxsvg">
+                    </div>
+                    <p>⭐ MischiefOS Guidebook ⭐</p>
+                </div>
+            </div>
+            <div class="guide_book" id="j_content">                
+                <div class="guide_pagination">
+                    <button id="gprev" style="background-image:url(assets/left.png)"></button>
+                    <button id="gpNumber"></button>
+                    <button id="gnext" style="background-image:url(assets/right.png)"></button>
+                </div>
+                <div class="journal_content">
+                    <img src="guidebook/g1.png" alt="">
+                </div>
 
             </div>
         </div>
