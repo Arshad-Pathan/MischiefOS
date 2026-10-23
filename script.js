@@ -71,7 +71,7 @@ var currSong = 0;
 
 
 function boot() {
-  document.addEventListener("load",()=>{
+  document.addEventListener("DOMContentLoaded",()=>{
     confirm("Welcome to Mischief OS.\n\nEnter fullscreen to begin?");
   })
 }
