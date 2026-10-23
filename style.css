@@ -1668,6 +1668,8 @@ body {
 }
 .guide_book{
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   height: 600px;
   width: 400px;
   overflow: hidden;

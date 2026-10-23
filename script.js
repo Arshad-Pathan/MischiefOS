@@ -298,7 +298,6 @@ function rnTimer() {
     if (countdown <= 0) {
       clearInterval(interval);
       document.querySelector(".done").style.display = "flex";
-      
       return;
     }
     countdown--;
