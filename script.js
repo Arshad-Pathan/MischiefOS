@@ -1154,8 +1154,20 @@ function runCmd(str){
       openWindow(journal)
     } else if(arg === "setting"){
       openWindow(setting)
-    }else if(arg === "terminal"){
+    } else if(arg === "terminal"){
       openWindow(terminal)
+    } else if(arg === "music"){
+      openWindow(music)
+    } else if(arg === "wiki"){
+      openWindow(wiki)
+    } else if(arg === "library"){
+      openWindow(library)
+    } else if(arg === "gallery"){
+      openWindow(gallery)
+    } else if(arg === "mygame"){
+      openWindow(mygame)
+    } else if(arg === "guide"){
+      openWindow(guide)
     }
   } else if (command === "close") {
     if(arg==="intro"){
@@ -1166,7 +1178,19 @@ function runCmd(str){
       closeWindow(setting)
     }else if(arg === "terminal"){
       closeWindow(terminal)
-    } 
+    } else if(arg === "music"){
+      closeWindow(music)
+    } else if(arg === "wiki"){
+      closeWindow(wiki)
+    } else if(arg === "library"){
+      closeWindow(library)
+    } else if(arg === "gallery"){
+      closeWindow(gallery)
+    } else if(arg === "mygame"){
+      closeWindow(mygame)
+    } else if(arg === "guide"){
+      closeWindow(guide)
+    }
   } else if(command === "status"){
     displayCmd("Connected to Internet")
   } else if(command === "time"){
