@@ -1,24 +1,27 @@
 # MischiefOS
+## Built for WebOS2 Mission in [Stardance hackclub](https://stardance.hackclub.com/projects/61015)
 A Retro - Futuristic themed OS inspired by MARVEL TV SERIES ___"LOKI"___
----
-[CLICK ME](https://mischief-os.vercel.app/)
----
-### Here's My MOODBOARD
-<img src="mdref/14fd1d8918393a9f143d0364ad9968f3.jpg" width="150px">
-<img src="mdref/1d8089f1ea622776bb68a04cc2e6ae39.jpg" width="150px">
-<img src="mdref/3da13708e7ff04e108d470df349f4ff3.jpg" width="150px">
-<img src="mdref/3e303eab950d1b03ef3d907fbb2a3154.jpg" width="150px">
-<img src="mdref/ani.gif" width="150px">
-<img src="mdref/d360790443b2f994fe3b38bbd3fbf7a2.jpg" width="150px">
-<img src="mdref/fa6a7f2d15e3874a3ed90b65085a34fd.jpg" width="150px">
-<img src="mdref/mischief.png" width="150px">
-<img src="mdref/eeb1d5dac8c36ba26ab3365ce440e334.jpg" width="150px">
+
+#### [Visit My Creative Lowki OS](https://mischief-os.vercel.app/)
+
+### MAKE THESE THINGS READY BEFORE VISIT
+- Be creative
+- Be Excited
+- loud the voice
+- make hands on keyboard also
+
+### STEPS TO EXPLORE IN PROPER WAY
+1. Click on center button first to boot OS
+2. then click anywhere to open actual os desktop
+3. read Guide Book to know all things
+![guide book icon](assets/guide.png)
+
 
 ---
-## Everything You'll see on the interface is ideat and coded by myself.
-## Used AI just for debugging.
-## The mistakes and even wrong logic(which also mine) was resolved by me by apply understanding problem. 
-## So consider AI just used for finding what causing errors, not to solve that errors.
+## This is explicitly for REVIWER
+### - Everything You'll see on the interface is ideat and coded by myself.
+### - Used AI just for debugging, after WEbOS 1 I dont used it either.
+## The mistakes and even wrong logic(which also mine) was resolved by me by understanding problem. 
 --- 
 ### What my idea is:
 - Retro Futurism interface that doesn't feel heavy and bold.
