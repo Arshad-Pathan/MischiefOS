@@ -37,15 +37,26 @@ body {
   border-radius: 10px;
   background: url("assets/loki.gif") #8E733A center / auto 30% no-repeat;
 }
-.screen{
+/* .screen{
   position: sticky;
   top: 0;
   height: 100%;
   width: 100%;
   background: #d9b79548;
   overflow: hidden;
+} */
+.boot{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2000;
 }
-
+.boot > video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .grid_screen{
   position: absolute;
   top: 0;
@@ -66,7 +77,11 @@ body {
   transform: translateX(-50%);
   padding: 6px 7px;
   background: #6DA47F;
+  border: 2px outset #6DA47F;
   z-index: 1000;
+}
+.lSTrigger:active{
+  border: 2px inset #6DA47F;
 }
 .container{
   height: 100%;

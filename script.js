@@ -70,8 +70,12 @@ var songs = [
 var currSong = 0;
 
 
-
-
+function boot() {
+  document.addEventListener("load",()=>{
+    confirm("Welcome to Mischief OS.\n\nEnter fullscreen to begin?");
+  })
+}
+boot();
 
 function gridOp() {
   var lockScreen = document.querySelector(".grid_screen");
@@ -705,25 +709,43 @@ initializeWindow("guide")
 // intro
 var intro_pages = [
   {
-    url: "guidebook/1.jpg"
+    url: "insbook/1.jpg"
   },
   {
-    url: "guidebook/2.jpg"
+    url: "insbook/2.jpg"
   },
   {
-    url: "guidebook/3.jpg"
+    url: "insbook/3.jpg"
   },
   {
-    url: "guidebook/4.jpg"
+    url: "insbook/4.jpg"
   },
   {
-    url: "guidebook/5.jpg"
+    url: "insbook/5.jpg"
   },
   {
-    url: "guidebook/6.jpg"
+    url: "insbook/6.jpg"
   },
   {
-    url: "guidebook/7.jpg"
+    url: "insbook/7.jpg"
+  },
+  {
+    url: "insbook/8.jpg"
+  },
+  {
+    url: "insbook/9.jpg"
+  },
+  {
+    url: "insbook/10.jpg"
+  },
+  {
+    url: "insbook/11.jpg"
+  },
+  {
+    url: "insbook/12.jpg"
+  },
+  {
+    url: "insbook/13.jpg"
   }
   
 ];
@@ -1530,6 +1552,7 @@ function game(){
     // portals.forEach((p) => p.style.animation = "timePortal 6s forwards");
   }
   function gmEnd() {
+    lokiCounter = 0;
     gameState=false;
     objs.forEach(function(obj) {
       obj.classList.remove("selected");
@@ -1585,7 +1608,7 @@ function guideapp(){
   function loadGPage(g) {
     var gUrl = guide_pages[g];
     gPage.src=gUrl.url;
-    gpNumber.textContent = `${currIPage}/${intro_pages.length}`;
+    gpNumber.textContent = `${currGPage}/${guide_pages.length}`;
   }
   gPrev.addEventListener("click",gDecre);
   gNext.addEventListener("click",gIncre);
