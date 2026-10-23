@@ -1703,11 +1703,7 @@ function keyPresses(){
   var edit = document.querySelector(".part textarea");
 
   document.addEventListener("keypress", function(e){
-    if (editing) {
-
-    } else if (e.key === " ") {
-      play.focus();
-    } else if (e.key === "a" || e.key === "A"){
+    if (e.key === "a" || e.key === "A"){
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
       } else {
