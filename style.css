@@ -415,6 +415,23 @@ body {
   font-family: "Doto", sans-serif;
 
 }
+.done{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 100px;
+  width: 200px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: url("guidebook/7.jpg") bottom / 200% no-repeat;
+}
+.done div{
+  color: #ff803c;
+  font-size: 18px;
+  padding: 12px 20px;
+}
 .timer select, ::picker(select){
   appearance: base-select;
   padding: 4px 10px;

@@ -297,7 +297,8 @@ function rnTimer() {
   interval = setInterval(() => {
     if (countdown <= 0) {
       clearInterval(interval);
-      confirm("hii")
+      document.querySelector(".done").style.display = "flex";
+      
       return;
     }
     countdown--;
