@@ -1707,11 +1707,6 @@ function keyPresses(){
 
     } else if (e.key === " ") {
       play.focus();
-    } else if (e.key === "T" || e.key === "t") {
-      document.getElementById("rsBtn").focus();
-      document.getElementById("stBtn").focus();
-    } else if (e.key === "s" || e.key === "S") {
-      document.getElementById("timeSelection").focus();
     } else if (e.key === "a" || e.key === "A"){
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
