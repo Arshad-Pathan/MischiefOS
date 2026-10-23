@@ -69,11 +69,28 @@ var songs = [
 
 var currSong = 0;
 
+document.addEventListener("contextmenu",(e)=>{
+  e.preventDefault();
+  return;
+})
+
 
 function boot() {
-  document.addEventListener("DOMContentLoaded",()=>{
-    confirm("Welcome to Mischief OS.\n\nEnter fullscreen to begin?");
+  var bootScreen = document.querySelector(".boot");
+  var booting = document.querySelector(".boot video");
+  var bootbtn = document.querySelector(".boot button");
+  document.addEventListener("load",()=>{
+    booting.load();
+  });
+  bootbtn.addEventListener("click",()=>{
+    document.documentElement.requestFullscreen();
+    booting.play();
+    bootbtn.style.display = "none";
   })
+  booting.addEventListener("ended",()=>{
+    bootScreen.remove();
+  })
+
 }
 boot();
 

@@ -20,7 +20,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-image: url("wallpapers/anim1.gif");
+  background-image: url("wallpapers/slideshow.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,10 +52,21 @@ body {
   width: 100vw;
   z-index: 2000;
 }
+.boot button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .boot > video{
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+.boot video.finished .boot{
+  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .grid_screen{
   position: absolute;
