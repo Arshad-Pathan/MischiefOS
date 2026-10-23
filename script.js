@@ -297,7 +297,7 @@ function rnTimer() {
   interval = setInterval(() => {
     if (countdown <= 0) {
       clearInterval(interval);
-      alert("DONE");
+      confirm("hii")
       return;
     }
     countdown--;
