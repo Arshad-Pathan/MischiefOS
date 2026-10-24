@@ -8,6 +8,617 @@ font-family: "Jacquarda Bastarda 9", serif;
 */
 
 
+@import url("https://fonts.googleapis.com/css2?family=Oxanium&family=Amatic+SC:wght@700&family=Hachi+Maru+Pop&family=Stalemate&family=Yesteryear&display=swap");
+@keyframes loki {
+  1.6% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --ff1: Hachi Maru Pop;
+    --tt1: lowercase;
+    --t2: translate(
+      5px,
+      5px
+    );
+    --ff2: Hachi Maru Pop;
+    --tt2: uppercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: lowercase;
+  }
+  3.4% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --ff1: Yesteryear;
+    --tt1: uppercase;
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --ff2: Hachi Maru Pop;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Amatic SC;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      5px
+    );
+    --ff4: Yesteryear;
+    --tt4: uppercase;
+  }
+  5.4% {
+    --t1: translate(
+      5px,
+      5px
+    );
+    --ff1: Hachi Maru Pop;
+    --tt1: lowercase;
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --ff2: Yesteryear;
+    --tt2: lowercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Amatic SC;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Amatic SC;
+    --tt4: lowercase;
+  }
+  7.6% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Stalemate;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --ff2: Amatic SC;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      -5px
+    );
+    --ff3: Stalemate;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      -5px
+    );
+    --ff4: Yesteryear;
+    --tt4: lowercase;
+  }
+  10% {
+    --t1: translate(
+      -5px,
+      5px
+    );
+    --ff1: Stalemate;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --ff2: Stalemate;
+    --tt2: lowercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Amatic SC;
+    --tt4: uppercase;
+  }
+  12.6% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Hachi Maru Pop;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --ff2: Amatic SC;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Amatic SC;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: lowercase;
+  }
+  15.4% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Yesteryear;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --ff2: Hachi Maru Pop;
+    --tt2: lowercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Amatic SC;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Yesteryear;
+    --tt4: uppercase;
+  }
+  18.4% {
+    --t1: translate(
+      5px,
+      5px
+    );
+    --ff1: Stalemate;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --ff2: Stalemate;
+    --tt2: lowercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Amatic SC;
+    --tt3: lowercase;
+    --t4: translate(
+      5px,
+      -5px
+    );
+    --ff4: Amatic SC;
+    --tt4: lowercase;
+  }
+  21.6% {
+    --t1: translate(
+      -5px,
+      5px
+    );
+    --ff1: Hachi Maru Pop;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --ff2: Stalemate;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Amatic SC;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: uppercase;
+  }
+  25% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Stalemate;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --ff2: Yesteryear;
+    --tt2: uppercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Yesteryear;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      -5px
+    );
+    --ff4: Stalemate;
+    --tt4: lowercase;
+  }
+  28.6% {
+    --t1: translate(
+      5px,
+      5px
+    );
+    --ff1: Amatic SC;
+    --tt1: lowercase;
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --ff2: Yesteryear;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Stalemate;
+    --tt4: lowercase;
+  }
+  32.4% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Yesteryear;
+    --tt1: uppercase;
+    --t2: translate(
+      5px,
+      5px
+    );
+    --ff2: Hachi Maru Pop;
+    --tt2: uppercase;
+    --t3: translate(
+      5px,
+      5px
+    );
+    --ff3: Stalemate;
+    --tt3: lowercase;
+    --t4: translate(
+      5px,
+      -5px
+    );
+    --ff4: Amatic SC;
+    --tt4: lowercase;
+  }
+  36.4% {
+    --t1: translate(
+      5px,
+      5px
+    );
+    --ff1: Yesteryear;
+    --tt1: lowercase;
+    --t2: translate(
+      5px,
+      5px
+    );
+    --ff2: Yesteryear;
+    --tt2: uppercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Yesteryear;
+    --tt4: uppercase;
+  }
+  40.6% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --ff1: Amatic SC;
+    --tt1: lowercase;
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --ff2: Stalemate;
+    --tt2: lowercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: lowercase;
+  }
+  45% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --ff1: Yesteryear;
+    --tt1: uppercase;
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --ff2: Yesteryear;
+    --tt2: lowercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: uppercase;
+  }
+  49.6% {
+    --t1: translate(
+      5px,
+      5px
+    );
+    --ff1: Amatic SC;
+    --tt1: uppercase;
+    --t2: translate(
+      5px,
+      5px
+    );
+    --ff2: Hachi Maru Pop;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: lowercase;
+    --t4: translate(
+      -5px,
+      5px
+    );
+    --ff4: Stalemate;
+    --tt4: uppercase;
+  }
+  54.4% {
+    --t1: translate(
+      -5px,
+      5px
+    );
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --ff2: Yesteryear;
+    --tt2: lowercase;
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --ff3: Stalemate;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      -5px
+    );
+    --ff4: Stalemate;
+    --tt4: lowercase;
+  }
+  59.4% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --ff2: Amatic SC;
+    --tt2: uppercase;
+    --t3: translate(
+      -5px,
+      -5px
+    );
+    --ff3: Hachi Maru Pop;
+    --tt3: uppercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Amatic SC;
+    --tt4: lowercase;
+  }
+  64.6% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --t3: translate(
+      -5px,
+      -5px
+    );
+    --ff3: Amatic SC;
+    --tt3: uppercase;
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Yesteryear;
+    --tt4: uppercase;
+  }
+  70% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --t3: translate(
+      -5px,
+      -5px
+    );
+    --ff3: Stalemate;
+    --tt3: uppercase;
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Stalemate;
+    --tt4: lowercase;
+  }
+  75.6% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --t2: translate(
+      5px,
+      5px
+    );
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --t4: translate(
+      -5px,
+      -5px
+    );
+    --ff4: Hachi Maru Pop;
+    --tt4: uppercase;
+  }
+  81.4% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --t3: translate(
+      5px,
+      5px
+    );
+    --t4: translate(
+      5px,
+      5px
+    );
+    --ff4: Yesteryear;
+    --tt4: uppercase;
+  }
+  87.4% {
+    --t1: translate(
+      -5px,
+      5px
+    );
+    --t2: translate(
+      -5px,
+      5px
+    );
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --t4: translate(
+      5px,
+      5px
+    );
+  }
+  93.6% {
+    --t1: translate(
+      -5px,
+      -5px
+    );
+    --t2: translate(
+      -5px,
+      -5px
+    );
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --t4: translate(
+      -5px,
+      -5px
+    );
+  }
+  100% {
+    --t1: translate(
+      5px,
+      -5px
+    );
+    --t2: translate(
+      5px,
+      -5px
+    );
+    --t3: translate(
+      5px,
+      -5px
+    );
+    --t4: translate(
+      -5px,
+      5px
+    );
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+
+
+
 * {
   padding: 0;
   margin: 0;
@@ -37,6 +648,7 @@ body {
   border-radius: 10px;
   background: url("assets/loki.gif") #8E733A center / auto 30% no-repeat;
 }
+
 /* .screen{
   position: sticky;
   top: 0;
@@ -45,20 +657,69 @@ body {
   background: #d9b79548;
   overflow: hidden;
 } */
+
+
+/* BOOOOOOOOOOOOOOOOOOOOOOOOOOOT ANIMATIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON */
 .boot{
   position: absolute;
   top: 0;
   height: 100vh;
   width: 100vw;
   z-index: 2000;
+  transition: all 1s;
+  color: white;
+  background-color: black;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  font-size: 12vmax;
+  font-family: "Oxanium";
+  text-shadow: 0 0 1rem white;
+}
+body .loki_container {
+  display: flex;
+  gap: 5vw;
+}
+body .loki_container.start{
+  animation: loki 10s forwards;
+}
+
+body .loki_container span:nth-child(1n) {
+  font-family: var(--ff1);
+  text-transform: var(--tt1);
+  transform: var(--t1);
+}
+body .loki_container span:nth-child(2n) {
+  font-family: var(--ff2);
+  text-transform: var(--tt2);
+  transform: var(--t2);
+}
+body .loki_container span:nth-child(3n) {
+  font-family: var(--ff3);
+  text-transform: var(--tt3);
+  transform: var(--t3);
+}
+body .loki_container span:nth-child(4n) {
+  font-family: var(--ff4);
+  text-transform: var(--tt4);
+  transform: var(--t4);
+}
+
+.boot.bootEnd{
+  opacity: 0;
+  pointer-events: none;
 }
 .boot button{
+  height: 100px;
+  width: 100px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  z-index: 3000;
+  background: white;
 }
-.boot > video{
+/* .boot > video{
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -67,7 +728,7 @@ body {
   display: none;
   opacity: 0;
   pointer-events: none;
-}
+} */
 .grid_screen{
   position: absolute;
   top: 0;
@@ -223,9 +884,9 @@ body {
   gap: 6px;
   padding: 7px;
 }
-.gridMusic .gplayer div{
-  /* background-color: #726373; */
-}
+/* .gridMusic .gplayer div{
+  background-color: #726373;
+} */
 .gsong_name{
   font-family: "Cinzel", serif;
   font-size: 18px;

@@ -75,20 +75,29 @@ document.addEventListener("contextmenu",(e)=>{
 })
 
 
+
+
+
+
+
+
 function boot() {
   var bootScreen = document.querySelector(".boot");
-  var booting = document.querySelector(".boot video");
   var bootbtn = document.querySelector(".boot button");
-  document.addEventListener("load",()=>{
-    booting.load();
-  });
+  var bootani = document.querySelector(".boot .loki_container");
+  var boots = document.querySelector(".boot .boots");
+  // document.addEventListener("load",()=>{
+  //   booting.load();
+  // });
   bootbtn.addEventListener("click",()=>{
     document.documentElement.requestFullscreen();
-    booting.play();
     bootbtn.style.display = "none";
+    bootani.classList.add("start");
+    boots.play();
   })
-  booting.addEventListener("ended",()=>{
-    bootScreen.remove();
+  bootani.addEventListener("animationend",()=>{
+    bootScreen.classList.add("bootEnd");
+    boots.pause();
   })
 
 }
