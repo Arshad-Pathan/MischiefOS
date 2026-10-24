@@ -1126,7 +1126,7 @@ initBgSettings();
 function terminalCmd(){
   var terminalC = document.getElementById("terminalC");
   var cmd = document.getElementById("cmd");
-  var output = document.getElementById("output");
+  // var output = document.getElementById("output");
   var tag = "WEBOS2/MischiefOS >  ";
 
   terminalC.addEventListener("click", function(){
@@ -1226,7 +1226,6 @@ function loadSelectedSong(i){
   var sCreator = document.querySelector(".song_creator");
   var aud = document.getElementById("song");
 
-  // var sOptSelection=document.getElementById("song_selection");
   var song = songs[i];
 
   sImg.src = song.img;
@@ -1254,17 +1253,6 @@ function songControllers(){
   var back = document.querySelector(".back");
   var forw = document.querySelector(".forward");
 
-  // song range
-  // aud.addEventListener("loadedmetadata", ()=>{
-  //   duration.textContent = sTimeFormate(aud.duration);
-  // });
-
-  // aud.addEventListener("timeupdate", ()=>{
-  //   if (!aud.duration) return;
-  //   const p = (aud.currentTime / aud.duration) * 100;
-  //   sProg.value = p;
-  //   currTime.textContent = sTimeFormate(aud.currentTime);
-  // });
   sProg.addEventListener("input", () => {
     if (!aud.duration) return;
     aud.currentTime = (sProg.value / 100) * aud.duration;
@@ -1318,23 +1306,7 @@ function songControllers(){
     aud.pause()
   });
 
-  // pause or keep playing when closes the music player, is the way
 }
-// i used ai just for this
-// function sTimeFormate(seconds){
-//   if ( isNaN(seconds) || !isFinite(seconds) ) {
-//     return "00:00";
-//   }
-  
-//   const minutes = Math.floor(seconds / 60);
-//   const secs = Math.floor(seconds % 60);
-  
-//   return (
-//         String(minutes).padStart(2, "0")
-//         + ":" +
-//         String(secs).padStart(2, "0")
-//     );
-// }
 loadSelectedSong(0);
 
 function sOptSelection(){
@@ -1362,17 +1334,6 @@ function sOptSelection(){
   })
   
 } 
-
-// function songControllers(){
-//    var playPause = document.querySelector(".playPause");
-//    var back = document.querySelector(".back");
-//    var forw = document.querySelector(".forward");
-
-//   playPause.addEventListener("click", () =>{
-//     if(aud)
-//   })
-// }
-
 function songInit(){  
   songControllers();
   sOptSelection();
@@ -1445,7 +1406,7 @@ function libManagement(){
 }
 libManagement();
 
-
+// Gallery
 var galleryImgs = [
   { src: "wallpapers/e1.jpg", cat: "wallpapers" },
   { src: "wallpapers/m1.jpg", cat: "memes" },
@@ -1462,7 +1423,6 @@ var galleryImgs = [
   { src: "wallpapers/a3.jpg", cat: "Archives" },
   { src: "wallpapers/a4.jpg", cat: "Archives" }
 ];
-
 function galManagement(){
   var recent = document.getElementById("recents");
   var albums = document.getElementById("albums");
@@ -1513,7 +1473,6 @@ function loadRecents() {
     })
   });
 }
-
 function loadAlbums() {
   var albCon = document.getElementById("alb_con");
   albCon.style.display = "grid";
@@ -1622,7 +1581,7 @@ function game(){
 }
 game();
 
-
+// guide
 var guide_pages = [
   {
     url: "guidebook/1.jpg"
@@ -1681,31 +1640,6 @@ function guideapp(){
 guideapp();
 
 
-
-
-
-
-
-function tempad(){
-  document.addEventListener("contextmenu",()=>{
-    alert("sdfghjh hyysd")
-  })
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function keyPresses(){
   var play = document.querySelector(".playPause");
   var apps = document.querySelector(".icons_bar");
@@ -1724,8 +1658,3 @@ function keyPresses(){
 }
 keyPresses();
 
-/* gvebe;ldlsdcfsfsfsfm dsgs gsgsf sjfndfksvxfv  g gsg sdggsg sgsdfad sdasd  ac a ndfjsdfjsdfjmf kf's
-v dv'd a dsasvgg 
-uyy h 
-ug 6d dfrsd
-f   dfg ddgffg */
