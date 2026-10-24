@@ -13,8 +13,10 @@ A Retro - Futuristic themed OS inspired by MARVEL TV SERIES ___"LOKI"___
 ### STEPS TO EXPLORE IN PROPER WAY
 1. Click on center button first to boot OS
 2. then click anywhere to open actual os desktop
-3. read Guide Book to know all things
-![guide book icon](assets/guide.png)
+3. read Guide Book to know all things <img width="30" height="30" alt="guide" src="https://github.com/user-attachments/assets/84d0394d-407b-4313-bef7-d5967e9cfa6e" />
+
+### Whole Project WalkThrough
+https://github.com/user-attachments/assets/78996d71-81ba-4eef-bf75-519843532600
 
 ### Features 
 ---
