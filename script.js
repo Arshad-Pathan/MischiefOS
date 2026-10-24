@@ -1713,6 +1713,7 @@ function keyPresses(){
 
   document.addEventListener("keydown", function(e){
     if (e.key === "Meta"){
+      e.preventDefault();
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
       } else {

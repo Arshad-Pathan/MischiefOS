@@ -631,7 +631,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-image: url("wallpapers/slideshow.gif");
+  background-image: url("https://ik.imagekit.io/wfg6sanlh/slideshow.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1965,11 +1965,11 @@ body .loki_container span:nth-child(4n) {
   outline-offset: -9px;
 }
 .info > .song_name{
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 400;
 }
 .info > .song_creator{
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
 }
 .controls{
