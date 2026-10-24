@@ -9,8 +9,6 @@
 */
 
 
-
-
 // time function
 function updateTime() {
     var currentTime = new Date()
@@ -45,25 +43,25 @@ var songs = [
     name: "TVA First View",
     creator: "NATALIE HOLT",
     img: "assets/TVA_First_View.png",
-    audio: "TVA First View.mp3"
+    audio: "assets/TVA First View.mp3"
   },
   {
     name: "History Is Now",
     creator: "NATALIE HOLT",
     img: "assets/History_Is_Now.png",
-    audio: "History Is Now.mp3"
+    audio: "assets/History Is Now.mp3"
   },
   {
     name: "Purpose Is Glorious",
     creator: "NATALIE HOLT",
     img: "assets/Purpose_Is_Glorious.png",
-    audio: "Purpose Is Glorious.mp3"
+    audio: "assets/Purpose Is Glorious.mp3"
   },
   {
     name: "DB COOPER",
     creator: "NATALIE HOLT",
     img: "assets/DB_COOPER.png",
-    audio: "DB Cooper.mp3"
+    audio: "assets/DB Cooper.mp3"
   }
 ];
 
@@ -74,21 +72,12 @@ document.addEventListener("contextmenu",(e)=>{
   return;
 })
 
-
-
-
-
-
-
-
 function boot() {
   var bootScreen = document.querySelector(".boot");
   var bootbtn = document.querySelector(".boot button");
   var bootani = document.querySelector(".boot .loki_container");
   var boots = document.querySelector(".boot .boots");
-  // document.addEventListener("load",()=>{
-  //   booting.load();
-  // });
+  
   bootbtn.addEventListener("click",()=>{
     document.documentElement.requestFullscreen();
     bootbtn.style.display = "none";
@@ -216,22 +205,6 @@ function gridMusic(){
   gloadSelectedSong(0);
 }
 gridMusic();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // visitor counter widget
@@ -522,24 +495,6 @@ function icons(){
 icons();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 function dragElement(element) {
   var initialX = 0;
   var initialY = 0;
@@ -809,25 +764,6 @@ function introapp(){
 introapp();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var journalData = JSON.parse(localStorage.getItem("journalData")) || [];;
 var currentPage = 0;
 
@@ -935,11 +871,7 @@ function initJournal() {
   next.addEventListener('click', function(){
     nextPage();
   });
-  // document.querySelector(".journal_content").addEventListener("keydown",(e)=>{
-  //   document.addEventListener("keydown",()=>{
-  //     return;
-  //   })
-  // })
+  
 }
 initJournal()
 
@@ -1126,7 +1058,7 @@ initBgSettings();
 function terminalCmd(){
   var terminalC = document.getElementById("terminalC");
   var cmd = document.getElementById("cmd");
-  // var output = document.getElementById("output");
+  var output = document.getElementById("output");
   var tag = "WEBOS2/MischiefOS >  ";
 
   terminalC.addEventListener("click", function(){
@@ -1226,6 +1158,7 @@ function loadSelectedSong(i){
   var sCreator = document.querySelector(".song_creator");
   var aud = document.getElementById("song");
 
+  // var sOptSelection=document.getElementById("song_selection");
   var song = songs[i];
 
   sImg.src = song.img;
@@ -1253,6 +1186,17 @@ function songControllers(){
   var back = document.querySelector(".back");
   var forw = document.querySelector(".forward");
 
+  // song range
+  // aud.addEventListener("loadedmetadata", ()=>{
+  //   duration.textContent = sTimeFormate(aud.duration);
+  // });
+
+  // aud.addEventListener("timeupdate", ()=>{
+  //   if (!aud.duration) return;
+  //   const p = (aud.currentTime / aud.duration) * 100;
+  //   sProg.value = p;
+  //   currTime.textContent = sTimeFormate(aud.currentTime);
+  // });
   sProg.addEventListener("input", () => {
     if (!aud.duration) return;
     aud.currentTime = (sProg.value / 100) * aud.duration;
@@ -1306,7 +1250,9 @@ function songControllers(){
     aud.pause()
   });
 
+  // pause or keep playing when closes the music player, is the way
 }
+
 loadSelectedSong(0);
 
 function sOptSelection(){
@@ -1334,6 +1280,7 @@ function sOptSelection(){
   })
   
 } 
+
 function songInit(){  
   songControllers();
   sOptSelection();
@@ -1390,7 +1337,7 @@ function libManagement(){
       indFiles.forEach(function(ind){
         ind.style.display="none";
         if (files[i]) {
-          indFiles[i].style.display= "flex";
+          indFiles[i].style.display="flex";
           document.querySelectorAll(".cls_file").forEach((cls)=>{
             cls.addEventListener("click",()=>{
               indFiles[i].style.display="none";
@@ -1406,7 +1353,7 @@ function libManagement(){
 }
 libManagement();
 
-// Gallery
+
 var galleryImgs = [
   { src: "wallpapers/e1.jpg", cat: "wallpapers" },
   { src: "wallpapers/m1.jpg", cat: "memes" },
@@ -1423,6 +1370,7 @@ var galleryImgs = [
   { src: "wallpapers/a3.jpg", cat: "Archives" },
   { src: "wallpapers/a4.jpg", cat: "Archives" }
 ];
+
 function galManagement(){
   var recent = document.getElementById("recents");
   var albums = document.getElementById("albums");
@@ -1473,6 +1421,7 @@ function loadRecents() {
     })
   });
 }
+
 function loadAlbums() {
   var albCon = document.getElementById("alb_con");
   albCon.style.display = "grid";
@@ -1581,7 +1530,7 @@ function game(){
 }
 game();
 
-// guide
+
 var guide_pages = [
   {
     url: "guidebook/1.jpg"
@@ -1640,13 +1589,35 @@ function guideapp(){
 guideapp();
 
 
+
+
+
+
+
+function tempad(){
+  document.addEventListener("contextmenu",()=>{
+    alert("sdfghjh hyysd")
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function keyPresses(){
-  var play = document.querySelector(".playPause");
   var apps = document.querySelector(".icons_bar");
-  var edit = document.querySelector(".part textarea");
 
   document.addEventListener("keydown", function(e){
-    e.preventDefault();
     if (e.key === "Meta"){
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
@@ -1657,4 +1628,3 @@ function keyPresses(){
   });
 }
 keyPresses();
-

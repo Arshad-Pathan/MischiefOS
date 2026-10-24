@@ -649,15 +649,6 @@ body {
   background: url("assets/loki.gif") #8E733A center / auto 30% no-repeat;
 }
 
-/* .screen{
-  position: sticky;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: #d9b79548;
-  overflow: hidden;
-} */
-
 
 /* BOOOOOOOOOOOOOOOOOOOOOOOOOOOT ANIMATIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON */
 .boot{
@@ -719,16 +710,7 @@ body .loki_container span:nth-child(4n) {
   z-index: 3000;
   background: white;
 }
-/* .boot > video{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.boot video.finished .boot{
-  display: none;
-  opacity: 0;
-  pointer-events: none;
-} */
+
 .grid_screen{
   position: absolute;
   top: 0;
@@ -1180,24 +1162,7 @@ body .loki_container span:nth-child(4n) {
 .csTimer div input:focus{
   outline: none;
 }
-/* .icons_bar {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  margin-left: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  gap: 7px;
-  transition: all 1s ease-in;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px) invert(3%);
-  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 20px; 
-  z-index: 999;
-} */
+
 .apps {
   position: absolute;
   bottom: 14px;
@@ -1359,7 +1324,7 @@ body .loki_container span:nth-child(4n) {
   border-image: linear-gradient(270deg, #d26931, #84431f 70%) 1;
   border-radius: 0;
   z-index: 100;
-  transition: all 0.5s ease;
+  transition: height 0.5s ease, width 0.5s ease;
 }
 
 .windowheader {
