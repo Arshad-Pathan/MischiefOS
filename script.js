@@ -45,25 +45,25 @@ var songs = [
     name: "TVA First View",
     creator: "NATALIE HOLT",
     img: "assets/TVA_First_View.png",
-    audio: "assets/TVA First View.mp3"
+    audio: "TVA First View.mp3"
   },
   {
     name: "History Is Now",
     creator: "NATALIE HOLT",
     img: "assets/History_Is_Now.png",
-    audio: "assets/History Is Now.mp3"
+    audio: "History Is Now.mp3"
   },
   {
     name: "Purpose Is Glorious",
     creator: "NATALIE HOLT",
     img: "assets/Purpose_Is_Glorious.png",
-    audio: "assets/Purpose Is Glorious.mp3"
+    audio: "Purpose Is Glorious.mp3"
   },
   {
     name: "DB COOPER",
     creator: "NATALIE HOLT",
     img: "assets/DB_COOPER.png",
-    audio: "assets/DB Cooper.mp3"
+    audio: "DB Cooper.mp3"
   }
 ];
 
