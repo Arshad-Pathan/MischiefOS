@@ -1359,6 +1359,7 @@ body .loki_container span:nth-child(4n) {
   border-image: linear-gradient(270deg, #d26931, #84431f 70%) 1;
   border-radius: 0;
   z-index: 100;
+  transition: all 0.5s ease;
 }
 
 .windowheader {
@@ -2075,12 +2076,14 @@ body .loki_container span:nth-child(4n) {
   backdrop-filter: blur(10px);
   z-index: 2000;
   overflow: hidden;
+  transition: all 0.3 ease;
 }
 .indFiles .cls_file{
   height: 30px;
   width: 30px;
   position: absolute;
-  top: 16px;
+  top: 100px;
+  font-size: 24px;
 }
 .indFiles .title_img{
   height: 300px;

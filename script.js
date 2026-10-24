@@ -1144,7 +1144,7 @@ function terminalCmd(){
 }
 function displayCmd(line){
   var cmdLine= document.createElement("div");
-  cmdLine.textContent = line;
+  cmdLine.innerHTML = line;
   output.appendChild(cmdLine);
 }
 function runCmd(str){
@@ -1155,7 +1155,7 @@ function runCmd(str){
   if (command === "echo"){
     displayCmd(arg);
   } else if(command === "help"){
-    displayCmd(`echo "text" ___or___ open "appname" ___or___ close "appname" ___or___ status ___or___ time ___or___ date ___or___ about ___or___ exit ___or___ clear`)
+    displayCmd(`echo "text" <br> open "appname" <br> close "appname" <br> status <br> time <br> date <br> about <br> exit <br> clear`)
   } else if (command === "open") {
     if(arg==="intro"){
       openWindow(intro)
@@ -1429,7 +1429,7 @@ function libManagement(){
       indFiles.forEach(function(ind){
         ind.style.display="none";
         if (files[i]) {
-          indFiles[i].style.display="flex";
+          indFiles[i].style.display= "flex";
           document.querySelectorAll(".cls_file").forEach((cls)=>{
             cls.addEventListener("click",()=>{
               indFiles[i].style.display="none";
@@ -1711,8 +1711,8 @@ function keyPresses(){
   var apps = document.querySelector(".icons_bar");
   var edit = document.querySelector(".part textarea");
 
-  document.addEventListener("keypress", function(e){
-    if (e.key === "a" || e.key === "A"){
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Meta"){
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
       } else {
