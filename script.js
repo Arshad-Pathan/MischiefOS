@@ -1712,8 +1712,8 @@ function keyPresses(){
   var edit = document.querySelector(".part textarea");
 
   document.addEventListener("keydown", function(e){
+    e.preventDefault();
     if (e.key === "Meta"){
-      e.preventDefault();
       if (apps.classList.contains("fit-content")) {
         apps.classList.remove("fit-content");
       } else {
